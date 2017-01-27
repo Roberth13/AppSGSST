@@ -18,8 +18,13 @@ namespace GestorSGSST2017.Formularios
     public partial class CargaMasiva : Form
     {
         string UsuarioID;
+        UsuarioSistema us;
         ProgressBar _progress_bar;
         private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private string RolID;
+        private string EmpresaID;
+        private string SucursalID;
+        private bool esAdmin;
 
         private void Calculate(int i)
         {
@@ -49,11 +54,14 @@ namespace GestorSGSST2017.Formularios
 
         }
 
-        public CargaMasiva(string usuarioID)
+        public CargaMasiva(string UsuarioID, string RolID, string EmpresaID, string SucursalID, bool esAdmin)
         {
-            this.UsuarioID = usuarioID;
-            InitializeComponent();
-            UbicacionCentral();
+            // TODO: Complete member initialization
+            this.UsuarioID = UsuarioID;
+            this.RolID = RolID;
+            this.EmpresaID = EmpresaID;
+            this.SucursalID = SucursalID;
+            this.esAdmin = esAdmin;
         }
 
         public void UbicacionCentral()
@@ -62,7 +70,8 @@ namespace GestorSGSST2017.Formularios
             this.ClientSize.Width / 2 - tabsCargaMasiva.Size.Width / 2,
             this.ClientSize.Height / 2 - tabsCargaMasiva.Size.Height / 2);
             tabsCargaMasiva.Anchor = AnchorStyles.None;
-            Listas.Empresa(ddlEmpresas);
+            //El Usuario es Administrador..
+            Listas.Empresa(ddlEmpresasHorario);
             Listas.Empresa(ddlEmpresaArea);
             Listas.Sucursal(ddlSucursalArea, 1);
             Listas.Empresa(ddlEmpresaPuesto);
@@ -73,12 +82,46 @@ namespace GestorSGSST2017.Formularios
             Listas.Sucursal(ddlSucursalRiesgo, 1);
             Listas.Empresa(ddlEmpresasAcc);
             Listas.Sucursal(ddlSucursalAcc, 1);
+            us = new UsuarioSistema(RolID);
+            if (!esAdmin)
+            {
+                if (us.isAdm_Empresa())
+                {
+                    ddlEmpresasHorario.SelectedValue = EmpresaID;
+                    ddlEmpresaArea.SelectedValue = EmpresaID;
+                    ddlEmpresaPuesto.SelectedValue = EmpresaID;
+                    ddlEmpresasTrab.SelectedValue = EmpresaID;
+                    ddlEmpresasHorario.Enabled = false;
+                    ddlEmpresaArea.Enabled = false;
+                    ddlEmpresaPuesto.Enabled = false;
+                    ddlEmpresasTrab.Enabled = false;
+                }
+                else if (us.isAdm_Sucursal())
+                {
+                    ddlEmpresasHorario.SelectedValue = EmpresaID;
+                    ddlEmpresaArea.SelectedValue = EmpresaID;
+                    ddlEmpresaPuesto.SelectedValue = EmpresaID;
+                    ddlEmpresasTrab.SelectedValue = EmpresaID;
+                    ddlSucursalArea.SelectedValue = SucursalID;
+                    ddlSucursalPuesto.SelectedValue = SucursalID;
+                    ddlSucursalTrab.SelectedValue = SucursalID;
+                    ddlEmpresasHorario.Enabled = false;
+                    ddlEmpresaArea.Enabled = false;
+                    ddlEmpresaPuesto.Enabled = false;
+                    ddlEmpresasTrab.Enabled = false;
+                    ddlSucursalArea.Enabled = false;
+                    ddlSucursalPuesto.Enabled = false;
+                    ddlSucursalTrab.Enabled = false;
+                }
+            }
+            
         }
 
         private void CargaMasiva_Load(object sender, EventArgs e)
         {
 
         }
+        
         #endregion
 
         #region Carga de Horarios
@@ -104,7 +147,7 @@ namespace GestorSGSST2017.Formularios
             Range range;
             string error = string.Empty;
 
-            string id_empresa = ddlEmpresas.SelectedValue.ToString();
+            string id_empresa = ddlEmpresasHorario.SelectedValue.ToString();
             string[] str = new string[3];
             int pos = 0;
             int rCnt = 0;

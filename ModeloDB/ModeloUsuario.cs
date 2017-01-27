@@ -36,7 +36,7 @@ namespace GestorSGSST2017.ModeloDB
 
                     foreach (var datos1 in consulta1)
                     {
-                        resultado = string.Concat(datos1._id_usuario);
+                        resultado = string.Concat(datos1._id_usuario, "|", datos1._id_rol);
                     }
                 }
                 else
@@ -50,7 +50,7 @@ namespace GestorSGSST2017.ModeloDB
                                         _id_sucursal = US.trabajador.puesto_trabajo.area.id_sucursal,
                                         _id_rol = US.id_rol
                                     };
-                    foreach (var datos1 in consulta1) { resultado = ""+datos1._id_usuario; }
+                    foreach (var datos1 in consulta1) { resultado = string.Concat(datos1._id_usuario, "|", datos1._id_rol, "|", datos1._id_empresa, "|", datos1._id_sucursal); }
                 }
             }
             return resultado;

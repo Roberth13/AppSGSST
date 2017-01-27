@@ -36,9 +36,29 @@ namespace GestorSGSST2017
                 {
                     if (ResUsuario != string.Empty)
                     {
-                        string usuarioID = string.Empty;
-                        usuarioID = ResUsuario;
-                        Principal prinObj = new Principal(usuarioID);
+                        string[] aUsuario = ResUsuario.Split('|');
+                        string UsuarioID = string.Empty;
+                        string RolID = string.Empty;
+                        string EmpresaID = string.Empty;
+                        string SucursalID = string.Empty;
+                        bool esAdmin = false;
+                        if (aUsuario.Length == 4)
+                        {
+                            //1: UsuarioID  2:RolID  3:EmpressaID 4:SucursalID (USUARIO EMPRESA)
+                            UsuarioID = aUsuario[0];
+                            RolID = aUsuario[1];
+                            EmpresaID = aUsuario[2];
+                            SucursalID = aUsuario[3];
+
+                        }
+                        else if (aUsuario.Length == 2)
+                        {
+                            //1: UsuarioID  2:RolID (USUARIO ADMINISTRADOR)
+                            UsuarioID = aUsuario[0];
+                            RolID = aUsuario[1];
+                            esAdmin = true;
+                        }
+                        Principal prinObj = new Principal(UsuarioID, RolID, EmpresaID, SucursalID, esAdmin);
                         this.Hide();
                         prinObj.ShowDialog();
                         this.Close();

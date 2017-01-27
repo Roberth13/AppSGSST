@@ -15,6 +15,10 @@ namespace GestorSGSST2017.Formularios
         string UsuarioID = string.Empty;
         CargaMasiva cmObj;
         Listados lsObj;
+        private string RolID;
+        private string EmpresaID;
+        private string SucursalID;
+        private bool esAdmin;
         
 
         public Principal()
@@ -22,9 +26,14 @@ namespace GestorSGSST2017.Formularios
             InitializeComponent();
         }
 
-        public Principal(string UsuarioID)
+        public Principal(string UsuarioID, string RolID, string EmpresaID, string SucursalID, bool esAdmin)
         {
+            // TODO: Complete member initialization
             this.UsuarioID = UsuarioID;
+            this.RolID = RolID;
+            this.EmpresaID = EmpresaID;
+            this.SucursalID = SucursalID;
+            this.esAdmin = esAdmin;
             cmObj = new CargaMasiva(UsuarioID);
             lsObj = new Listados(UsuarioID);
             InitializeComponent();
@@ -39,7 +48,7 @@ namespace GestorSGSST2017.Formularios
         {
             if (cmObj.IsDisposed)
             {
-                cmObj = new CargaMasiva(UsuarioID);
+                cmObj = new CargaMasiva(UsuarioID, RolID, EmpresaID, SucursalID, esAdmin);
                 
             }
             cmObj.MdiParent = this;
@@ -50,7 +59,7 @@ namespace GestorSGSST2017.Formularios
         {
             if (lsObj.IsDisposed)
             {
-                lsObj = new Listados(UsuarioID);
+                lsObj = new Listados(UsuarioID, RolID, EmpresaID, SucursalID, esAdmin);
 
             }
             lsObj.MdiParent = this;

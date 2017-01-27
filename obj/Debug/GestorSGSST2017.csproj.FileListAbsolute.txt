@@ -17,3 +17,6 @@ C:\Users\VillarTechnologies\Documents\Visual Studio 2012\Projects\GestorSGSST201
 C:\Users\VillarTechnologies\Documents\Visual Studio 2012\Projects\GestorSGSST2017\obj\Debug\GestorSGSST2017.application
 C:\Users\VillarTechnologies\Documents\Visual Studio 2012\Projects\GestorSGSST2017\obj\Debug\GestorSGSST2017.exe
 C:\Users\VillarTechnologies\Documents\Visual Studio 2012\Projects\GestorSGSST2017\obj\Debug\GestorSGSST2017.pdb
+C:\Users\Familia\Documents\GitHub\AppSGSST\bin\Debug\GestorSGSST2017.exe.config
+C:\Users\Familia\Documents\GitHub\AppSGSST\obj\Debug\GestorSGSST2017.exe
+C:\Users\Familia\Documents\GitHub\AppSGSST\obj\Debug\GestorSGSST2017.pdb

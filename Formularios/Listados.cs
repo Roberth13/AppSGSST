@@ -14,6 +14,10 @@ namespace GestorSGSST2017.Formularios
     public partial class Listados : Form
     {
         string UsuarioID = string.Empty;
+        private string RolID;
+        private string EmpresaID;
+        private string SucursalID;
+        private bool esAdmin;
         public Listados()
         {
             InitializeComponent();
@@ -22,6 +26,16 @@ namespace GestorSGSST2017.Formularios
         {
             InitializeComponent();
             this.UsuarioID = UsuarioID;
+        }
+
+        public Listados(string UsuarioID, string RolID, string EmpresaID, string SucursalID, bool esAdmin)
+        {
+            // TODO: Complete member initialization
+            this.UsuarioID = UsuarioID;
+            this.RolID = RolID;
+            this.EmpresaID = EmpresaID;
+            this.SucursalID = SucursalID;
+            this.esAdmin = esAdmin;
         }
 
         public void UbicacionCentral()

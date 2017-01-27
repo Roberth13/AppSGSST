@@ -89,6 +89,7 @@
     <Compile Include="Clases\Getter.cs" />
     <Compile Include="Clases\Listas.cs" />
     <Compile Include="Clases\Tabla.cs" />
+    <Compile Include="Clases\UsuarioSistema.cs" />
     <Compile Include="Formularios\CargaMasiva.cs">
       <SubType>Form</SubType>
     </Compile>
