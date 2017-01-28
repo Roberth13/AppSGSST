@@ -95,7 +95,7 @@
             this.ddlEmpresasHorario = new System.Windows.Forms.ComboBox();
             this.tabsCargaMasiva = new System.Windows.Forms.TabControl();
             this.ArchivoDesc = new System.Windows.Forms.OpenFileDialog();
-            this.txtLogHorarios = new System.Windows.Forms.TextBox();
+            this.txtLogHorarios = new System.Windows.Forms.RichTextBox();
             this.tabDesc.SuspendLayout();
             this.tabAccidentes.SuspendLayout();
             this.tabRiesgos.SuspendLayout();
@@ -734,11 +734,12 @@
             // 
             // txtLogHorarios
             // 
-            this.txtLogHorarios.Location = new System.Drawing.Point(92, 225);
-            this.txtLogHorarios.Multiline = true;
+            this.txtLogHorarios.Location = new System.Drawing.Point(92, 219);
             this.txtLogHorarios.Name = "txtLogHorarios";
-            this.txtLogHorarios.Size = new System.Drawing.Size(442, 102);
+            this.txtLogHorarios.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogHorarios.Size = new System.Drawing.Size(491, 96);
             this.txtLogHorarios.TabIndex = 6;
+            this.txtLogHorarios.Text = "";
             // 
             // CargaMasiva
             // 
@@ -838,6 +839,6 @@
         private System.Windows.Forms.TextBox txtArchivoDesc;
         private System.Windows.Forms.Button btnCargarDesc;
         private System.Windows.Forms.OpenFileDialog ArchivoDesc;
-        private System.Windows.Forms.TextBox txtLogHorarios;
+        private System.Windows.Forms.RichTextBox txtLogHorarios;
     }
 }

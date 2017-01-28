@@ -25,6 +25,8 @@ namespace GestorSGSST2017.Formularios
         private string EmpresaID;
         private string SucursalID;
         private bool esAdmin;
+        string msj = string.Empty;
+        StreamWriter escritor;
 
         private void Calculate(int i)
         {
@@ -51,7 +53,6 @@ namespace GestorSGSST2017.Formularios
         {
             InitializeComponent();
             UbicacionCentral();
-
         }
 
         public CargaMasiva(string UsuarioID, string RolID, string EmpresaID, string SucursalID, bool esAdmin)
@@ -62,6 +63,8 @@ namespace GestorSGSST2017.Formularios
             this.EmpresaID = EmpresaID;
             this.SucursalID = SucursalID;
             this.esAdmin = esAdmin;
+            InitializeComponent();
+            UbicacionCentral();
         }
 
         public void UbicacionCentral()
@@ -127,15 +130,23 @@ namespace GestorSGSST2017.Formularios
         #region Carga de Horarios
         private void btnCargarArchivo_Click(object sender, EventArgs e)
         {
+            escritor = Utilidades1.abrirEscritor();
             if (txtArchivoHorarios.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Horarios");
                 if (nombreArchivo != null)
+                {
+                    msj = DateTime.Now + ": Iniciando carga masiva de Horarios.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "INFO");
                     cargaHorarios(nombreArchivo);
+                }
             }
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
+                msj = DateTime.Now + ": No se selecciono ningun Archivo.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
             }
         }
 
@@ -158,17 +169,32 @@ namespace GestorSGSST2017.Formularios
             range = xlWorkSheet.UsedRange;
             if (range.Columns.Count == str.Length)
             {
+                msj = DateTime.Now + ": La Cantidad de Columnas Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "INFO");
                 if (range.Rows.Count >= 2)
                 {
+                    msj = DateTime.Now + ": Existen registros para agregar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "INFO");
                     for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
                     {
+                        msj = DateTime.Now + ": Agregando el registro Nro." +(rCnt - 1);
+                        Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "INFO");
                         for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
-                        {
+                        {                            
                             if (pos == 1 || pos == 2)
                             {
-                                double numero = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
-                                DateTime hora1 = DateTime.FromOADate(numero);
-                                str[pos] = hora1.ToString("HH:mm");
+                                double numero = 0;
+                                try
+                                {
+                                    numero = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
+                                    DateTime hora1 = DateTime.FromOADate(numero);
+                                    str[pos] = hora1.ToString("HH:mm");
+                                }
+                                catch (Exception ex)
+                                {
+                                    msj = DateTime.Now + ": Error al convertir el valor."+str[pos]+" a formato de Horas.";
+                                    Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                                }     
                             }
                             else
                             {
@@ -176,7 +202,42 @@ namespace GestorSGSST2017.Formularios
                             }
                             pos++;
                         }
-                        ModeloHorario.Add_Horario(str[0], str[1], str[2], Convert.ToInt32(id_empresa), Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                        if (str[0].Length > 0)
+                        {
+                            if (str[0].Length < 50)
+                            {
+                                if (str[1] != null)
+                                {                                    
+                                    if (str[2] != null)
+                                    {
+                                        ModeloHorario.Add_Horario(str[0], str[1], str[2], Convert.ToInt32(id_empresa), Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                        msj = DateTime.Now + ": Se agrego el registro Nro." +(rCnt - 1);
+                                        Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "EXITO");
+                                    }
+                                    else
+                                    {
+                                        msj = DateTime.Now + ": La fecha final no es valida." + cCnt;
+                                        Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                                    }
+                                }
+                                else
+                                {
+                                    msj = DateTime.Now + ": La fecha inicial no es valida." + cCnt;
+                                    Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                                }
+                            }
+                            else
+                            {
+                                msj = DateTime.Now + ": El nombre del Horario es muy largo ." + cCnt;
+                                Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                            }
+                        }
+                        else 
+                        {
+                            msj = DateTime.Now + ": El nombre del Horario es muy corto ." + cCnt;
+                            Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                        }
+                        
                         pos = 0;
                     }
                     xlWorkBook.Close(false, Missing.Value, Missing.Value);
@@ -199,13 +260,18 @@ namespace GestorSGSST2017.Formularios
                 else
                 {
                     MessageBox.Show("El archivo no contiene registros para cargar.");
+                    msj = DateTime.Now + ": El archivo no contiene registros para cargar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
                 }
 
             }
             else
             {
                 MessageBox.Show("La cantidad de columnas no coincide con el formato.");
+                msj = DateTime.Now + ": La Cantidad de Columnas No Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
             }
+            Utilidades1.cerrarEscritor(escritor);
         }
 
         private void limpiarCampos()
@@ -296,12 +362,15 @@ namespace GestorSGSST2017.Formularios
                 File.Copy(archivo, archivoNombre);
             }
             fi = new FileInfo(archivoNombre);
-            if (Utilidades.isExcel(fi.Extension))
+            if (Utilidades1.isExcel(fi.Extension))
             {
                 return archivoNombre;
             }
             else
             {
+                msj = DateTime.Now + ": La extension del Archivo no es Valida.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogHorarios, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
                 MessageBox.Show("Error: La extension del Archivo no es Valida.");
                 fi.Delete();
                 return null;

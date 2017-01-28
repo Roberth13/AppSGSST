@@ -34,8 +34,8 @@ namespace GestorSGSST2017.Formularios
             this.EmpresaID = EmpresaID;
             this.SucursalID = SucursalID;
             this.esAdmin = esAdmin;
-            cmObj = new CargaMasiva(UsuarioID);
-            lsObj = new Listados(UsuarioID);
+            cmObj = new CargaMasiva(UsuarioID, RolID, EmpresaID, SucursalID, esAdmin);
+            lsObj = new Listados(UsuarioID, RolID, EmpresaID, SucursalID, esAdmin);
             InitializeComponent();
         }
 

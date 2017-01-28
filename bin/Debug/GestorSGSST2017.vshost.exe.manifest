@@ -66,24 +66,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GestorSGSST2017.exe" size="603136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GestorSGSST2017.exe" size="607744">
       <assemblyIdentity name="GestorSGSST2017" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Y4VqMd5yGwOjn2hSR+CWRFKYME0y5Kib7Sbr2Xzum+k=</dsig:DigestValue>
+        <dsig:DigestValue>FdrfmYFUfFHe4FgMLNJypgQYrwDhoCgqLqcUDe8qvvg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="GestorSGSST2017.exe.config" size="1833">
+  <file name="GestorSGSST2017.exe.config" size="1841">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>CnyyM8NeqHC2OWZA1Gcn2Nj0N90I1Z77yIKMDPqKLCk=</dsig:DigestValue>
+      <dsig:DigestValue>kqIVA3xgNC0kJf2coFLGZXBblM4S3uaSrxHoOFj3grs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Imagenes\llave.png" size="60444">

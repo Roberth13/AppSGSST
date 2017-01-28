@@ -1,0 +1,9 @@
+27/01/2017 23:06:28: Iniciando carga masiva de Horarios.
+27/01/2017 23:06:29: La Cantidad de Columnas Coincide.
+27/01/2017 23:06:29: Existen registros para agregar.
+27/01/2017 23:06:29: Agregando el registro Nro.1
+27/01/2017 23:06:29: Se agrego el registro Nro.1
+27/01/2017 23:06:29: Agregando el registro Nro.2
+27/01/2017 23:06:29: Se agrego el registro Nro.2
+27/01/2017 23:06:29: Agregando el registro Nro.3
+27/01/2017 23:06:29: Se agrego el registro Nro.3
