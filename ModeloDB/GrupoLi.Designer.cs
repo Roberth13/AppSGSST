@@ -1,4 +1,4 @@
-﻿// La generación de código T4 está habilitada para el modelo 'c:\users\villartechnologies\documents\visual studio 2012\Projects\GestorSGSST2017\ModeloDB\GrupoLi.edmx'. 
+﻿// La generación de código T4 está habilitada para el modelo 'C:\Users\Sebastian\Documents\LICSU\AppSGSST\ModeloDB\GrupoLi.edmx'. 
 // Para habilitar la generación de código heredada, cambie el valor de la propiedad del diseñador 'Estrategia de generación de código'
 // por 'ObjectContext heredado'. Esta propiedad está disponible en la ventana Propiedades cuando se abre
 // el modelo en el diseñador.

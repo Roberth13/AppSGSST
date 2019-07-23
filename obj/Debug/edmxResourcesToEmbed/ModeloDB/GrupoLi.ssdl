@@ -1,49 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GrupoLiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="acc_inc_lab">
-    <Key>
-      <PropertyRef Name="id_acc_lab" />
-    </Key>
-    <Property Name="id_acc_lab" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tipo_acci_inci" Type="int" />
-    <Property Name="grado" Type="varchar" MaxLength="45" />
-    <Property Name="fecha_inv" Type="date" />
-    <Property Name="hora_inv" Type="datetime" />
-    <Property Name="id_trabajador" Type="int" />
-    <Property Name="id_area" Type="int" />
-    <Property Name="fecha_acc" Type="date" />
-    <Property Name="hora_acc" Type="datetime" />
-    <Property Name="id_ips" Type="int" />
-    <Property Name="id_tipo_acc" Type="int" />
-    <Property Name="id_sitio_acc" Type="int" />
-    <Property Name="tiempo_prev_lab" Type="datetime" />
-    <Property Name="breve_desc" Type="varchar" MaxLength="5000" />
-    <Property Name="desc_hechos" Type="varchar" MaxLength="5000" />
-    <Property Name="id_puesto_trabajo" Type="int" />
-    <Property Name="id_agente_lesion" Type="int" />
-    <Property Name="id_causa_accidente" Type="int" />
-    <Property Name="id_parte_cuerpo" Type="int" />
-    <Property Name="id_forma_acc" Type="int" />
-    <Property Name="eventos_similar" Type="varchar" MaxLength="45" />
-    <Property Name="cuenta_matriz_riesgos" Type="varchar" MaxLength="45" />
-    <Property Name="contemplado_matriz" Type="varchar" MaxLength="45" />
-    <Property Name="personas_presenciaron_accidente" Type="varchar" MaxLength="45" />
-    <Property Name="situaciones_noclaras" Type="varchar" MaxLength="5000" />
-    <Property Name="encargado_sst" Type="varchar" MaxLength="45" />
-    <Property Name="integrante_copasst" Type="varchar" MaxLength="45" />
-    <Property Name="brigadista" Type="varchar" MaxLength="45" />
-    <Property Name="jefe_inmediato" Type="varchar" MaxLength="45" />
-    <Property Name="prof_salud_ocu" Type="varchar" MaxLength="45" />
-    <Property Name="documento_escaneado" Type="varchar" MaxLength="100" />
-    <Property Name="num_consultas" Type="varchar" MaxLength="45" />
-    <Property Name="frecuencia_consulta" Type="varchar" MaxLength="45" />
-    <Property Name="documento_comunicado" Type="varchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="afp">
+<Schema Namespace="grupolicom_sgsstModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Tbl_Afp">
     <Key>
       <PropertyRef Name="id_afp" />
     </Key>
-    <Property Name="id_afp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_afp" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="1000" />
     <Property Name="codigo" Type="varchar" MaxLength="500" />
     <Property Name="nit" Type="varchar" MaxLength="500" />
@@ -51,49 +12,33 @@
     <Property Name="telefono" Type="varchar" MaxLength="1000" />
     <Property Name="ciudad" Type="varchar" MaxLength="1000" />
   </EntityType>
-  <EntityType Name="agente_lesion">
-    <Key>
-      <PropertyRef Name="id_agente_lesion" />
-    </Key>
-    <Property Name="id_agente_lesion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="id_empresa" Type="int" />
-  </EntityType>
-  <EntityType Name="alarmas">
+  <EntityType Name="Tbl_Alarma">
     <Key>
       <PropertyRef Name="id_alarmas" />
     </Key>
     <Property Name="id_alarmas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar" MaxLength="450" />
     <Property Name="fecha" Type="date" />
-    <Property Name="id_prioridad" Type="int" />
+    <Property Name="prioridad" Type="varchar" MaxLength="50" />
     <Property Name="id_categorias" Type="int" />
     <Property Name="id_usuario" Type="int" />
   </EntityType>
-  <EntityType Name="anexos">
-    <Key>
-      <PropertyRef Name="id_anexos" />
-    </Key>
-    <Property Name="id_anexos" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="45" />
-    <Property Name="id_obligacion" Type="int" Nullable="false" />
-    <Property Name="ruta" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="area">
+  <EntityType Name="Tbl_Area">
     <Key>
       <PropertyRef Name="id_area" />
     </Key>
     <Property Name="id_area" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="id_sucursal" Type="int" Nullable="false" />
     <Property Name="id_area_padre" Type="bigint" />
     <Property Name="nivel" Type="int" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="arp">
+  <EntityType Name="Tbl_Arl">
     <Key>
-      <PropertyRef Name="id_arp" />
+      <PropertyRef Name="id_arl" />
     </Key>
-    <Property Name="id_arp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_arl" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="codigo" Type="varchar" MaxLength="50" />
     <Property Name="nit" Type="varchar" MaxLength="50" />
@@ -101,7 +46,60 @@
     <Property Name="telefono" Type="varchar" MaxLength="100" />
     <Property Name="ciudad" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="categorias">
+  <EntityType Name="Tbl_At_it_el_pa">
+    <Key>
+      <PropertyRef Name="id_at_it_el_pa" />
+    </Key>
+    <Property Name="id_at_it_el_pa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_trabajador" Type="int" />
+    <Property Name="id_area" Type="int" />
+    <Property Name="id_puesto" Type="int" />
+    <Property Name="sitio" Type="varchar" MaxLength="500" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
+    <Property Name="condiciones_inseguras" Type="varchar" MaxLength="5000" />
+    <Property Name="actos_inseguros" Type="varchar" MaxLength="5000" />
+    <Property Name="factores_inseguros" Type="varchar" MaxLength="5000" />
+    <Property Name="factores_personales" Type="varchar" MaxLength="5000" />
+    <Property Name="reporte_accidente" Type="varchar" MaxLength="500" />
+    <Property Name="documento_escaneado" Type="varchar" MaxLength="500" />
+    <Property Name="documento_comunicado" Type="varchar" MaxLength="500" />
+    <Property Name="num_consultas" Type="int" />
+    <Property Name="frecuencia_consultas" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_evento" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_muerte" Type="date" />
+    <Property Name="dias_incapacidad" Type="int" />
+    <Property Name="dias_cargados" Type="int" />
+    <Property Name="dias_perdidos_ausencia" Type="int" />
+    <Property Name="dias_no_perdidos" Type="varchar" MaxLength="10" />
+    <Property Name="tipo_enfermedad" Type="varchar" MaxLength="10" />
+    <Property Name="fecha_accidente" Type="date" />
+    <Property Name="hora_accidente" Type="datetime" />
+    <Property Name="dias_perdidos_restingido" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_AutoEvaluacion">
+    <Key>
+      <PropertyRef Name="id_Autoevaluacion" />
+    </Key>
+    <Property Name="id_Autoevaluacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Empresa" Type="int" />
+    <Property Name="Puntaje" Type="float" />
+    <Property Name="AñoPuntaje" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_Brigada_emergencia">
+    <Key>
+      <PropertyRef Name="id_brigada" />
+    </Key>
+    <Property Name="id_brigada" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sucursal" Type="int" />
+    <Property Name="perfiles" Type="varchar" MaxLength="8000" />
+    <Property Name="func_brigadistas" Type="varchar" MaxLength="8000" />
+    <Property Name="brigada_comunicacion" Type="varchar" MaxLength="8000" />
+    <Property Name="dir_emergencia_int" Type="varchar" MaxLength="8000" />
+    <Property Name="brigada_prim_aux" Type="varchar" MaxLength="8000" />
+    <Property Name="brigada_incendio" Type="varchar" MaxLength="8000" />
+    <Property Name="brigada_evacuacion" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="Tbl_Categoria">
     <Key>
       <PropertyRef Name="id_categorias" />
     </Key>
@@ -110,37 +108,11 @@
     <Property Name="descripcion" Type="varchar" MaxLength="500" />
     <Property Name="id_empresa" Type="int" />
   </EntityType>
-  <EntityType Name="causa_accidente">
-    <Key>
-      <PropertyRef Name="id_causa_acc" />
-    </Key>
-    <Property Name="id_causa_acc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="id_empresa" Type="int" />
-  </EntityType>
-  <EntityType Name="causas_basicas">
-    <Key>
-      <PropertyRef Name="id_causas_basica" />
-    </Key>
-    <Property Name="id_causas_basica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="factores_trabajo" Type="varchar" MaxLength="1000" />
-    <Property Name="factores_personales" Type="varchar" MaxLength="1000" />
-    <Property Name="id_acc_lab" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="causas_inmediatas">
-    <Key>
-      <PropertyRef Name="id_causas_inm" />
-    </Key>
-    <Property Name="id_causas_inm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="condicion_subestandar" Type="varchar" MaxLength="1000" />
-    <Property Name="actos_subestandar" Type="varchar" MaxLength="1000" />
-    <Property Name="id_acc_lab" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ccf">
+  <EntityType Name="Tbl_Ccf">
     <Key>
       <PropertyRef Name="id_ccf" />
     </Key>
-    <Property Name="id_ccf" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ccf" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="codigo" Type="varchar" MaxLength="50" />
     <Property Name="nit" Type="varchar" MaxLength="50" />
@@ -148,27 +120,24 @@
     <Property Name="telefono" Type="varchar" MaxLength="100" />
     <Property Name="ciudad" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="codigo_ciiu">
+  <EntityType Name="Tbl_ClaseCiiu">
     <Key>
-      <PropertyRef Name="id_codigo_ciiu" />
+      <PropertyRef Name="id_clase_ciiu" />
     </Key>
-    <Property Name="id_codigo_ciiu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="2000" />
+    <Property Name="id_clase_ciiu" Type="int" Nullable="false" />
+    <Property Name="id_grupo" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="1000" />
   </EntityType>
-  <EntityType Name="compromisos">
+  <EntityType Name="Tbl_Cno">
     <Key>
-      <PropertyRef Name="id_compromiso" />
+      <PropertyRef Name="id_cno" />
     </Key>
-    <Property Name="id_compromiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="controles" Type="varchar" MaxLength="1000" />
-    <Property Name="fecha_implementacion" Type="date" />
-    <Property Name="fuente" Type="varchar" MaxLength="45" />
-    <Property Name="medio" Type="varchar" MaxLength="45" />
-    <Property Name="persona" Type="varchar" MaxLength="45" />
-    <Property Name="responsable" Type="varchar" MaxLength="45" />
-    <Property Name="id_acc_lab" Type="int" Nullable="false" />
+    <Property Name="id_cno" Type="int" Nullable="false" />
+    <Property Name="codigo" Type="varchar" MaxLength="50" />
+    <Property Name="ocupacion" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="consultas">
+  <EntityType Name="Tbl_Consulta">
     <Key>
       <PropertyRef Name="id_consulta" />
     </Key>
@@ -182,15 +151,15 @@
     <Property Name="sug_trat" Type="varchar" MaxLength="50" />
     <Property Name="id_empresa" Type="int" />
   </EntityType>
-  <EntityType Name="departamento">
+  <EntityType Name="Tbl_Departamento">
     <Key>
       <PropertyRef Name="id_departamento" />
     </Key>
-    <Property Name="id_departamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_departamento" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="id_region" Type="int" />
   </EntityType>
-  <EntityType Name="desc_socio">
+  <EntityType Name="Tbl_Desc_socio">
     <Key>
       <PropertyRef Name="id_desc_socio" />
     </Key>
@@ -221,15 +190,27 @@
     <Property Name="contaminacion" Type="varchar" MaxLength="500" />
     <Property Name="descripcion" Type="varchar" MaxLength="1000" />
   </EntityType>
-  <EntityType Name="division">
+  <EntityType Name="Tbl_DivisionCiiu">
     <Key>
       <PropertyRef Name="id_division" />
     </Key>
-    <Property Name="id_division" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_codigo_ciiu" Type="int" />
-    <Property Name="nombre" Type="varchar" MaxLength="2000" />
+    <Property Name="id_division" Type="int" Nullable="false" />
+    <Property Name="id_seccion" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="empleos_anteriores">
+  <EntityType Name="Tbl_Documento">
+    <Key>
+      <PropertyRef Name="id_documento" />
+    </Key>
+    <Property Name="id_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tabla" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="ruta" Type="varchar" MaxLength="500" />
+    <Property Name="tipo" Type="varchar" MaxLength="100" />
+    <Property Name="fecha_subida" Type="date" />
+  </EntityType>
+  <EntityType Name="Tbl_Empleo_anterior">
     <Key>
       <PropertyRef Name="id_empleos_ant" />
     </Key>
@@ -242,7 +223,7 @@
     <Property Name="enfermedades" Type="varchar" MaxLength="50" />
     <Property Name="id_desc_socio" Type="int" />
   </EntityType>
-  <EntityType Name="empresa">
+  <EntityType Name="Tbl_Empresa">
     <Key>
       <PropertyRef Name="id_empresa" />
     </Key>
@@ -255,30 +236,71 @@
     <Property Name="movil" Type="varchar" MaxLength="50" />
     <Property Name="fijo" Type="varchar" MaxLength="50" />
     <Property Name="logo_url" Type="varchar" MaxLength="100" />
-    <Property Name="id_arp" Type="int" />
+    <Property Name="id_arl" Type="int" />
+    <Property Name="jornada" Type="int" />
+    <Property Name="clase_riesgo" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_material" Type="varchar" MaxLength="500" />
+    <Property Name="dependencias_adm" Type="varchar" MaxLength="500" />
+    <Property Name="dependencias_no_adm" Type="varchar" MaxLength="500" />
+    <Property Name="personas_transito" Type="int" />
+    <Property Name="vias_acceso" Type="varchar" MaxLength="500" />
+    <Property Name="salida_emergencia" Type="varchar" MaxLength="500" />
+    <Property Name="senalizacion" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="empresa_itemdivision">
+  <EntityType Name="Tbl_Empresa_itemdivision">
     <Key>
       <PropertyRef Name="id_emp_itemdiv" />
     </Key>
     <Property Name="id_emp_itemdiv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_empresa" Type="int" />
-    <Property Name="id_items_division" Type="int" />
+    <Property Name="id_clase_ciiu" Type="int" />
     <Property Name="num_actividad" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="enfermedad">
+  <EntityType Name="Tbl_Encuesta_politica">
+    <Key>
+      <PropertyRef Name="id_encuesta" />
+    </Key>
+    <Property Name="id_encuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_trabajador" Type="int" />
+    <Property Name="ruta" Type="varchar" MaxLength="100" />
+    <Property Name="si" Type="float" />
+    <Property Name="no" Type="float" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Enfermedad">
     <Key>
       <PropertyRef Name="id_enfermedad" />
     </Key>
-    <Property Name="id_enfermedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_enfermedad" Type="int" Nullable="false" />
     <Property Name="tipo" Type="int" />
     <Property Name="nombre" Type="varchar" MaxLength="1000" />
   </EntityType>
-  <EntityType Name="eps">
+  <EntityType Name="Tbl_EnfermedadLaboral">
+    <Key>
+      <PropertyRef Name="id_enfermedadLaboral" />
+    </Key>
+    <Property Name="id_enfermedadLaboral" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Tbl_Epp">
+    <Key>
+      <PropertyRef Name="id_epp" />
+    </Key>
+    <Property Name="id_epp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="id_tipo_epp" Type="int" />
+    <Property Name="url_imagen" Type="varchar" MaxLength="100" />
+    <Property Name="marca_modelo" Type="varchar" MaxLength="100" />
+    <Property Name="uso" Type="varchar(max)" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="matriz_epp" Type="varchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="Tbl_Eps">
     <Key>
       <PropertyRef Name="id_eps" />
     </Key>
-    <Property Name="id_eps" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_eps" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="1000" />
     <Property Name="codigo" Type="varchar" MaxLength="500" />
     <Property Name="nit" Type="varchar" MaxLength="500" />
@@ -286,25 +308,53 @@
     <Property Name="telefono" Type="varchar" MaxLength="1000" />
     <Property Name="ciudad" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="estatus">
+  <EntityType Name="Tbl_Estatus">
     <Key>
       <PropertyRef Name="id_estatus" />
     </Key>
     <Property Name="id_estatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
     <Property Name="id_empresa" Type="int" />
   </EntityType>
-  <EntityType Name="estatus_obligacion">
+  <EntityType Name="Tbl_Evaluacion_riesgo">
     <Key>
-      <PropertyRef Name="id_estatus_obl" />
+      <PropertyRef Name="id_evaluacion_riesgo" />
     </Key>
-    <Property Name="id_estatus_obl" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="200" />
-    <Property Name="descripcion" Type="varchar" MaxLength="200" />
-    <Property Name="id_empresa" Type="int" />
+    <Property Name="id_evaluacion_riesgo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ide_puesto" Type="int" />
+    <Property Name="control_fuente" Type="varchar(max)" />
+    <Property Name="control_medio" Type="varchar(max)" />
+    <Property Name="control_individuo" Type="varchar(max)" />
+    <Property Name="fecha_evaluacion" Type="date" />
+    <Property Name="nombre_responsable" Type="varchar" MaxLength="100" />
+    <Property Name="estatus_med_fue" Type="varchar" MaxLength="50" />
+    <Property Name="estatus_med_amb" Type="varchar" MaxLength="50" />
+    <Property Name="estatus_med_trab" Type="varchar" MaxLength="50" />
+    <Property Name="porc_estatus" Type="int" />
+    <Property Name="nivel_deficiencia" Type="varchar" MaxLength="50" />
+    <Property Name="interpretacion_deficiencia" Type="varchar" MaxLength="5000" />
+    <Property Name="nivel_exposicion" Type="varchar" MaxLength="50" />
+    <Property Name="interpretacion_exposicion" Type="varchar" MaxLength="5000" />
+    <Property Name="nivel_probabilidad" Type="varchar" MaxLength="50" />
+    <Property Name="interpretacion_probabilidad" Type="varchar" MaxLength="5000" />
+    <Property Name="nivel_consecuencia" Type="varchar" MaxLength="50" />
+    <Property Name="nivel_riesgo" Type="varchar" MaxLength="50" />
+    <Property Name="interpretacion_nivel_riesgo" Type="varchar" MaxLength="5000" />
+    <Property Name="aceptabilidad_riesgo" Type="varchar" MaxLength="50" />
+    <Property Name="planta" Type="int" />
+    <Property Name="contratistas" Type="int" />
+    <Property Name="visitantes" Type="int" />
+    <Property Name="total" Type="int" />
+    <Property Name="peor_consecuencia" Type="varchar" MaxLength="5000" />
+    <Property Name="existencia_requisito_legal" Type="varchar" MaxLength="50" />
+    <Property Name="eliminación" Type="varchar" MaxLength="500" />
+    <Property Name="sustitución" Type="varchar" MaxLength="5000" />
+    <Property Name="controles_ingenieria" Type="varchar" MaxLength="5000" />
+    <Property Name="controles_administrativos" Type="varchar" MaxLength="5000" />
+    <Property Name="fecha_ejecucion" Type="date" />
   </EntityType>
-  <EntityType Name="Eventos">
+  <EntityType Name="Tbl_Evento">
     <Key>
       <PropertyRef Name="id_evento" />
     </Key>
@@ -317,40 +367,47 @@
     <Property Name="pagina" Type="varchar" MaxLength="100" />
     <Property Name="tabla" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="factor_riesgo">
+  <EntityType Name="Tbl_Extintor">
+    <Key>
+      <PropertyRef Name="id_extintor" />
+    </Key>
+    <Property Name="id_extintor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="serial_extintor" Type="varchar" MaxLength="100" />
+    <Property Name="fecha_ultima_recarga" Type="date" />
+    <Property Name="fecha_proxima_recarga" Type="date" />
+    <Property Name="peso" Type="varchar" MaxLength="10" />
+    <Property Name="presion" Type="varchar" MaxLength="10" />
+    <Property Name="tipo_extintor" Type="varchar" MaxLength="5" />
+    <Property Name="nombre_empresa" Type="varchar" MaxLength="50" />
+    <Property Name="id_area" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Factor_identificacion">
+    <Key>
+      <PropertyRef Name="id_fac_ide" />
+    </Key>
+    <Property Name="id_fac_ide" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_factor" Type="int" />
+    <Property Name="id_identificacion" Type="int" />
+    <Property Name="consecuencias" Type="varchar" MaxLength="1000" />
+    <Property Name="tiempo_exposicion" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Factor_riesgo">
     <Key>
       <PropertyRef Name="id_factor_riesgo" />
     </Key>
-    <Property Name="id_factor_riesgo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_factor_riesgo" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="1000" />
     <Property Name="id_tipo_riesgo" Type="int" />
-    <Property Name="id_empresa" Type="int" />
   </EntityType>
-  <EntityType Name="forma_accidente">
-    <Key>
-      <PropertyRef Name="id_forma_acc" />
-    </Key>
-    <Property Name="id_forma_acc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="id_empresa" Type="int" />
-  </EntityType>
-  <EntityType Name="fotos_accidente">
-    <Key>
-      <PropertyRef Name="id_fotos_acci" />
-    </Key>
-    <Property Name="id_fotos_acci" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ruta" Type="varchar" MaxLength="100" />
-    <Property Name="id_acc_lab" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="frecuencia_control">
+  <EntityType Name="Tbl_Frecuencia_control">
     <Key>
       <PropertyRef Name="id_frec_con" />
     </Key>
-    <Property Name="id_frec_con" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_frec_con" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="45" />
     <Property Name="num_Dias" Type="int" />
   </EntityType>
-  <EntityType Name="gestion_laboral">
+  <EntityType Name="Tbl_Gestion_laboral">
     <Key>
       <PropertyRef Name="id_ges_lab" />
     </Key>
@@ -358,13 +415,22 @@
     <Property Name="fecha" Type="date" />
     <Property Name="descripcion" Type="varchar" MaxLength="1000" />
     <Property Name="soporte" Type="varchar" MaxLength="100" />
-    <Property Name="id_tipo_gestion" Type="int" />
+    <Property Name="tipo_gestion" Type="int" />
     <Property Name="cant_horas" Type="int" />
     <Property Name="razon_inasistencia" Type="varchar" MaxLength="500" />
     <Property Name="objetivos" Type="varchar" MaxLength="500" />
     <Property Name="id_usuario" Type="int" />
   </EntityType>
-  <EntityType Name="historia_clinica_ocupacional">
+  <EntityType Name="Tbl_GrupoCiiu">
+    <Key>
+      <PropertyRef Name="id_grupo" />
+    </Key>
+    <Property Name="id_grupo" Type="int" Nullable="false" />
+    <Property Name="id_division" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Tbl_Historia_clinica_ocupacional">
     <Key>
       <PropertyRef Name="id_his_cli_ocu" />
     </Key>
@@ -376,8 +442,9 @@
     <Property Name="doc_esc_medico" Type="varchar" MaxLength="100" />
     <Property Name="diagnostico" Type="varchar" MaxLength="1000" />
     <Property Name="recomendaciones" Type="varchar" MaxLength="1000" />
+    <Property Name="ruta" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="horario">
+  <EntityType Name="Tbl_Horario">
     <Key>
       <PropertyRef Name="id_horario" />
     </Key>
@@ -388,92 +455,234 @@
     <Property Name="id_empresa" Type="int" />
     <Property Name="fecha_creacion" Type="datetime" />
   </EntityType>
-  <EntityType Name="ips">
+  <EntityType Name="Tbl_Identificacion_peligro">
+    <Key>
+      <PropertyRef Name="id_identificacion_peligro" />
+    </Key>
+    <Property Name="id_identificacion_peligro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="medidas_control_existentes" Type="varchar" MaxLength="1000" />
+    <Property Name="observaciones" Type="varchar" MaxLength="1000" />
+    <Property Name="fecha_identificacion" Type="date" />
+    <Property Name="matriz_riesgo" Type="int" />
+    <Property Name="estatus" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tbl_Identificacion_puesto">
+    <Key>
+      <PropertyRef Name="id_ide_puesto" />
+    </Key>
+    <Property Name="id_ide_puesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_identificacion" Type="int" />
+    <Property Name="id_puesto" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Investigacion_ac_in">
+    <Key>
+      <PropertyRef Name="id_inv_ac_in" />
+    </Key>
+    <Property Name="id_inv_ac_in" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_evento" Type="date" />
+    <Property Name="hora_evento" Type="datetime" />
+    <Property Name="dia_semana" Type="varchar" MaxLength="50" />
+    <Property Name="antiguedad" Type="int" />
+    <Property Name="actividad_realizaba" Type="varchar" MaxLength="500" />
+    <Property Name="naturaleza_lesion" Type="varchar" MaxLength="1000" />
+    <Property Name="gravedad_lesion" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion_lesion" Type="varchar" MaxLength="5000" />
+    <Property Name="reposo" Type="varchar" MaxLength="50" />
+    <Property Name="dias_reposo" Type="int" />
+    <Property Name="fecha_reintegro" Type="date" />
+    <Property Name="adiestramiento" Type="varchar" MaxLength="5000" />
+    <Property Name="costo_transporte" Type="varchar" MaxLength="100" />
+    <Property Name="costo_atencion" Type="varchar" MaxLength="100" />
+    <Property Name="costo_tratamiento" Type="varchar" MaxLength="100" />
+    <Property Name="costo_indemizacion" Type="varchar" MaxLength="100" />
+    <Property Name="costo_reemplazo" Type="varchar" MaxLength="100" />
+    <Property Name="costo_reposo" Type="varchar" MaxLength="100" />
+    <Property Name="costo_materiales" Type="varchar" MaxLength="100" />
+    <Property Name="costo_produccion" Type="varchar" MaxLength="100" />
+    <Property Name="porque1" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta1" Type="varchar" MaxLength="500" />
+    <Property Name="porque2" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta2" Type="varchar" MaxLength="500" />
+    <Property Name="porque3" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta3" Type="varchar" MaxLength="500" />
+    <Property Name="porque4" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta4" Type="varchar" MaxLength="500" />
+    <Property Name="porque5" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta5" Type="varchar" MaxLength="500" />
+    <Property Name="que" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_que" Type="varchar" MaxLength="1000" />
+    <Property Name="porque" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_porque" Type="varchar" MaxLength="1000" />
+    <Property Name="quien" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_quien" Type="varchar" MaxLength="1000" />
+    <Property Name="donde" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_donde" Type="varchar" MaxLength="1000" />
+    <Property Name="cuando" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_cuando" Type="varchar" MaxLength="1000" />
+    <Property Name="como" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_como" Type="varchar" MaxLength="1000" />
+    <Property Name="cuanto" Type="varchar" MaxLength="500" />
+    <Property Name="respuesta_cuanto" Type="varchar" MaxLength="1000" />
+    <Property Name="tipo_accidente" Type="varchar" MaxLength="500" />
+    <Property Name="tipo_lesion" Type="varchar" MaxLength="500" />
+    <Property Name="agente_lesion" Type="varchar" MaxLength="500" />
+    <Property Name="parte_cuerpo" Type="varchar" MaxLength="500" />
+    <Property Name="nota" Type="varchar" MaxLength="1000" />
+    <Property Name="id_at_it_el_pa" Type="int" />
+    <Property Name="medida1" Type="varchar" MaxLength="5000" />
+    <Property Name="responsable1" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_medida1" Type="date" />
+    <Property Name="medida2" Type="varchar" MaxLength="5000" />
+    <Property Name="responsable2" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_medida2" Type="date" />
+    <Property Name="medida3" Type="varchar" MaxLength="5000" />
+    <Property Name="responsable3" Type="varchar" MaxLength="50" />
+    <Property Name="fecha_medida3" Type="date" />
+    <Property Name="supervisor" Type="varchar" MaxLength="100" />
+    <Property Name="tiempo_cargo" Type="varchar" MaxLength="100" />
+    <Property Name="actividad" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="Tbl_Ips">
     <Key>
       <PropertyRef Name="id_ips" />
     </Key>
-    <Property Name="id_ips" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ips" Type="int" Nullable="false" />
     <Property Name="beneficiario" Type="varchar" MaxLength="500" />
     <Property Name="estado" Type="varchar" MaxLength="500" />
     <Property Name="nit" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="items_division">
+  <EntityType Name="Tbl_Lista_actividad">
     <Key>
-      <PropertyRef Name="id_items_division" />
+      <PropertyRef Name="id_lista" />
     </Key>
-    <Property Name="id_items_division" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_division" Type="int" />
-    <Property Name="nombre" Type="varchar" MaxLength="2000" />
+    <Property Name="id_lista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sucursal" Type="int" />
+    <Property Name="actividad" Type="varchar" MaxLength="100" />
+    <Property Name="estatus" Type="varchar" MaxLength="2" />
+    <Property Name="anho" Type="int" />
+    <Property Name="fase" Type="varchar" MaxLength="50" />
+    <Property Name="link" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="matrizRiesgo_enfermedadLaboral">
+  <EntityType Name="Tbl_Matriz_Acc_Prev_Corr">
     <Key>
-      <PropertyRef Name="id_enfermedadLaboral" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="id_enfermedadLaboral" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="1000" />
-  </EntityType>
-  <EntityType Name="matrizRiesgo_factorRiesgo">
-    <Key>
-      <PropertyRef Name="id_factor_riesgo" />
-    </Key>
-    <Property Name="id_factor_riesgo" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="origen" Type="varchar" MaxLength="500" />
+    <Property Name="fecha_reporte" Type="date" />
     <Property Name="descripcion" Type="varchar" MaxLength="500" />
-    <Property Name="id_tipo_riesgo" Type="int" />
+    <Property Name="id_area" Type="int" />
+    <Property Name="actividad" Type="varchar" MaxLength="500" />
+    <Property Name="prioridad" Type="varchar" MaxLength="100" />
+    <Property Name="accion" Type="varchar" MaxLength="500" />
+    <Property Name="responsable" Type="varchar" MaxLength="100" />
+    <Property Name="fecha_propuesta" Type="date" />
+    <Property Name="estado" Type="varchar" MaxLength="100" />
+    <Property Name="observaciones" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="matrizRiesgo_tipoRiesgo">
+  <EntityType Name="Tbl_Matriz_responsabilidad">
     <Key>
-      <PropertyRef Name="id_tipo_riesgo" />
+      <PropertyRef Name="id_matriz_responsabilidad" />
     </Key>
-    <Property Name="id_tipo_riesgo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="id_matriz_responsabilidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sucursal" Type="int" />
+    <Property Name="puesto1" Type="varchar(max)" />
+    <Property Name="puesto2" Type="varchar(max)" />
+    <Property Name="puesto3" Type="varchar(max)" />
+    <Property Name="puesto4" Type="varchar(max)" />
+    <Property Name="puesto5" Type="varchar(max)" />
+    <Property Name="puesto6" Type="varchar(max)" />
+    <Property Name="puesto7" Type="varchar(max)" />
+    <Property Name="pusto8" Type="varchar(max)" />
   </EntityType>
-  <EntityType Name="medidas">
+  <EntityType Name="Tbl_MatrizEpp">
+    <Key>
+      <PropertyRef Name="id_matrizepp" />
+    </Key>
+    <Property Name="id_matrizepp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_epp" Type="int" />
+    <Property Name="id_sucursal" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Medida">
     <Key>
       <PropertyRef Name="id_medidas" />
     </Key>
-    <Property Name="id_medidas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_medidas" Type="int" Nullable="false" />
     <Property Name="id_normas" Type="int" Nullable="false" />
-    <Property Name="descripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="descripcion" Type="varchar(max)" />
   </EntityType>
-  <EntityType Name="medidas_sucursal">
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'grupolicom_sgsst.dbo.Tbl_Medida$' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Tbl_Medida$">
+          <Property Name="id_medidas" Type="float" />
+          <Property Name="id_normas" Type="float" />
+          <Property Name="descripcion" Type="nvarchar(max)" />
+        </EntityType>-->
+  <EntityType Name="Tbl_Medida_sucursal">
     <Key>
       <PropertyRef Name="id_medidas_sucursal" />
     </Key>
     <Property Name="id_medidas_sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="id_normas_sucursal" Type="int" />
-    <Property Name="descripcion" Type="varchar" MaxLength="1000" />
+    <Property Name="descripcion" Type="varchar(max)" />
     <Property Name="estatus_medida" Type="int" />
     <Property Name="aplica" Type="int" />
   </EntityType>
-  <EntityType Name="municipio">
+  <EntityType Name="Tbl_Municipio">
     <Key>
       <PropertyRef Name="id_municipio" />
     </Key>
-    <Property Name="id_municipio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_municipio" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="id_departamento" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="normas">
+  <EntityType Name="Tbl_Norma">
     <Key>
       <PropertyRef Name="id_normas" />
     </Key>
     <Property Name="id_normas" Type="int" Nullable="false" />
-    <Property Name="id_item" Type="int" Nullable="false" />
-    <Property Name="tipo_matriz" Type="varchar" MaxLength="45" />
+    <Property Name="tipo_matriz" Type="varchar" MaxLength="50" />
     <Property Name="tema_especifico" Type="varchar" MaxLength="1000" />
     <Property Name="documento" Type="varchar" MaxLength="1000" />
     <Property Name="anho" Type="varchar" MaxLength="50" />
-    <Property Name="articulo" Type="varchar" MaxLength="45" />
+    <Property Name="articulo" Type="varchar" MaxLength="50" />
     <Property Name="literal" Type="varchar" MaxLength="50" />
     <Property Name="paragrafo" Type="varchar" MaxLength="50" />
     <Property Name="numeral" Type="varchar" MaxLength="50" />
-    <Property Name="concordante" Type="varchar" MaxLength="45" />
+    <Property Name="concordante" Type="varchar" MaxLength="50" />
     <Property Name="obligaciones" Type="varchar" MaxLength="1000" />
     <Property Name="sanciones" Type="varchar" MaxLength="1000" />
     <Property Name="porc_cum" Type="int" />
-    <Property Name="pdf" Type="varchar" MaxLength="45" />
+    <Property Name="pdf" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="normas_sucursal">
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'grupolicom_sgsst.dbo.Tbl_Norma$' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Tbl_Norma$">
+          <Property Name="id_normas" Type="float" />
+          <Property Name="tipo_matriz" Type="nvarchar" MaxLength="255" />
+          <Property Name="tema_especifico" Type="nvarchar" MaxLength="255" />
+          <Property Name="documento" Type="nvarchar" MaxLength="255" />
+          <Property Name="anho" Type="nvarchar" MaxLength="255" />
+          <Property Name="articulo" Type="float" />
+          <Property Name="literal" Type="nvarchar" MaxLength="255" />
+          <Property Name="paragrafo" Type="nvarchar" MaxLength="255" />
+          <Property Name="numeral" Type="nvarchar" MaxLength="255" />
+          <Property Name="concordante" Type="nvarchar" MaxLength="255" />
+          <Property Name="obligaciones" Type="nvarchar" MaxLength="255" />
+          <Property Name="sanciones" Type="nvarchar" MaxLength="255" />
+          <Property Name="porc_cum" Type="nvarchar" MaxLength="255" />
+          <Property Name="pdf" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="Tbl_Norma_claseciiu">
+    <Key>
+      <PropertyRef Name="id_normas_clase" />
+    </Key>
+    <Property Name="id_normas_clase" Type="int" Nullable="false" />
+    <Property Name="id_normas" Type="int" />
+    <Property Name="id_clase_ciiu" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Norma_sucursal">
     <Key>
       <PropertyRef Name="id_normas_sucursal" />
     </Key>
@@ -482,7 +691,7 @@
     <Property Name="id_normas" Type="int" />
     <Property Name="estatus_norma" Type="int" />
   </EntityType>
-  <EntityType Name="obligacion">
+  <EntityType Name="Tbl_Obligacion">
     <Key>
       <PropertyRef Name="id_obligacion" />
     </Key>
@@ -492,35 +701,46 @@
     <Property Name="fecha_entrega" Type="date" />
     <Property Name="id_responsable" Type="int" />
     <Property Name="id_categorias" Type="int" Nullable="false" />
-    <Property Name="id_prioridad" Type="int" Nullable="false" />
+    <Property Name="prioridad" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="id_frecuencia_con" Type="int" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="2000" />
     <Property Name="acciones" Type="varchar" MaxLength="2000" />
-    <Property Name="id_estatus_obl" Type="int" Nullable="false" />
-    <Property Name="id_riesgo" Type="int" />
+    <Property Name="estatus_obl" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="id_identificacion_peligro" Type="int" />
     <Property Name="id_actividad" Type="int" />
+    <Property Name="id_trabajador" Type="int" />
   </EntityType>
-  <EntityType Name="parte_cuerpo">
+  <EntityType Name="Tbl_Perfil_cargo">
     <Key>
-      <PropertyRef Name="id_parte_cuerpo" />
+      <PropertyRef Name="id_perfil_cargo" />
     </Key>
-    <Property Name="id_parte_cuerpo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="id_perfil_cargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="id_cno" Type="int" />
     <Property Name="id_empresa" Type="int" />
   </EntityType>
-  <EntityType Name="plan_mapa">
+  <EntityType Name="Tbl_Perfil_medico">
     <Key>
-      <PropertyRef Name="id_plan_mapa" />
+      <PropertyRef Name="id_perfil_medico" />
     </Key>
-    <Property Name="id_plan_mapa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="id_perfil_medico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="id_cargo" Type="int" />
     <Property Name="ruta" Type="varchar" MaxLength="100" />
-    <Property Name="fecha_creacion" Type="date" />
-    <Property Name="id_sucursal" Type="int" />
-    <Property Name="tipo" Type="int" />
-    <Property Name="descripcion" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="plan_trabajo">
+  <EntityType Name="Tbl_Plan">
+    <Key>
+      <PropertyRef Name="id_plan" />
+    </Key>
+    <Property Name="id_plan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sucursal" Type="int" />
+    <Property Name="nombre" Type="varchar(max)" />
+    <Property Name="tipo" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Tbl_Plan_trabajo">
     <Key>
       <PropertyRef Name="id_plan_trabajo" />
     </Key>
@@ -531,59 +751,88 @@
     <Property Name="id_responsable" Type="int" />
     <Property Name="semana_ini" Type="int" />
     <Property Name="semana_fin" Type="int" />
+    <Property Name="recursos_aprobados" Type="int" />
   </EntityType>
-  <EntityType Name="prioridad">
+  <EntityType Name="Tbl_Politica_sst">
     <Key>
-      <PropertyRef Name="id_prioridad" />
+      <PropertyRef Name="id_politica" />
     </Key>
-    <Property Name="id_prioridad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+    <Property Name="id_politica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_empresa" Type="int" />
+    <Property Name="anho" Type="int" />
+    <Property Name="ruta" Type="varchar" MaxLength="200" />
+    <Property Name="nombre_archivo" Type="varchar" MaxLength="50" />
+    <Property Name="compromiso" Type="varchar(max)" />
+    <Property Name="objetivos" Type="varchar(max)" />
+    <Property Name="alcance" Type="varchar(max)" />
   </EntityType>
-  <EntityType Name="puesto_trabajo">
+  <EntityType Name="Tbl_Pregunta">
+    <Key>
+      <PropertyRef Name="id_pregunta" />
+    </Key>
+    <Property Name="id_pregunta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cuerpo_pregunta" Type="varchar(max)" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="titulo" Type="varchar" MaxLength="100" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="estatus" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Procedimiento_comunicacion">
+    <Key>
+      <PropertyRef Name="id_procedimiento" />
+    </Key>
+    <Property Name="id_procedimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_brigada" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="cargo" Type="varchar" MaxLength="100" />
+    <Property Name="num_telefono" Type="varchar" MaxLength="50" />
+    <Property Name="llamar" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tbl_Puesto_trabajo">
     <Key>
       <PropertyRef Name="id_puesto_trabajo" />
     </Key>
     <Property Name="id_puesto_trabajo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="45" />
-    <Property Name="descripcion" Type="varchar" MaxLength="500" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="id_area" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="recurso_humano" Type="varchar(max)" />
+    <Property Name="objeto_trabajo" Type="varchar(max)" />
+    <Property Name="insumos" Type="varchar(max)" />
+    <Property Name="maquinas" Type="varchar(max)" />
+    <Property Name="herramientas" Type="varchar(max)" />
+    <Property Name="emisiones" Type="varchar(max)" />
+    <Property Name="productos" Type="varchar(max)" />
+    <Property Name="desechos" Type="varchar(max)" />
+    <Property Name="foto" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="Region">
+  <EntityType Name="Tbl_Puesto_trabajo_epp">
+    <Key>
+      <PropertyRef Name="id_puesto_trabajo_epp" />
+    </Key>
+    <Property Name="id_puesto_trabajo_epp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_puesto_trabajo" Type="int" />
+    <Property Name="id_epp" Type="int" />
+  </EntityType>
+  <EntityType Name="Tbl_Region">
     <Key>
       <PropertyRef Name="id_region" />
     </Key>
-    <Property Name="id_region" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_region" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="riesgos">
+  <EntityType Name="Tbl_Respuesta">
     <Key>
-      <PropertyRef Name="id_riesgos" />
+      <PropertyRef Name="id_respuesta" />
     </Key>
-    <Property Name="id_riesgos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="id_puesto_trabajo" Type="int" />
-    <Property Name="fecha_eva" Type="date" />
-    <Property Name="id_responsable" Type="int" />
-    <Property Name="identificacion_riesgo" Type="varchar" MaxLength="1000" />
-    <Property Name="probabilidad" Type="varchar" MaxLength="45" />
-    <Property Name="severidad" Type="varchar" MaxLength="45" />
-    <Property Name="valor_riesgo" Type="varchar" MaxLength="45" />
-    <Property Name="id_prioridad" Type="int" />
-    <Property Name="medidas_fuente" Type="varchar" MaxLength="1000" />
-    <Property Name="estatus_med_fue" Type="varchar" MaxLength="50" />
-    <Property Name="medidas_ambiente" Type="varchar" MaxLength="1000" />
-    <Property Name="estatus_med_amb" Type="varchar" MaxLength="50" />
-    <Property Name="medidas_trabajador" Type="varchar" MaxLength="1000" />
-    <Property Name="estatus_med_trab" Type="varchar" MaxLength="50" />
-    <Property Name="estatus" Type="varchar" MaxLength="50" />
-    <Property Name="id_factor_riesgo" Type="int" />
-    <Property Name="nombre_responsable" Type="varchar" MaxLength="50" />
-    <Property Name="id_sucursal" Type="int" />
-    <Property Name="consecuencia" Type="varchar" MaxLength="1000" />
-    <Property Name="matriz_riesgo" Type="int" />
-    <Property Name="porc_estatus" Type="int" />
+    <Property Name="id_respuesta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="100" />
+    <Property Name="cuerpo_respuesta" Type="varchar(max)" />
+    <Property Name="id_pregunta" Type="int" />
+    <Property Name="calificacion" Type="int" />
+    <Property Name="fecha" Type="date" />
   </EntityType>
-  <EntityType Name="riesgos_item">
+  <EntityType Name="Tbl_Riesgos_item">
     <Key>
       <PropertyRef Name="id_riesgos_item" />
     </Key>
@@ -592,34 +841,67 @@
     <Property Name="id_enfermedad_laboral" Type="int" />
     <Property Name="id_factor_riesgo" Type="int" />
   </EntityType>
-  <EntityType Name="rol">
+  <EntityType Name="Tbl_Rol">
     <Key>
       <PropertyRef Name="id_rol" />
     </Key>
-    <Property Name="id_rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_rol" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="id_empresa" Type="int" />
   </EntityType>
-  <EntityType Name="sistemas">
+  <EntityType Name="Tbl_SeccionCiiu">
+    <Key>
+      <PropertyRef Name="id_seccion" />
+    </Key>
+    <Property Name="id_seccion" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="descripcion" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'grupolicom_sgsst.dbo.Tbl_Senalizacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Tbl_Senalizacion">
+    <Key>
+      <PropertyRef Name="id_senalizacion" />
+    </Key>
+    <Property Name="id_senalizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="url_imagen" Type="varchar" MaxLength="100" />
+    <Property Name="tipo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tbl_Simulacro">
+    <Key>
+      <PropertyRef Name="id_Simulacro" />
+    </Key>
+    <Property Name="id_Simulacro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sucursal" Type="int" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="UrlArchivo" Type="varchar(max)" />
+    <Property Name="id_tabla" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Tbl_Sistema">
     <Key>
       <PropertyRef Name="id_sistemas" />
     </Key>
-    <Property Name="id_sistemas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sistemas" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="sitio_accidente">
+  <EntityType Name="Tbl_Soporte">
     <Key>
-      <PropertyRef Name="id_sitio_acc" />
+      <PropertyRef Name="id_soporte" />
     </Key>
-    <Property Name="id_sitio_acc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="id_empresa" Type="int" />
+    <Property Name="id_soporte" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="500" />
+    <Property Name="id_tabla" Type="int" />
+    <Property Name="tabla" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="sucursal">
+  <EntityType Name="Tbl_Sucursal">
     <Key>
       <PropertyRef Name="id_sucursal" />
     </Key>
     <Property Name="id_sucursal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
     <Property Name="id_municpio" Type="int" />
     <Property Name="id_empresa" Type="int" />
     <Property Name="direccion" Type="varchar" MaxLength="100" />
@@ -631,54 +913,52 @@
     <Property Name="actividad_sec" Type="int" />
     <Property Name="actividad_otra" Type="int" />
   </EntityType>
-  <EntityType Name="testigos">
+  <EntityType Name="Tbl_Tipo_documento">
     <Key>
-      <PropertyRef Name="id_testigo" />
+      <PropertyRef Name="id_tipo_documento" />
     </Key>
-    <Property Name="id_testigo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" />
-    <Property Name="apellido" Type="varchar" MaxLength="50" />
-    <Property Name="cedula" Type="varchar" MaxLength="50" />
-    <Property Name="declaracion" Type="varchar" MaxLength="1000" />
-    <Property Name="id_acc_lab" Type="int" />
+    <Property Name="id_tipo_documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sucursal" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" />
+    <Property Name="dirigida" Type="varchar" MaxLength="200" />
+    <Property Name="modalidad" Type="varchar" MaxLength="200" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="responsable" Type="varchar" MaxLength="100" />
+    <Property Name="aprobado" Type="varchar" MaxLength="200" />
+    <Property Name="archivado" Type="varchar" MaxLength="200" />
+    <Property Name="estatus" Type="varchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="tipo_accidente">
+  <EntityType Name="Tbl_Tipo_epp">
     <Key>
-      <PropertyRef Name="id_tipo_acc" />
+      <PropertyRef Name="id_tipo_epp" />
     </Key>
-    <Property Name="id_tipo_acc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_epp" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="100" />
-    <Property Name="id_empresa" Type="int" />
+    <Property Name="nombre_senal" Type="varchar" MaxLength="100" />
+    <Property Name="url_senal" Type="varchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="tipo_evento">
+  <EntityType Name="Tbl_Tipo_evento">
     <Key>
       <PropertyRef Name="id_tipo_evento" />
     </Key>
-    <Property Name="id_tipo_evento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_evento" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="500" />
   </EntityType>
-  <EntityType Name="tipo_examen">
+  <EntityType Name="Tbl_Tipo_examen">
     <Key>
       <PropertyRef Name="id_tipo_exa" />
     </Key>
-    <Property Name="id_tipo_exa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_tipo_exa" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="tipo_gestion">
-    <Key>
-      <PropertyRef Name="id_tipo_gestion" />
-    </Key>
-    <Property Name="id_tipo_gestion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="tipo_riesgo">
+  <EntityType Name="Tbl_Tipo_riesgo">
     <Key>
       <PropertyRef Name="id_tipo_riesgo" />
     </Key>
-    <Property Name="id_tipo_riesgo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="id_tipo_riesgo" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="trabajador">
+  <EntityType Name="Tbl_Trabajador">
     <Key>
       <PropertyRef Name="id_trabajador" />
     </Key>
@@ -705,8 +985,15 @@
     <Property Name="id_horario" Type="int" />
     <Property Name="id_estatus_actual" Type="int" />
     <Property Name="id_ccf" Type="int" />
+    <Property Name="fecha_ingreso" Type="date" />
+    <Property Name="tipo_vinculacion" Type="varchar" MaxLength="50" />
+    <Property Name="codigo_independiente" Type="varchar" MaxLength="50" />
+    <Property Name="tipo_horario" Type="varchar" MaxLength="50" />
+    <Property Name="id_perfil_cargo" Type="int" />
+    <Property Name="salario" Type="float" />
+    <Property Name="mano_dominante" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="trabajador_estatus">
+  <EntityType Name="Tbl_Trabajador_estatus">
     <Key>
       <PropertyRef Name="id_trabajador_estatus" />
     </Key>
@@ -717,8 +1004,12 @@
     <Property Name="motivo" Type="varchar" MaxLength="300" />
     <Property Name="id_enfermedad" Type="int" />
     <Property Name="id_sistema" Type="int" />
+    <Property Name="dias_reposo" Type="int" />
+    <Property Name="fecha_constancia" Type="date" />
+    <Property Name="url_constancia" Type="varchar" MaxLength="200" />
+    <Property Name="tpo_enfermedad" Type="varchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="trabajador_gestion">
+  <EntityType Name="Tbl_Trabajador_gestion">
     <Key>
       <PropertyRef Name="id_trabajador_gestion" />
     </Key>
@@ -727,7 +1018,7 @@
     <Property Name="asistencia" Type="varchar" MaxLength="45" />
     <Property Name="id_trabajador_gestion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <EntityType Name="usuario">
+  <EntityType Name="Tbl_Usuario">
     <Key>
       <PropertyRef Name="id_usuario" />
     </Key>
@@ -737,1600 +1028,1706 @@
     <Property Name="id_trabajador" Type="int" />
     <Property Name="id_rol" Type="int" />
   </EntityType>
-  <Association Name="FK__Trabajado__id_es__22751F6C">
-    <End Role="estatus" Type="Self.estatus" Multiplicity="0..1" />
-    <End Role="trabajador_estatus" Type="Self.trabajador_estatus" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="estatus">
-        <PropertyRef Name="id_estatus" />
-      </Principal>
-      <Dependent Role="trabajador_estatus">
-        <PropertyRef Name="id_estatus" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_agente_lesion">
-    <End Role="agente_lesion" Type="Self.agente_lesion" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="agente_lesion">
-        <PropertyRef Name="id_agente_lesion" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_agente_lesion" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_area">
-    <End Role="area" Type="Self.area" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="area">
-        <PropertyRef Name="id_area" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_area" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_causa_accidente">
-    <End Role="causa_accidente" Type="Self.causa_accidente" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="causa_accidente">
-        <PropertyRef Name="id_causa_acc" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_causa_accidente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_forma_accidente">
-    <End Role="forma_accidente" Type="Self.forma_accidente" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="forma_accidente">
-        <PropertyRef Name="id_forma_acc" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_forma_acc" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_ips">
-    <End Role="ips" Type="Self.ips" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ips">
-        <PropertyRef Name="id_ips" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_ips" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_parte_cuerpo">
-    <End Role="parte_cuerpo" Type="Self.parte_cuerpo" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="parte_cuerpo">
-        <PropertyRef Name="id_parte_cuerpo" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_parte_cuerpo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_puesto_trabajo">
-    <End Role="puesto_trabajo" Type="Self.puesto_trabajo" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="puesto_trabajo">
-        <PropertyRef Name="id_puesto_trabajo" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_puesto_trabajo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_sitio_accidente">
-    <End Role="sitio_accidente" Type="Self.sitio_accidente" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="sitio_accidente">
-        <PropertyRef Name="id_sitio_acc" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_sitio_acc" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_tipo_accidente">
-    <End Role="tipo_accidente" Type="Self.tipo_accidente" Multiplicity="0..1" />
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tipo_accidente">
-        <PropertyRef Name="id_tipo_acc" />
-      </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_tipo_acc" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_acc_inc_lab_trabajador">
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1">
+  <Association Name="FK__epp__id_tipo_epp__6D9742D9">
+    <End Role="Tbl_Tipo_epp" Type="Self.Tbl_Tipo_epp" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="*" />
+    <End Role="Tbl_Epp" Type="Self.Tbl_Epp" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trabajador">
-        <PropertyRef Name="id_trabajador" />
+      <Principal Role="Tbl_Tipo_epp">
+        <PropertyRef Name="id_tipo_epp" />
       </Principal>
-      <Dependent Role="acc_inc_lab">
-        <PropertyRef Name="id_trabajador" />
+      <Dependent Role="Tbl_Epp">
+        <PropertyRef Name="id_tipo_epp" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_agente_lesion_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+  <Association Name="FK__puesto_tr__id_ep__6ABAD62E">
+    <End Role="Tbl_Epp" Type="Self.Tbl_Epp" Multiplicity="0..1" />
+    <End Role="Tbl_Puesto_trabajo_epp" Type="Self.Tbl_Puesto_trabajo_epp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Epp">
+        <PropertyRef Name="id_epp" />
+      </Principal>
+      <Dependent Role="Tbl_Puesto_trabajo_epp">
+        <PropertyRef Name="id_epp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__puesto_tr__id_pu__69C6B1F5">
+    <End Role="Tbl_Puesto_trabajo" Type="Self.Tbl_Puesto_trabajo" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="agente_lesion" Type="Self.agente_lesion" Multiplicity="*" />
+    <End Role="Tbl_Puesto_trabajo_epp" Type="Self.Tbl_Puesto_trabajo_epp" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
-        <PropertyRef Name="id_empresa" />
+      <Principal Role="Tbl_Puesto_trabajo">
+        <PropertyRef Name="id_puesto_trabajo" />
       </Principal>
-      <Dependent Role="agente_lesion">
-        <PropertyRef Name="id_empresa" />
+      <Dependent Role="Tbl_Puesto_trabajo_epp">
+        <PropertyRef Name="id_puesto_trabajo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_alarmas_categorias">
-    <End Role="categorias" Type="Self.categorias" Multiplicity="0..1" />
-    <End Role="alarmas" Type="Self.alarmas" Multiplicity="*" />
+    <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="0..1" />
+    <End Role="Tbl_Alarma" Type="Self.Tbl_Alarma" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="categorias">
+      <Principal Role="Tbl_Categoria">
         <PropertyRef Name="id_categorias" />
       </Principal>
-      <Dependent Role="alarmas">
+      <Dependent Role="Tbl_Alarma">
         <PropertyRef Name="id_categorias" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_alarmas_prioridad">
-    <End Role="prioridad" Type="Self.prioridad" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="alarmas" Type="Self.alarmas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="prioridad">
-        <PropertyRef Name="id_prioridad" />
-      </Principal>
-      <Dependent Role="alarmas">
-        <PropertyRef Name="id_prioridad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_alarmas_usuario">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1">
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="alarmas" Type="Self.alarmas" Multiplicity="*" />
+    <End Role="Tbl_Alarma" Type="Self.Tbl_Alarma" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="usuario">
+      <Principal Role="Tbl_Usuario">
         <PropertyRef Name="id_usuario" />
       </Principal>
-      <Dependent Role="alarmas">
+      <Dependent Role="Tbl_Alarma">
         <PropertyRef Name="id_usuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_anexos_obligacion1">
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="anexos" Type="Self.anexos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="obligacion">
-        <PropertyRef Name="id_obligacion" />
-      </Principal>
-      <Dependent Role="anexos">
-        <PropertyRef Name="id_obligacion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_area_sucursal">
-    <End Role="sucursal" Type="Self.sucursal" Multiplicity="1">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="area" Type="Self.area" Multiplicity="*" />
+    <End Role="Tbl_Area" Type="Self.Tbl_Area" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="sucursal">
+      <Principal Role="Tbl_Sucursal">
         <PropertyRef Name="id_sucursal" />
       </Principal>
-      <Dependent Role="area">
+      <Dependent Role="Tbl_Area">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_at_it_el_pa_area">
+    <End Role="Tbl_Area" Type="Self.Tbl_Area" Multiplicity="0..1" />
+    <End Role="Tbl_At_it_el_pa" Type="Self.Tbl_At_it_el_pa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Area">
+        <PropertyRef Name="id_area" />
+      </Principal>
+      <Dependent Role="Tbl_At_it_el_pa">
+        <PropertyRef Name="id_area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_at_it_el_pa_puesto_trabajo">
+    <End Role="Tbl_Puesto_trabajo" Type="Self.Tbl_Puesto_trabajo" Multiplicity="0..1" />
+    <End Role="Tbl_At_it_el_pa" Type="Self.Tbl_At_it_el_pa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Puesto_trabajo">
+        <PropertyRef Name="id_puesto_trabajo" />
+      </Principal>
+      <Dependent Role="Tbl_At_it_el_pa">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_at_it_el_pa_trabajador">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_At_it_el_pa" Type="Self.Tbl_At_it_el_pa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Trabajador">
+        <PropertyRef Name="id_trabajador" />
+      </Principal>
+      <Dependent Role="Tbl_At_it_el_pa">
+        <PropertyRef Name="id_trabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_brigada_emergencia_sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Brigada_emergencia" Type="Self.Tbl_Brigada_emergencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_Brigada_emergencia">
         <PropertyRef Name="id_sucursal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_categorias_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="categorias" Type="Self.categorias" Multiplicity="*" />
+    <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="categorias">
-        <PropertyRef Name="id_empresa" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_causa_accidente_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="causa_accidente" Type="Self.causa_accidente" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="empresa">
-        <PropertyRef Name="id_empresa" />
-      </Principal>
-      <Dependent Role="causa_accidente">
+      <Dependent Role="Tbl_Categoria">
         <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_causas_basicas_acc_inc_lab">
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="causas_basicas" Type="Self.causas_basicas" Multiplicity="*" />
+  <Association Name="FK_claseCiiu_grupoCiiu">
+    <End Role="Tbl_GrupoCiiu" Type="Self.Tbl_GrupoCiiu" Multiplicity="0..1" />
+    <End Role="Tbl_ClaseCiiu" Type="Self.Tbl_ClaseCiiu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="acc_inc_lab">
-        <PropertyRef Name="id_acc_lab" />
+      <Principal Role="Tbl_GrupoCiiu">
+        <PropertyRef Name="id_grupo" />
       </Principal>
-      <Dependent Role="causas_basicas">
-        <PropertyRef Name="id_acc_lab" />
+      <Dependent Role="Tbl_ClaseCiiu">
+        <PropertyRef Name="id_grupo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_causas_inmediatas_acc_inc_lab">
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="1">
+  <Association Name="FK_consultas_at_it_el_pa">
+    <End Role="Tbl_At_it_el_pa" Type="Self.Tbl_At_it_el_pa" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="causas_inmediatas" Type="Self.causas_inmediatas" Multiplicity="*" />
+    <End Role="Tbl_Consulta" Type="Self.Tbl_Consulta" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="acc_inc_lab">
-        <PropertyRef Name="id_acc_lab" />
+      <Principal Role="Tbl_At_it_el_pa">
+        <PropertyRef Name="id_at_it_el_pa" />
       </Principal>
-      <Dependent Role="causas_inmediatas">
-        <PropertyRef Name="id_acc_lab" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_compromisos_acc_inc_lab">
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="compromisos" Type="Self.compromisos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="acc_inc_lab">
-        <PropertyRef Name="id_acc_lab" />
-      </Principal>
-      <Dependent Role="compromisos">
-        <PropertyRef Name="id_acc_lab" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_consultas_acc_inc_lab">
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="consultas" Type="Self.consultas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="acc_inc_lab">
-        <PropertyRef Name="id_acc_lab" />
-      </Principal>
-      <Dependent Role="consultas">
+      <Dependent Role="Tbl_Consulta">
         <PropertyRef Name="id_acc_lab" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_departamento_Region">
-    <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
-    <End Role="departamento" Type="Self.departamento" Multiplicity="*" />
+    <End Role="Tbl_Region" Type="Self.Tbl_Region" Multiplicity="0..1" />
+    <End Role="Tbl_Departamento" Type="Self.Tbl_Departamento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Region">
+      <Principal Role="Tbl_Region">
         <PropertyRef Name="id_region" />
       </Principal>
-      <Dependent Role="departamento">
+      <Dependent Role="Tbl_Departamento">
         <PropertyRef Name="id_region" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_desc_socio_afp">
-    <End Role="afp" Type="Self.afp" Multiplicity="0..1">
+    <End Role="Tbl_Afp" Type="Self.Tbl_Afp" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="desc_socio" Type="Self.desc_socio" Multiplicity="*" />
+    <End Role="Tbl_Desc_socio" Type="Self.Tbl_Desc_socio" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="afp">
+      <Principal Role="Tbl_Afp">
         <PropertyRef Name="id_afp" />
       </Principal>
-      <Dependent Role="desc_socio">
+      <Dependent Role="Tbl_Desc_socio">
         <PropertyRef Name="id_afp" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_desc_socio_eps1">
-    <End Role="eps" Type="Self.eps" Multiplicity="0..1">
+    <End Role="Tbl_Eps" Type="Self.Tbl_Eps" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="desc_socio" Type="Self.desc_socio" Multiplicity="*" />
+    <End Role="Tbl_Desc_socio" Type="Self.Tbl_Desc_socio" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="eps">
+      <Principal Role="Tbl_Eps">
         <PropertyRef Name="id_eps" />
       </Principal>
-      <Dependent Role="desc_socio">
+      <Dependent Role="Tbl_Desc_socio">
         <PropertyRef Name="id_eps" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_desc_socio_trabajador">
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="desc_socio" Type="Self.desc_socio" Multiplicity="*" />
+    <End Role="Tbl_Desc_socio" Type="Self.Tbl_Desc_socio" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trabajador">
+      <Principal Role="Tbl_Trabajador">
         <PropertyRef Name="id_trabajador" />
       </Principal>
-      <Dependent Role="desc_socio">
+      <Dependent Role="Tbl_Desc_socio">
         <PropertyRef Name="id_trabajador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_division_codigo_ciiu">
-    <End Role="codigo_ciiu" Type="Self.codigo_ciiu" Multiplicity="0..1" />
-    <End Role="division" Type="Self.division" Multiplicity="*" />
+  <Association Name="FK_divisionCiiu_seccionCiiu">
+    <End Role="Tbl_SeccionCiiu" Type="Self.Tbl_SeccionCiiu" Multiplicity="0..1" />
+    <End Role="Tbl_DivisionCiiu" Type="Self.Tbl_DivisionCiiu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="codigo_ciiu">
-        <PropertyRef Name="id_codigo_ciiu" />
+      <Principal Role="Tbl_SeccionCiiu">
+        <PropertyRef Name="id_seccion" />
       </Principal>
-      <Dependent Role="division">
-        <PropertyRef Name="id_codigo_ciiu" />
+      <Dependent Role="Tbl_DivisionCiiu">
+        <PropertyRef Name="id_seccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documentos_sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Documento" Type="Self.Tbl_Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_Documento">
+        <PropertyRef Name="id_tabla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_documentos_trabajador">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1" />
+    <End Role="Tbl_Documento" Type="Self.Tbl_Documento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Trabajador">
+        <PropertyRef Name="id_trabajador" />
+      </Principal>
+      <Dependent Role="Tbl_Documento">
+        <PropertyRef Name="id_tabla" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_empleos_anteriores_desc_socio">
-    <End Role="desc_socio" Type="Self.desc_socio" Multiplicity="0..1">
+    <End Role="Tbl_Desc_socio" Type="Self.Tbl_Desc_socio" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="empleos_anteriores" Type="Self.empleos_anteriores" Multiplicity="*" />
+    <End Role="Tbl_Empleo_anterior" Type="Self.Tbl_Empleo_anterior" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="desc_socio">
+      <Principal Role="Tbl_Desc_socio">
         <PropertyRef Name="id_desc_socio" />
       </Principal>
-      <Dependent Role="empleos_anteriores">
+      <Dependent Role="Tbl_Empleo_anterior">
         <PropertyRef Name="id_desc_socio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_empresa_arp">
-    <End Role="arp" Type="Self.arp" Multiplicity="0..1" />
-    <End Role="empresa" Type="Self.empresa" Multiplicity="*" />
+  <Association Name="FK_empresa_arl">
+    <End Role="Tbl_Arl" Type="Self.Tbl_Arl" Multiplicity="0..1" />
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="arp">
-        <PropertyRef Name="id_arp" />
+      <Principal Role="Tbl_Arl">
+        <PropertyRef Name="id_arl" />
       </Principal>
-      <Dependent Role="empresa">
-        <PropertyRef Name="id_arp" />
+      <Dependent Role="Tbl_Empresa">
+        <PropertyRef Name="id_arl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_empresa_itemdivision_claseCiiu">
+    <End Role="Tbl_ClaseCiiu" Type="Self.Tbl_ClaseCiiu" Multiplicity="0..1" />
+    <End Role="Tbl_Empresa_itemdivision" Type="Self.Tbl_Empresa_itemdivision" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_ClaseCiiu">
+        <PropertyRef Name="id_clase_ciiu" />
+      </Principal>
+      <Dependent Role="Tbl_Empresa_itemdivision">
+        <PropertyRef Name="id_clase_ciiu" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_empresa_itemdivision_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="empresa_itemdivision" Type="Self.empresa_itemdivision" Multiplicity="*" />
+    <End Role="Tbl_Empresa_itemdivision" Type="Self.Tbl_Empresa_itemdivision" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="empresa_itemdivision">
+      <Dependent Role="Tbl_Empresa_itemdivision">
         <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_empresa_itemdivision_items_division">
-    <End Role="items_division" Type="Self.items_division" Multiplicity="0..1" />
-    <End Role="empresa_itemdivision" Type="Self.empresa_itemdivision" Multiplicity="*" />
+  <Association Name="FK_encuesta_politica_trabajador">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Encuesta_politica" Type="Self.Tbl_Encuesta_politica" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="items_division">
-        <PropertyRef Name="id_items_division" />
+      <Principal Role="Tbl_Trabajador">
+        <PropertyRef Name="id_trabajador" />
       </Principal>
-      <Dependent Role="empresa_itemdivision">
-        <PropertyRef Name="id_items_division" />
+      <Dependent Role="Tbl_Encuesta_politica">
+        <PropertyRef Name="id_trabajador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_epp_empresa">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Epp" Type="Self.Tbl_Epp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="Tbl_Epp">
+        <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_estatus_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="estatus" Type="Self.estatus" Multiplicity="*" />
+    <End Role="Tbl_Estatus" Type="Self.Tbl_Estatus" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="estatus">
+      <Dependent Role="Tbl_Estatus">
         <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_estatus_obligacion_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+  <Association Name="FK_evaluacion_riesgo_identificacion_puesto">
+    <End Role="Tbl_Identificacion_puesto" Type="Self.Tbl_Identificacion_puesto" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="estatus_obligacion" Type="Self.estatus_obligacion" Multiplicity="*" />
+    <End Role="Tbl_Evaluacion_riesgo" Type="Self.Tbl_Evaluacion_riesgo" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
-        <PropertyRef Name="id_empresa" />
+      <Principal Role="Tbl_Identificacion_puesto">
+        <PropertyRef Name="id_ide_puesto" />
       </Principal>
-      <Dependent Role="estatus_obligacion">
-        <PropertyRef Name="id_empresa" />
+      <Dependent Role="Tbl_Evaluacion_riesgo">
+        <PropertyRef Name="id_ide_puesto" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Eventos_tipo_evento">
-    <End Role="tipo_evento" Type="Self.tipo_evento" Multiplicity="0..1" />
-    <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
+    <End Role="Tbl_Tipo_evento" Type="Self.Tbl_Tipo_evento" Multiplicity="0..1" />
+    <End Role="Tbl_Evento" Type="Self.Tbl_Evento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tipo_evento">
+      <Principal Role="Tbl_Tipo_evento">
         <PropertyRef Name="id_tipo_evento" />
       </Principal>
-      <Dependent Role="Eventos">
+      <Dependent Role="Tbl_Evento">
         <PropertyRef Name="id_tipo_evento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Eventos_usuario">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1">
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
+    <End Role="Tbl_Evento" Type="Self.Tbl_Evento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="usuario">
+      <Principal Role="Tbl_Usuario">
         <PropertyRef Name="id_usuario" />
       </Principal>
-      <Dependent Role="Eventos">
+      <Dependent Role="Tbl_Evento">
         <PropertyRef Name="id_usuario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_factor_riesgo_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+  <Association Name="FK_extintor_area">
+    <End Role="Tbl_Area" Type="Self.Tbl_Area" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="factor_riesgo" Type="Self.factor_riesgo" Multiplicity="*" />
+    <End Role="Tbl_Extintor" Type="Self.Tbl_Extintor" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
-        <PropertyRef Name="id_empresa" />
+      <Principal Role="Tbl_Area">
+        <PropertyRef Name="id_area" />
       </Principal>
-      <Dependent Role="factor_riesgo">
-        <PropertyRef Name="id_empresa" />
+      <Dependent Role="Tbl_Extintor">
+        <PropertyRef Name="id_area" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_factor_riesgo_tipo_riesgo">
-    <End Role="matrizRiesgo_tipoRiesgo" Type="Self.matrizRiesgo_tipoRiesgo" Multiplicity="0..1" />
-    <End Role="matrizRiesgo_factorRiesgo" Type="Self.matrizRiesgo_factorRiesgo" Multiplicity="*" />
+  <Association Name="FK_factor_identificacion_factor_riesgo">
+    <End Role="Tbl_Factor_riesgo" Type="Self.Tbl_Factor_riesgo" Multiplicity="0..1" />
+    <End Role="Tbl_Factor_identificacion" Type="Self.Tbl_Factor_identificacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="matrizRiesgo_tipoRiesgo">
-        <PropertyRef Name="id_tipo_riesgo" />
+      <Principal Role="Tbl_Factor_riesgo">
+        <PropertyRef Name="id_factor_riesgo" />
       </Principal>
-      <Dependent Role="matrizRiesgo_factorRiesgo">
-        <PropertyRef Name="id_tipo_riesgo" />
+      <Dependent Role="Tbl_Factor_identificacion">
+        <PropertyRef Name="id_factor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_factor_identificacion_identificacion_peligro">
+    <End Role="Tbl_Identificacion_peligro" Type="Self.Tbl_Identificacion_peligro" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Factor_identificacion" Type="Self.Tbl_Factor_identificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Identificacion_peligro">
+        <PropertyRef Name="id_identificacion_peligro" />
+      </Principal>
+      <Dependent Role="Tbl_Factor_identificacion">
+        <PropertyRef Name="id_identificacion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_factor_riesgo_tipo_riesgo1">
-    <End Role="tipo_riesgo" Type="Self.tipo_riesgo" Multiplicity="0..1" />
-    <End Role="factor_riesgo" Type="Self.factor_riesgo" Multiplicity="*" />
+    <End Role="Tbl_Tipo_riesgo" Type="Self.Tbl_Tipo_riesgo" Multiplicity="0..1" />
+    <End Role="Tbl_Factor_riesgo" Type="Self.Tbl_Factor_riesgo" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tipo_riesgo">
+      <Principal Role="Tbl_Tipo_riesgo">
         <PropertyRef Name="id_tipo_riesgo" />
       </Principal>
-      <Dependent Role="factor_riesgo">
+      <Dependent Role="Tbl_Factor_riesgo">
         <PropertyRef Name="id_tipo_riesgo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_forma_accidente_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="forma_accidente" Type="Self.forma_accidente" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="empresa">
-        <PropertyRef Name="id_empresa" />
-      </Principal>
-      <Dependent Role="forma_accidente">
-        <PropertyRef Name="id_empresa" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_fotos_accidente_acc_inc_lab">
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="fotos_accidente" Type="Self.fotos_accidente" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="acc_inc_lab">
-        <PropertyRef Name="id_acc_lab" />
-      </Principal>
-      <Dependent Role="fotos_accidente">
-        <PropertyRef Name="id_acc_lab" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_gestion_laboral_tipo_gestion">
-    <End Role="tipo_gestion" Type="Self.tipo_gestion" Multiplicity="0..1" />
-    <End Role="gestion_laboral" Type="Self.gestion_laboral" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tipo_gestion">
-        <PropertyRef Name="id_tipo_gestion" />
-      </Principal>
-      <Dependent Role="gestion_laboral">
-        <PropertyRef Name="id_tipo_gestion" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_gestion_laboral_usuario">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1">
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="gestion_laboral" Type="Self.gestion_laboral" Multiplicity="*" />
+    <End Role="Tbl_Gestion_laboral" Type="Self.Tbl_Gestion_laboral" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="usuario">
+      <Principal Role="Tbl_Usuario">
         <PropertyRef Name="id_usuario" />
       </Principal>
-      <Dependent Role="gestion_laboral">
+      <Dependent Role="Tbl_Gestion_laboral">
         <PropertyRef Name="id_usuario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_grupoCiiu_divisionCiiu">
+    <End Role="Tbl_DivisionCiiu" Type="Self.Tbl_DivisionCiiu" Multiplicity="0..1" />
+    <End Role="Tbl_GrupoCiiu" Type="Self.Tbl_GrupoCiiu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_DivisionCiiu">
+        <PropertyRef Name="id_division" />
+      </Principal>
+      <Dependent Role="Tbl_GrupoCiiu">
+        <PropertyRef Name="id_division" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_historia_clinica_ocupacional_Tipo_Examen">
-    <End Role="tipo_examen" Type="Self.tipo_examen" Multiplicity="0..1">
+    <End Role="Tbl_Tipo_examen" Type="Self.Tbl_Tipo_examen" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="historia_clinica_ocupacional" Type="Self.historia_clinica_ocupacional" Multiplicity="*" />
+    <End Role="Tbl_Historia_clinica_ocupacional" Type="Self.Tbl_Historia_clinica_ocupacional" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tipo_examen">
+      <Principal Role="Tbl_Tipo_examen">
         <PropertyRef Name="id_tipo_exa" />
       </Principal>
-      <Dependent Role="historia_clinica_ocupacional">
+      <Dependent Role="Tbl_Historia_clinica_ocupacional">
         <PropertyRef Name="id_tipo_exa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_historia_clinica_ocupacional_trabajador">
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="historia_clinica_ocupacional" Type="Self.historia_clinica_ocupacional" Multiplicity="*" />
+    <End Role="Tbl_Historia_clinica_ocupacional" Type="Self.Tbl_Historia_clinica_ocupacional" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trabajador">
+      <Principal Role="Tbl_Trabajador">
         <PropertyRef Name="id_trabajador" />
       </Principal>
-      <Dependent Role="historia_clinica_ocupacional">
+      <Dependent Role="Tbl_Historia_clinica_ocupacional">
         <PropertyRef Name="id_trabajador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_horario_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="horario" Type="Self.horario" Multiplicity="*" />
+    <End Role="Tbl_Horario" Type="Self.Tbl_Horario" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="horario">
+      <Dependent Role="Tbl_Horario">
         <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_items_division_division">
-    <End Role="division" Type="Self.division" Multiplicity="0..1" />
-    <End Role="items_division" Type="Self.items_division" Multiplicity="*" />
+  <Association Name="FK_identificacion_puesto_identificacion_peligro">
+    <End Role="Tbl_Identificacion_peligro" Type="Self.Tbl_Identificacion_peligro" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Identificacion_puesto" Type="Self.Tbl_Identificacion_puesto" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="division">
-        <PropertyRef Name="id_division" />
+      <Principal Role="Tbl_Identificacion_peligro">
+        <PropertyRef Name="id_identificacion_peligro" />
       </Principal>
-      <Dependent Role="items_division">
-        <PropertyRef Name="id_division" />
+      <Dependent Role="Tbl_Identificacion_puesto">
+        <PropertyRef Name="id_identificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_identificacion_puesto_puesto_trabajo">
+    <End Role="Tbl_Puesto_trabajo" Type="Self.Tbl_Puesto_trabajo" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Identificacion_puesto" Type="Self.Tbl_Identificacion_puesto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Puesto_trabajo">
+        <PropertyRef Name="id_puesto_trabajo" />
+      </Principal>
+      <Dependent Role="Tbl_Identificacion_puesto">
+        <PropertyRef Name="id_puesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_investigacion_ac_in_at_it_el_pa">
+    <End Role="Tbl_At_it_el_pa" Type="Self.Tbl_At_it_el_pa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Investigacion_ac_in" Type="Self.Tbl_Investigacion_ac_in" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_At_it_el_pa">
+        <PropertyRef Name="id_at_it_el_pa" />
+      </Principal>
+      <Dependent Role="Tbl_Investigacion_ac_in">
+        <PropertyRef Name="id_at_it_el_pa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_lista_actividades_sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Lista_actividad" Type="Self.Tbl_Lista_actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_Lista_actividad">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_matriz_responsabilidad_sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Matriz_responsabilidad" Type="Self.Tbl_Matriz_responsabilidad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_Matriz_responsabilidad">
+        <PropertyRef Name="id_sucursal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_medidas_normas">
-    <End Role="normas" Type="Self.normas" Multiplicity="1">
+    <End Role="Tbl_Norma" Type="Self.Tbl_Norma" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="medidas" Type="Self.medidas" Multiplicity="*" />
+    <End Role="Tbl_Medida" Type="Self.Tbl_Medida" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="normas">
+      <Principal Role="Tbl_Norma">
         <PropertyRef Name="id_normas" />
       </Principal>
-      <Dependent Role="medidas">
+      <Dependent Role="Tbl_Medida">
         <PropertyRef Name="id_normas" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_medidas_sucursal_normas_sucursal">
-    <End Role="normas_sucursal" Type="Self.normas_sucursal" Multiplicity="0..1">
+    <End Role="Tbl_Norma_sucursal" Type="Self.Tbl_Norma_sucursal" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="medidas_sucursal" Type="Self.medidas_sucursal" Multiplicity="*" />
+    <End Role="Tbl_Medida_sucursal" Type="Self.Tbl_Medida_sucursal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="normas_sucursal">
+      <Principal Role="Tbl_Norma_sucursal">
         <PropertyRef Name="id_normas_sucursal" />
       </Principal>
-      <Dependent Role="medidas_sucursal">
+      <Dependent Role="Tbl_Medida_sucursal">
         <PropertyRef Name="id_normas_sucursal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_municipio_departamento1">
-    <End Role="departamento" Type="Self.departamento" Multiplicity="1" />
-    <End Role="municipio" Type="Self.municipio" Multiplicity="*" />
+    <End Role="Tbl_Departamento" Type="Self.Tbl_Departamento" Multiplicity="1" />
+    <End Role="Tbl_Municipio" Type="Self.Tbl_Municipio" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="departamento">
+      <Principal Role="Tbl_Departamento">
         <PropertyRef Name="id_departamento" />
       </Principal>
-      <Dependent Role="municipio">
+      <Dependent Role="Tbl_Municipio">
         <PropertyRef Name="id_departamento" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_normas_items_division">
-    <End Role="items_division" Type="Self.items_division" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="normas" Type="Self.normas" Multiplicity="*" />
+  <Association Name="FK_normas_claseciiu_claseCiiu">
+    <End Role="Tbl_ClaseCiiu" Type="Self.Tbl_ClaseCiiu" Multiplicity="0..1" />
+    <End Role="Tbl_Norma_claseciiu" Type="Self.Tbl_Norma_claseciiu" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="items_division">
-        <PropertyRef Name="id_items_division" />
+      <Principal Role="Tbl_ClaseCiiu">
+        <PropertyRef Name="id_clase_ciiu" />
       </Principal>
-      <Dependent Role="normas">
-        <PropertyRef Name="id_item" />
+      <Dependent Role="Tbl_Norma_claseciiu">
+        <PropertyRef Name="id_clase_ciiu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_normas_claseciiu_normas">
+    <End Role="Tbl_Norma" Type="Self.Tbl_Norma" Multiplicity="0..1" />
+    <End Role="Tbl_Norma_claseciiu" Type="Self.Tbl_Norma_claseciiu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Norma">
+        <PropertyRef Name="id_normas" />
+      </Principal>
+      <Dependent Role="Tbl_Norma_claseciiu">
+        <PropertyRef Name="id_normas" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_normas_sucursal_normas1">
-    <End Role="normas" Type="Self.normas" Multiplicity="0..1">
+    <End Role="Tbl_Norma" Type="Self.Tbl_Norma" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="normas_sucursal" Type="Self.normas_sucursal" Multiplicity="*" />
+    <End Role="Tbl_Norma_sucursal" Type="Self.Tbl_Norma_sucursal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="normas">
+      <Principal Role="Tbl_Norma">
         <PropertyRef Name="id_normas" />
       </Principal>
-      <Dependent Role="normas_sucursal">
+      <Dependent Role="Tbl_Norma_sucursal">
         <PropertyRef Name="id_normas" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_normas_sucursal_sucursal1">
-    <End Role="sucursal" Type="Self.sucursal" Multiplicity="0..1">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="normas_sucursal" Type="Self.normas_sucursal" Multiplicity="*" />
+    <End Role="Tbl_Norma_sucursal" Type="Self.Tbl_Norma_sucursal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="sucursal">
+      <Principal Role="Tbl_Sucursal">
         <PropertyRef Name="id_sucursal" />
       </Principal>
-      <Dependent Role="normas_sucursal">
+      <Dependent Role="Tbl_Norma_sucursal">
         <PropertyRef Name="id_sucursal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_obligacion_categorias">
-    <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
+    <End Role="Tbl_Categoria" Type="Self.Tbl_Categoria" Multiplicity="1" />
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="categorias">
+      <Principal Role="Tbl_Categoria">
         <PropertyRef Name="id_categorias" />
       </Principal>
-      <Dependent Role="obligacion">
+      <Dependent Role="Tbl_Obligacion">
         <PropertyRef Name="id_categorias" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_obligacion_estatus_obligacion">
-    <End Role="estatus_obligacion" Type="Self.estatus_obligacion" Multiplicity="1" />
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="estatus_obligacion">
-        <PropertyRef Name="id_estatus_obl" />
-      </Principal>
-      <Dependent Role="obligacion">
-        <PropertyRef Name="id_estatus_obl" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_obligacion_frecuencia_control">
-    <End Role="frecuencia_control" Type="Self.frecuencia_control" Multiplicity="1">
+    <End Role="Tbl_Frecuencia_control" Type="Self.Tbl_Frecuencia_control" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="frecuencia_control">
+      <Principal Role="Tbl_Frecuencia_control">
         <PropertyRef Name="id_frec_con" />
       </Principal>
-      <Dependent Role="obligacion">
+      <Dependent Role="Tbl_Obligacion">
         <PropertyRef Name="id_frecuencia_con" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_obligacion_medidas_sucursal">
-    <End Role="medidas_sucursal" Type="Self.medidas_sucursal" Multiplicity="0..1" />
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
+  <Association Name="FK_obligacion_identificacion_peligro1">
+    <End Role="Tbl_Identificacion_peligro" Type="Self.Tbl_Identificacion_peligro" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="medidas_sucursal">
+      <Principal Role="Tbl_Identificacion_peligro">
+        <PropertyRef Name="id_identificacion_peligro" />
+      </Principal>
+      <Dependent Role="Tbl_Obligacion">
+        <PropertyRef Name="id_identificacion_peligro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_obligacion_medidas_sucursal">
+    <End Role="Tbl_Medida_sucursal" Type="Self.Tbl_Medida_sucursal" Multiplicity="0..1" />
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Medida_sucursal">
         <PropertyRef Name="id_medidas_sucursal" />
       </Principal>
-      <Dependent Role="obligacion">
+      <Dependent Role="Tbl_Obligacion">
         <PropertyRef Name="id_medida_sucursal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_obligacion_plan_trabajo">
-    <End Role="plan_trabajo" Type="Self.plan_trabajo" Multiplicity="0..1" />
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
+    <End Role="Tbl_Plan_trabajo" Type="Self.Tbl_Plan_trabajo" Multiplicity="0..1" />
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="plan_trabajo">
+      <Principal Role="Tbl_Plan_trabajo">
         <PropertyRef Name="id_plan_trabajo" />
       </Principal>
-      <Dependent Role="obligacion">
+      <Dependent Role="Tbl_Obligacion">
         <PropertyRef Name="id_actividad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_obligacion_prioridad">
-    <End Role="prioridad" Type="Self.prioridad" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="prioridad">
-        <PropertyRef Name="id_prioridad" />
-      </Principal>
-      <Dependent Role="obligacion">
-        <PropertyRef Name="id_prioridad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_obligacion_riesgos">
-    <End Role="riesgos" Type="Self.riesgos" Multiplicity="0..1" />
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="riesgos">
-        <PropertyRef Name="id_riesgos" />
-      </Principal>
-      <Dependent Role="obligacion">
-        <PropertyRef Name="id_riesgo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_obligacion_usuario">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1">
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="obligacion" Type="Self.obligacion" Multiplicity="*" />
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="usuario">
+      <Principal Role="Tbl_Usuario">
         <PropertyRef Name="id_usuario" />
       </Principal>
-      <Dependent Role="obligacion">
+      <Dependent Role="Tbl_Obligacion">
         <PropertyRef Name="id_responsable" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_parte_cuerpo_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+  <Association Name="FK_perfil_cargo_cno">
+    <End Role="Tbl_Cno" Type="Self.Tbl_Cno" Multiplicity="0..1" />
+    <End Role="Tbl_Perfil_cargo" Type="Self.Tbl_Perfil_cargo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Cno">
+        <PropertyRef Name="id_cno" />
+      </Principal>
+      <Dependent Role="Tbl_Perfil_cargo">
+        <PropertyRef Name="id_cno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_perfil_cargo_empresa">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="parte_cuerpo" Type="Self.parte_cuerpo" Multiplicity="*" />
+    <End Role="Tbl_Perfil_cargo" Type="Self.Tbl_Perfil_cargo" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="parte_cuerpo">
+      <Dependent Role="Tbl_Perfil_cargo">
         <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_plan_mapa_sucursal">
-    <End Role="sucursal" Type="Self.sucursal" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="plan_mapa" Type="Self.plan_mapa" Multiplicity="*" />
+  <Association Name="FK_perfil_medico_perfil_cargo">
+    <End Role="Tbl_Perfil_cargo" Type="Self.Tbl_Perfil_cargo" Multiplicity="0..1" />
+    <End Role="Tbl_Perfil_medico" Type="Self.Tbl_Perfil_medico" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="sucursal">
-        <PropertyRef Name="id_sucursal" />
+      <Principal Role="Tbl_Perfil_cargo">
+        <PropertyRef Name="id_perfil_cargo" />
       </Principal>
-      <Dependent Role="plan_mapa">
-        <PropertyRef Name="id_sucursal" />
+      <Dependent Role="Tbl_Perfil_medico">
+        <PropertyRef Name="id_cargo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_plan_trabajo_usuario">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1">
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="plan_trabajo" Type="Self.plan_trabajo" Multiplicity="*" />
+    <End Role="Tbl_Plan_trabajo" Type="Self.Tbl_Plan_trabajo" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="usuario">
+      <Principal Role="Tbl_Usuario">
         <PropertyRef Name="id_usuario" />
       </Principal>
-      <Dependent Role="plan_trabajo">
+      <Dependent Role="Tbl_Plan_trabajo">
         <PropertyRef Name="id_responsable" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_puesto_trabajo_area">
-    <End Role="area" Type="Self.area" Multiplicity="1">
+  <Association Name="FK_planes_sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="puesto_trabajo" Type="Self.puesto_trabajo" Multiplicity="*" />
+    <End Role="Tbl_Plan" Type="Self.Tbl_Plan" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="area">
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_Plan">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_politica_sst_empresa1">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Politica_sst" Type="Self.Tbl_Politica_sst" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Empresa">
+        <PropertyRef Name="id_empresa" />
+      </Principal>
+      <Dependent Role="Tbl_Politica_sst">
+        <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pregunta_usuario">
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Pregunta" Type="Self.Tbl_Pregunta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Tbl_Pregunta">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_procedimiento_comunicacion_brigada_emergencia">
+    <End Role="Tbl_Brigada_emergencia" Type="Self.Tbl_Brigada_emergencia" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Procedimiento_comunicacion" Type="Self.Tbl_Procedimiento_comunicacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Brigada_emergencia">
+        <PropertyRef Name="id_brigada" />
+      </Principal>
+      <Dependent Role="Tbl_Procedimiento_comunicacion">
+        <PropertyRef Name="id_brigada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_puesto_trabajo_area">
+    <End Role="Tbl_Area" Type="Self.Tbl_Area" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Puesto_trabajo" Type="Self.Tbl_Puesto_trabajo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Area">
         <PropertyRef Name="id_area" />
       </Principal>
-      <Dependent Role="puesto_trabajo">
+      <Dependent Role="Tbl_Puesto_trabajo">
         <PropertyRef Name="id_area" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_riesgos_factor_riesgo">
-    <End Role="factor_riesgo" Type="Self.factor_riesgo" Multiplicity="0..1" />
-    <End Role="riesgos" Type="Self.riesgos" Multiplicity="*" />
+  <Association Name="FK_Respuesta_Pregunta">
+    <End Role="Tbl_Pregunta" Type="Self.Tbl_Pregunta" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Respuesta" Type="Self.Tbl_Respuesta" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="factor_riesgo">
+      <Principal Role="Tbl_Pregunta">
+        <PropertyRef Name="id_pregunta" />
+      </Principal>
+      <Dependent Role="Tbl_Respuesta">
+        <PropertyRef Name="id_pregunta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_riesgos_item_factor_riesgo">
+    <End Role="Tbl_Factor_riesgo" Type="Self.Tbl_Factor_riesgo" Multiplicity="0..1" />
+    <End Role="Tbl_Riesgos_item" Type="Self.Tbl_Riesgos_item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Factor_riesgo">
         <PropertyRef Name="id_factor_riesgo" />
       </Principal>
-      <Dependent Role="riesgos">
+      <Dependent Role="Tbl_Riesgos_item">
         <PropertyRef Name="id_factor_riesgo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_riesgos_item_items_division">
-    <End Role="items_division" Type="Self.items_division" Multiplicity="0..1" />
-    <End Role="riesgos_item" Type="Self.riesgos_item" Multiplicity="*" />
+    <End Role="Tbl_ClaseCiiu" Type="Self.Tbl_ClaseCiiu" Multiplicity="0..1" />
+    <End Role="Tbl_Riesgos_item" Type="Self.Tbl_Riesgos_item" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="items_division">
-        <PropertyRef Name="id_items_division" />
+      <Principal Role="Tbl_ClaseCiiu">
+        <PropertyRef Name="id_clase_ciiu" />
       </Principal>
-      <Dependent Role="riesgos_item">
+      <Dependent Role="Tbl_Riesgos_item">
         <PropertyRef Name="id_item" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_riesgos_item_matrizRiesgo_enfermedadLaboral">
-    <End Role="matrizRiesgo_enfermedadLaboral" Type="Self.matrizRiesgo_enfermedadLaboral" Multiplicity="0..1">
+    <End Role="Tbl_EnfermedadLaboral" Type="Self.Tbl_EnfermedadLaboral" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="riesgos_item" Type="Self.riesgos_item" Multiplicity="*" />
+    <End Role="Tbl_Riesgos_item" Type="Self.Tbl_Riesgos_item" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="matrizRiesgo_enfermedadLaboral">
+      <Principal Role="Tbl_EnfermedadLaboral">
         <PropertyRef Name="id_enfermedadLaboral" />
       </Principal>
-      <Dependent Role="riesgos_item">
+      <Dependent Role="Tbl_Riesgos_item">
         <PropertyRef Name="id_enfermedad_laboral" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_riesgos_item_matrizRiesgo_factorRiesgo">
-    <End Role="matrizRiesgo_factorRiesgo" Type="Self.matrizRiesgo_factorRiesgo" Multiplicity="0..1">
+  <Association Name="FK_rol_empresa">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="riesgos_item" Type="Self.riesgos_item" Multiplicity="*" />
+    <End Role="Tbl_Rol" Type="Self.Tbl_Rol" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="matrizRiesgo_factorRiesgo">
-        <PropertyRef Name="id_factor_riesgo" />
-      </Principal>
-      <Dependent Role="riesgos_item">
-        <PropertyRef Name="id_factor_riesgo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_riesgos_prioridad">
-    <End Role="prioridad" Type="Self.prioridad" Multiplicity="0..1" />
-    <End Role="riesgos" Type="Self.riesgos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="prioridad">
-        <PropertyRef Name="id_prioridad" />
-      </Principal>
-      <Dependent Role="riesgos">
-        <PropertyRef Name="id_prioridad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_riesgos_puesto_trabajo">
-    <End Role="puesto_trabajo" Type="Self.puesto_trabajo" Multiplicity="0..1" />
-    <End Role="riesgos" Type="Self.riesgos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="puesto_trabajo">
-        <PropertyRef Name="id_puesto_trabajo" />
-      </Principal>
-      <Dependent Role="riesgos">
-        <PropertyRef Name="id_puesto_trabajo" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_riesgos_sucursal">
-    <End Role="sucursal" Type="Self.sucursal" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="riesgos" Type="Self.riesgos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="sucursal">
-        <PropertyRef Name="id_sucursal" />
-      </Principal>
-      <Dependent Role="riesgos">
-        <PropertyRef Name="id_sucursal" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_riesgos_usuario">
-    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
-    <End Role="riesgos" Type="Self.riesgos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuario">
-        <PropertyRef Name="id_usuario" />
-      </Principal>
-      <Dependent Role="riesgos">
-        <PropertyRef Name="id_responsable" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_sitio_accidente_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="sitio_accidente" Type="Self.sitio_accidente" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="sitio_accidente">
+      <Dependent Role="Tbl_Rol">
         <PropertyRef Name="id_empresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_soporte_at_it_el_pa">
+    <End Role="Tbl_At_it_el_pa" Type="Self.Tbl_At_it_el_pa" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Soporte" Type="Self.Tbl_Soporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_At_it_el_pa">
+        <PropertyRef Name="id_at_it_el_pa" />
+      </Principal>
+      <Dependent Role="Tbl_Soporte">
+        <PropertyRef Name="id_tabla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_soporte_documentos">
+    <End Role="Tbl_Documento" Type="Self.Tbl_Documento" Multiplicity="0..1" />
+    <End Role="Tbl_Soporte" Type="Self.Tbl_Soporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Documento">
+        <PropertyRef Name="id_documento" />
+      </Principal>
+      <Dependent Role="Tbl_Soporte">
+        <PropertyRef Name="id_tabla" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_soporte_obligacion">
+    <End Role="Tbl_Obligacion" Type="Self.Tbl_Obligacion" Multiplicity="0..1" />
+    <End Role="Tbl_Soporte" Type="Self.Tbl_Soporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Obligacion">
+        <PropertyRef Name="id_obligacion" />
+      </Principal>
+      <Dependent Role="Tbl_Soporte">
+        <PropertyRef Name="id_tabla" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_sucursal_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="sucursal" Type="Self.sucursal" Multiplicity="*" />
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
+      <Principal Role="Tbl_Empresa">
         <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="sucursal">
+      <Dependent Role="Tbl_Sucursal">
         <PropertyRef Name="id_empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_sucursal_municipio">
-    <End Role="municipio" Type="Self.municipio" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="sucursal" Type="Self.sucursal" Multiplicity="*" />
+    <End Role="Tbl_Municipio" Type="Self.Tbl_Municipio" Multiplicity="0..1" />
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="municipio">
+      <Principal Role="Tbl_Municipio">
         <PropertyRef Name="id_municipio" />
       </Principal>
-      <Dependent Role="sucursal">
+      <Dependent Role="Tbl_Sucursal">
         <PropertyRef Name="id_municpio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Testigos_acc_inc_lab">
-    <End Role="acc_inc_lab" Type="Self.acc_inc_lab" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="testigos" Type="Self.testigos" Multiplicity="*" />
+  <Association Name="FK_Tbl_AutoEvaluacion_Tbl_Empresa">
+    <End Role="Tbl_Empresa" Type="Self.Tbl_Empresa" Multiplicity="0..1" />
+    <End Role="Tbl_AutoEvaluacion" Type="Self.Tbl_AutoEvaluacion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="acc_inc_lab">
-        <PropertyRef Name="id_acc_lab" />
+      <Principal Role="Tbl_Empresa">
+        <PropertyRef Name="id_empresa" />
       </Principal>
-      <Dependent Role="testigos">
-        <PropertyRef Name="id_acc_lab" />
+      <Dependent Role="Tbl_AutoEvaluacion">
+        <PropertyRef Name="id_Empresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tipo_accidente_empresa">
-    <End Role="empresa" Type="Self.empresa" Multiplicity="0..1">
+  <Association Name="FK_Tbl_Matriz_Acc_Prev_Corr_Tbl_Area">
+    <End Role="Tbl_Area" Type="Self.Tbl_Area" Multiplicity="0..1" />
+    <End Role="Tbl_Matriz_Acc_Prev_Corr" Type="Self.Tbl_Matriz_Acc_Prev_Corr" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Area">
+        <PropertyRef Name="id_area" />
+      </Principal>
+      <Dependent Role="Tbl_Matriz_Acc_Prev_Corr">
+        <PropertyRef Name="id_area" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_MatrizEpp_Tbl_Epp">
+    <End Role="Tbl_Epp" Type="Self.Tbl_Epp" Multiplicity="0..1" />
+    <End Role="Tbl_MatrizEpp" Type="Self.Tbl_MatrizEpp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Epp">
+        <PropertyRef Name="id_epp" />
+      </Principal>
+      <Dependent Role="Tbl_MatrizEpp">
+        <PropertyRef Name="id_epp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_MatrizEpp_Tbl_Sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1" />
+    <End Role="Tbl_MatrizEpp" Type="Self.Tbl_MatrizEpp" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_MatrizEpp">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Simulacro_Tbl_Sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1" />
+    <End Role="Tbl_Simulacro" Type="Self.Tbl_Simulacro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Tbl_Simulacro">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tipo_documento_sucursal">
+    <End Role="Tbl_Sucursal" Type="Self.Tbl_Sucursal" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="tipo_accidente" Type="Self.tipo_accidente" Multiplicity="*" />
+    <End Role="Tbl_Tipo_documento" Type="Self.Tbl_Tipo_documento" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="empresa">
-        <PropertyRef Name="id_empresa" />
+      <Principal Role="Tbl_Sucursal">
+        <PropertyRef Name="id_sucursal" />
       </Principal>
-      <Dependent Role="tipo_accidente">
-        <PropertyRef Name="id_empresa" />
+      <Dependent Role="Tbl_Tipo_documento">
+        <PropertyRef Name="id_sucursal" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trabajador_ccf">
-    <End Role="ccf" Type="Self.ccf" Multiplicity="0..1" />
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <End Role="Tbl_Ccf" Type="Self.Tbl_Ccf" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ccf">
+      <Principal Role="Tbl_Ccf">
         <PropertyRef Name="id_ccf" />
       </Principal>
-      <Dependent Role="trabajador">
+      <Dependent Role="Tbl_Trabajador">
         <PropertyRef Name="id_ccf" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trabajador_estatus_enfermedad">
-    <End Role="enfermedad" Type="Self.enfermedad" Multiplicity="0..1" />
-    <End Role="trabajador_estatus" Type="Self.trabajador_estatus" Multiplicity="*" />
+    <End Role="Tbl_Enfermedad" Type="Self.Tbl_Enfermedad" Multiplicity="0..1" />
+    <End Role="Tbl_Trabajador_estatus" Type="Self.Tbl_Trabajador_estatus" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="enfermedad">
+      <Principal Role="Tbl_Enfermedad">
         <PropertyRef Name="id_enfermedad" />
       </Principal>
-      <Dependent Role="trabajador_estatus">
+      <Dependent Role="Tbl_Trabajador_estatus">
         <PropertyRef Name="id_enfermedad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_trabajador_estatus_sistemas">
-    <End Role="sistemas" Type="Self.sistemas" Multiplicity="0..1" />
-    <End Role="trabajador_estatus" Type="Self.trabajador_estatus" Multiplicity="*" />
+  <Association Name="FK_trabajador_estatus_estatus">
+    <End Role="Tbl_Estatus" Type="Self.Tbl_Estatus" Multiplicity="0..1" />
+    <End Role="Tbl_Trabajador_estatus" Type="Self.Tbl_Trabajador_estatus" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="sistemas">
+      <Principal Role="Tbl_Estatus">
+        <PropertyRef Name="id_estatus" />
+      </Principal>
+      <Dependent Role="Tbl_Trabajador_estatus">
+        <PropertyRef Name="id_estatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_trabajador_estatus_sistemas">
+    <End Role="Tbl_Sistema" Type="Self.Tbl_Sistema" Multiplicity="0..1" />
+    <End Role="Tbl_Trabajador_estatus" Type="Self.Tbl_Trabajador_estatus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Sistema">
         <PropertyRef Name="id_sistemas" />
       </Principal>
-      <Dependent Role="trabajador_estatus">
+      <Dependent Role="Tbl_Trabajador_estatus">
         <PropertyRef Name="id_sistema" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trabajador_estatus_trabajador">
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="trabajador_estatus" Type="Self.trabajador_estatus" Multiplicity="*" />
+    <End Role="Tbl_Trabajador_estatus" Type="Self.Tbl_Trabajador_estatus" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trabajador">
+      <Principal Role="Tbl_Trabajador">
         <PropertyRef Name="id_trabajador" />
       </Principal>
-      <Dependent Role="trabajador_estatus">
+      <Dependent Role="Tbl_Trabajador_estatus">
         <PropertyRef Name="id_trabajador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trabajador_gestion_gestion_laboral">
-    <End Role="gestion_laboral" Type="Self.gestion_laboral" Multiplicity="1">
+    <End Role="Tbl_Gestion_laboral" Type="Self.Tbl_Gestion_laboral" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="trabajador_gestion" Type="Self.trabajador_gestion" Multiplicity="*" />
+    <End Role="Tbl_Trabajador_gestion" Type="Self.Tbl_Trabajador_gestion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="gestion_laboral">
+      <Principal Role="Tbl_Gestion_laboral">
         <PropertyRef Name="id_ges_lab" />
       </Principal>
-      <Dependent Role="trabajador_gestion">
+      <Dependent Role="Tbl_Trabajador_gestion">
         <PropertyRef Name="id_ges_lab" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trabajador_gestion_trabajador">
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="1" />
-    <End Role="trabajador_gestion" Type="Self.trabajador_gestion" Multiplicity="*" />
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="1" />
+    <End Role="Tbl_Trabajador_gestion" Type="Self.Tbl_Trabajador_gestion" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trabajador">
+      <Principal Role="Tbl_Trabajador">
         <PropertyRef Name="id_trabajador" />
       </Principal>
-      <Dependent Role="trabajador_gestion">
+      <Dependent Role="Tbl_Trabajador_gestion">
         <PropertyRef Name="id_trabajador" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_trabajador_horario">
-    <End Role="horario" Type="Self.horario" Multiplicity="0..1" />
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="horario">
-        <PropertyRef Name="id_horario" />
-      </Principal>
-      <Dependent Role="trabajador">
-        <PropertyRef Name="id_horario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_trabajador_municipio">
-    <End Role="municipio" Type="Self.municipio" Multiplicity="1" />
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <End Role="Tbl_Municipio" Type="Self.Tbl_Municipio" Multiplicity="1" />
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="municipio">
+      <Principal Role="Tbl_Municipio">
         <PropertyRef Name="id_municipio" />
       </Principal>
-      <Dependent Role="trabajador">
+      <Dependent Role="Tbl_Trabajador">
         <PropertyRef Name="id_municipio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_trabajador_perfil_cargo">
+    <End Role="Tbl_Perfil_cargo" Type="Self.Tbl_Perfil_cargo" Multiplicity="0..1" />
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Perfil_cargo">
+        <PropertyRef Name="id_perfil_cargo" />
+      </Principal>
+      <Dependent Role="Tbl_Trabajador">
+        <PropertyRef Name="id_perfil_cargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_trabajador_puesto_trabajo">
-    <End Role="puesto_trabajo" Type="Self.puesto_trabajo" Multiplicity="1">
+    <End Role="Tbl_Puesto_trabajo" Type="Self.Tbl_Puesto_trabajo" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="*" />
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="puesto_trabajo">
+      <Principal Role="Tbl_Puesto_trabajo">
         <PropertyRef Name="id_puesto_trabajo" />
       </Principal>
-      <Dependent Role="trabajador">
+      <Dependent Role="Tbl_Trabajador">
         <PropertyRef Name="id_puesto_trabajo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_usuario_rol">
-    <End Role="rol" Type="Self.rol" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <End Role="Tbl_Rol" Type="Self.Tbl_Rol" Multiplicity="0..1" />
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="rol">
+      <Principal Role="Tbl_Rol">
         <PropertyRef Name="id_rol" />
       </Principal>
-      <Dependent Role="usuario">
+      <Dependent Role="Tbl_Usuario">
         <PropertyRef Name="id_rol" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_usuario_trabajador">
-    <End Role="trabajador" Type="Self.trabajador" Multiplicity="0..1">
+    <End Role="Tbl_Trabajador" Type="Self.Tbl_Trabajador" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <End Role="Tbl_Usuario" Type="Self.Tbl_Usuario" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="trabajador">
+      <Principal Role="Tbl_Trabajador">
         <PropertyRef Name="id_trabajador" />
       </Principal>
-      <Dependent Role="usuario">
+      <Dependent Role="Tbl_Usuario">
         <PropertyRef Name="id_trabajador" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="GrupoLiModelStoreContainer">
-    <EntitySet Name="acc_inc_lab" EntityType="Self.acc_inc_lab" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="afp" EntityType="Self.afp" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="agente_lesion" EntityType="Self.agente_lesion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="alarmas" EntityType="Self.alarmas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="anexos" EntityType="Self.anexos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="arp" EntityType="Self.arp" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="causa_accidente" EntityType="Self.causa_accidente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="causas_basicas" EntityType="Self.causas_basicas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="causas_inmediatas" EntityType="Self.causas_inmediatas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ccf" EntityType="Self.ccf" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="codigo_ciiu" EntityType="Self.codigo_ciiu" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="compromisos" EntityType="Self.compromisos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="consultas" EntityType="Self.consultas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="departamento" EntityType="Self.departamento" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="desc_socio" EntityType="Self.desc_socio" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="division" EntityType="Self.division" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="empleos_anteriores" EntityType="Self.empleos_anteriores" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="empresa" EntityType="Self.empresa" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="empresa_itemdivision" EntityType="Self.empresa_itemdivision" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="enfermedad" EntityType="Self.enfermedad" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="eps" EntityType="Self.eps" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="estatus" EntityType="Self.estatus" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="estatus_obligacion" EntityType="Self.estatus_obligacion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Eventos" EntityType="Self.Eventos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="factor_riesgo" EntityType="Self.factor_riesgo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="forma_accidente" EntityType="Self.forma_accidente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="fotos_accidente" EntityType="Self.fotos_accidente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="frecuencia_control" EntityType="Self.frecuencia_control" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="gestion_laboral" EntityType="Self.gestion_laboral" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="historia_clinica_ocupacional" EntityType="Self.historia_clinica_ocupacional" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="horario" EntityType="Self.horario" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ips" EntityType="Self.ips" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="items_division" EntityType="Self.items_division" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="matrizRiesgo_enfermedadLaboral" EntityType="Self.matrizRiesgo_enfermedadLaboral" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="matrizRiesgo_factorRiesgo" EntityType="Self.matrizRiesgo_factorRiesgo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="matrizRiesgo_tipoRiesgo" EntityType="Self.matrizRiesgo_tipoRiesgo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="medidas" EntityType="Self.medidas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="medidas_sucursal" EntityType="Self.medidas_sucursal" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="municipio" EntityType="Self.municipio" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="normas" EntityType="Self.normas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="normas_sucursal" EntityType="Self.normas_sucursal" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="obligacion" EntityType="Self.obligacion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="parte_cuerpo" EntityType="Self.parte_cuerpo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="plan_mapa" EntityType="Self.plan_mapa" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="plan_trabajo" EntityType="Self.plan_trabajo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="prioridad" EntityType="Self.prioridad" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="puesto_trabajo" EntityType="Self.puesto_trabajo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="riesgos" EntityType="Self.riesgos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="riesgos_item" EntityType="Self.riesgos_item" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="rol" EntityType="Self.rol" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sistemas" EntityType="Self.sistemas" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sitio_accidente" EntityType="Self.sitio_accidente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="testigos" EntityType="Self.testigos" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tipo_accidente" EntityType="Self.tipo_accidente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tipo_evento" EntityType="Self.tipo_evento" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tipo_examen" EntityType="Self.tipo_examen" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tipo_gestion" EntityType="Self.tipo_gestion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tipo_riesgo" EntityType="Self.tipo_riesgo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="trabajador" EntityType="Self.trabajador" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="trabajador_estatus" EntityType="Self.trabajador_estatus" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="trabajador_gestion" EntityType="Self.trabajador_gestion" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Trabajado__id_es__22751F6C" Association="Self.FK__Trabajado__id_es__22751F6C">
-      <End Role="estatus" EntitySet="estatus" />
-      <End Role="trabajador_estatus" EntitySet="trabajador_estatus" />
+  <EntityContainer Name="grupolicom_sgsstModelStoreContainer">
+    <EntitySet Name="Tbl_Afp" EntityType="Self.Tbl_Afp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Alarma" EntityType="Self.Tbl_Alarma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Area" EntityType="Self.Tbl_Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Arl" EntityType="Self.Tbl_Arl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_At_it_el_pa" EntityType="Self.Tbl_At_it_el_pa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_AutoEvaluacion" EntityType="Self.Tbl_AutoEvaluacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Brigada_emergencia" EntityType="Self.Tbl_Brigada_emergencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Categoria" EntityType="Self.Tbl_Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Ccf" EntityType="Self.Tbl_Ccf" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_ClaseCiiu" EntityType="Self.Tbl_ClaseCiiu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Cno" EntityType="Self.Tbl_Cno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Consulta" EntityType="Self.Tbl_Consulta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Departamento" EntityType="Self.Tbl_Departamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Desc_socio" EntityType="Self.Tbl_Desc_socio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_DivisionCiiu" EntityType="Self.Tbl_DivisionCiiu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Documento" EntityType="Self.Tbl_Documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Empleo_anterior" EntityType="Self.Tbl_Empleo_anterior" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Empresa" EntityType="Self.Tbl_Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Empresa_itemdivision" EntityType="Self.Tbl_Empresa_itemdivision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Encuesta_politica" EntityType="Self.Tbl_Encuesta_politica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Enfermedad" EntityType="Self.Tbl_Enfermedad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_EnfermedadLaboral" EntityType="Self.Tbl_EnfermedadLaboral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Epp" EntityType="Self.Tbl_Epp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Eps" EntityType="Self.Tbl_Eps" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Estatus" EntityType="Self.Tbl_Estatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Evaluacion_riesgo" EntityType="Self.Tbl_Evaluacion_riesgo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Evento" EntityType="Self.Tbl_Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Extintor" EntityType="Self.Tbl_Extintor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Factor_identificacion" EntityType="Self.Tbl_Factor_identificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Factor_riesgo" EntityType="Self.Tbl_Factor_riesgo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Frecuencia_control" EntityType="Self.Tbl_Frecuencia_control" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Gestion_laboral" EntityType="Self.Tbl_Gestion_laboral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_GrupoCiiu" EntityType="Self.Tbl_GrupoCiiu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Historia_clinica_ocupacional" EntityType="Self.Tbl_Historia_clinica_ocupacional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Horario" EntityType="Self.Tbl_Horario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Identificacion_peligro" EntityType="Self.Tbl_Identificacion_peligro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Identificacion_puesto" EntityType="Self.Tbl_Identificacion_puesto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Investigacion_ac_in" EntityType="Self.Tbl_Investigacion_ac_in" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Ips" EntityType="Self.Tbl_Ips" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Lista_actividad" EntityType="Self.Tbl_Lista_actividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Matriz_Acc_Prev_Corr" EntityType="Self.Tbl_Matriz_Acc_Prev_Corr" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Matriz_responsabilidad" EntityType="Self.Tbl_Matriz_responsabilidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_MatrizEpp" EntityType="Self.Tbl_MatrizEpp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Medida" EntityType="Self.Tbl_Medida" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Medida_sucursal" EntityType="Self.Tbl_Medida_sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Municipio" EntityType="Self.Tbl_Municipio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Norma" EntityType="Self.Tbl_Norma" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Norma_claseciiu" EntityType="Self.Tbl_Norma_claseciiu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Norma_sucursal" EntityType="Self.Tbl_Norma_sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Obligacion" EntityType="Self.Tbl_Obligacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Perfil_cargo" EntityType="Self.Tbl_Perfil_cargo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Perfil_medico" EntityType="Self.Tbl_Perfil_medico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Plan" EntityType="Self.Tbl_Plan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Plan_trabajo" EntityType="Self.Tbl_Plan_trabajo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Politica_sst" EntityType="Self.Tbl_Politica_sst" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Pregunta" EntityType="Self.Tbl_Pregunta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Procedimiento_comunicacion" EntityType="Self.Tbl_Procedimiento_comunicacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Puesto_trabajo" EntityType="Self.Tbl_Puesto_trabajo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Puesto_trabajo_epp" EntityType="Self.Tbl_Puesto_trabajo_epp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Region" EntityType="Self.Tbl_Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Respuesta" EntityType="Self.Tbl_Respuesta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Riesgos_item" EntityType="Self.Tbl_Riesgos_item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Rol" EntityType="Self.Tbl_Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_SeccionCiiu" EntityType="Self.Tbl_SeccionCiiu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Simulacro" EntityType="Self.Tbl_Simulacro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Sistema" EntityType="Self.Tbl_Sistema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Soporte" EntityType="Self.Tbl_Soporte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Sucursal" EntityType="Self.Tbl_Sucursal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Tipo_documento" EntityType="Self.Tbl_Tipo_documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Tipo_epp" EntityType="Self.Tbl_Tipo_epp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Tipo_evento" EntityType="Self.Tbl_Tipo_evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Tipo_examen" EntityType="Self.Tbl_Tipo_examen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Tipo_riesgo" EntityType="Self.Tbl_Tipo_riesgo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Trabajador" EntityType="Self.Tbl_Trabajador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Trabajador_estatus" EntityType="Self.Tbl_Trabajador_estatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Trabajador_gestion" EntityType="Self.Tbl_Trabajador_gestion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Usuario" EntityType="Self.Tbl_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Senalizacion" EntityType="Self.Tbl_Senalizacion" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tbl_Senalizacion].[id_senalizacion] AS [id_senalizacion], 
+    [Tbl_Senalizacion].[nombre] AS [nombre], 
+    [Tbl_Senalizacion].[descripcion] AS [descripcion], 
+    [Tbl_Senalizacion].[url_imagen] AS [url_imagen], 
+    [Tbl_Senalizacion].[tipo] AS [tipo]
+    FROM [dbo].[Tbl_Senalizacion] AS [Tbl_Senalizacion]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__epp__id_tipo_epp__6D9742D9" Association="Self.FK__epp__id_tipo_epp__6D9742D9">
+      <End Role="Tbl_Tipo_epp" EntitySet="Tbl_Tipo_epp" />
+      <End Role="Tbl_Epp" EntitySet="Tbl_Epp" />
     </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_agente_lesion" Association="Self.FK_acc_inc_lab_agente_lesion">
-      <End Role="agente_lesion" EntitySet="agente_lesion" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
+    <AssociationSet Name="FK__puesto_tr__id_ep__6ABAD62E" Association="Self.FK__puesto_tr__id_ep__6ABAD62E">
+      <End Role="Tbl_Epp" EntitySet="Tbl_Epp" />
+      <End Role="Tbl_Puesto_trabajo_epp" EntitySet="Tbl_Puesto_trabajo_epp" />
     </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_area" Association="Self.FK_acc_inc_lab_area">
-      <End Role="area" EntitySet="area" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_causa_accidente" Association="Self.FK_acc_inc_lab_causa_accidente">
-      <End Role="causa_accidente" EntitySet="causa_accidente" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_forma_accidente" Association="Self.FK_acc_inc_lab_forma_accidente">
-      <End Role="forma_accidente" EntitySet="forma_accidente" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_ips" Association="Self.FK_acc_inc_lab_ips">
-      <End Role="ips" EntitySet="ips" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_parte_cuerpo" Association="Self.FK_acc_inc_lab_parte_cuerpo">
-      <End Role="parte_cuerpo" EntitySet="parte_cuerpo" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_puesto_trabajo" Association="Self.FK_acc_inc_lab_puesto_trabajo">
-      <End Role="puesto_trabajo" EntitySet="puesto_trabajo" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_sitio_accidente" Association="Self.FK_acc_inc_lab_sitio_accidente">
-      <End Role="sitio_accidente" EntitySet="sitio_accidente" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_tipo_accidente" Association="Self.FK_acc_inc_lab_tipo_accidente">
-      <End Role="tipo_accidente" EntitySet="tipo_accidente" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_acc_inc_lab_trabajador" Association="Self.FK_acc_inc_lab_trabajador">
-      <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-    </AssociationSet>
-    <AssociationSet Name="FK_agente_lesion_empresa" Association="Self.FK_agente_lesion_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="agente_lesion" EntitySet="agente_lesion" />
+    <AssociationSet Name="FK__puesto_tr__id_pu__69C6B1F5" Association="Self.FK__puesto_tr__id_pu__69C6B1F5">
+      <End Role="Tbl_Puesto_trabajo" EntitySet="Tbl_Puesto_trabajo" />
+      <End Role="Tbl_Puesto_trabajo_epp" EntitySet="Tbl_Puesto_trabajo_epp" />
     </AssociationSet>
     <AssociationSet Name="FK_alarmas_categorias" Association="Self.FK_alarmas_categorias">
-      <End Role="categorias" EntitySet="categorias" />
-      <End Role="alarmas" EntitySet="alarmas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_alarmas_prioridad" Association="Self.FK_alarmas_prioridad">
-      <End Role="prioridad" EntitySet="prioridad" />
-      <End Role="alarmas" EntitySet="alarmas" />
+      <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
+      <End Role="Tbl_Alarma" EntitySet="Tbl_Alarma" />
     </AssociationSet>
     <AssociationSet Name="FK_alarmas_usuario" Association="Self.FK_alarmas_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="alarmas" EntitySet="alarmas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_anexos_obligacion1" Association="Self.FK_anexos_obligacion1">
-      <End Role="obligacion" EntitySet="obligacion" />
-      <End Role="anexos" EntitySet="anexos" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+      <End Role="Tbl_Alarma" EntitySet="Tbl_Alarma" />
     </AssociationSet>
     <AssociationSet Name="FK_area_sucursal" Association="Self.FK_area_sucursal">
-      <End Role="sucursal" EntitySet="sucursal" />
-      <End Role="area" EntitySet="area" />
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Area" EntitySet="Tbl_Area" />
+    </AssociationSet>
+    <AssociationSet Name="FK_at_it_el_pa_area" Association="Self.FK_at_it_el_pa_area">
+      <End Role="Tbl_Area" EntitySet="Tbl_Area" />
+      <End Role="Tbl_At_it_el_pa" EntitySet="Tbl_At_it_el_pa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_at_it_el_pa_puesto_trabajo" Association="Self.FK_at_it_el_pa_puesto_trabajo">
+      <End Role="Tbl_Puesto_trabajo" EntitySet="Tbl_Puesto_trabajo" />
+      <End Role="Tbl_At_it_el_pa" EntitySet="Tbl_At_it_el_pa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_at_it_el_pa_trabajador" Association="Self.FK_at_it_el_pa_trabajador">
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_At_it_el_pa" EntitySet="Tbl_At_it_el_pa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_brigada_emergencia_sucursal" Association="Self.FK_brigada_emergencia_sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Brigada_emergencia" EntitySet="Tbl_Brigada_emergencia" />
     </AssociationSet>
     <AssociationSet Name="FK_categorias_empresa" Association="Self.FK_categorias_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="categorias" EntitySet="categorias" />
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
     </AssociationSet>
-    <AssociationSet Name="FK_causa_accidente_empresa" Association="Self.FK_causa_accidente_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="causa_accidente" EntitySet="causa_accidente" />
+    <AssociationSet Name="FK_claseCiiu_grupoCiiu" Association="Self.FK_claseCiiu_grupoCiiu">
+      <End Role="Tbl_GrupoCiiu" EntitySet="Tbl_GrupoCiiu" />
+      <End Role="Tbl_ClaseCiiu" EntitySet="Tbl_ClaseCiiu" />
     </AssociationSet>
-    <AssociationSet Name="FK_causas_basicas_acc_inc_lab" Association="Self.FK_causas_basicas_acc_inc_lab">
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-      <End Role="causas_basicas" EntitySet="causas_basicas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_causas_inmediatas_acc_inc_lab" Association="Self.FK_causas_inmediatas_acc_inc_lab">
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-      <End Role="causas_inmediatas" EntitySet="causas_inmediatas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_compromisos_acc_inc_lab" Association="Self.FK_compromisos_acc_inc_lab">
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-      <End Role="compromisos" EntitySet="compromisos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_consultas_acc_inc_lab" Association="Self.FK_consultas_acc_inc_lab">
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-      <End Role="consultas" EntitySet="consultas" />
+    <AssociationSet Name="FK_consultas_at_it_el_pa" Association="Self.FK_consultas_at_it_el_pa">
+      <End Role="Tbl_At_it_el_pa" EntitySet="Tbl_At_it_el_pa" />
+      <End Role="Tbl_Consulta" EntitySet="Tbl_Consulta" />
     </AssociationSet>
     <AssociationSet Name="FK_departamento_Region" Association="Self.FK_departamento_Region">
-      <End Role="Region" EntitySet="Region" />
-      <End Role="departamento" EntitySet="departamento" />
+      <End Role="Tbl_Region" EntitySet="Tbl_Region" />
+      <End Role="Tbl_Departamento" EntitySet="Tbl_Departamento" />
     </AssociationSet>
     <AssociationSet Name="FK_desc_socio_afp" Association="Self.FK_desc_socio_afp">
-      <End Role="afp" EntitySet="afp" />
-      <End Role="desc_socio" EntitySet="desc_socio" />
+      <End Role="Tbl_Afp" EntitySet="Tbl_Afp" />
+      <End Role="Tbl_Desc_socio" EntitySet="Tbl_Desc_socio" />
     </AssociationSet>
     <AssociationSet Name="FK_desc_socio_eps1" Association="Self.FK_desc_socio_eps1">
-      <End Role="eps" EntitySet="eps" />
-      <End Role="desc_socio" EntitySet="desc_socio" />
+      <End Role="Tbl_Eps" EntitySet="Tbl_Eps" />
+      <End Role="Tbl_Desc_socio" EntitySet="Tbl_Desc_socio" />
     </AssociationSet>
     <AssociationSet Name="FK_desc_socio_trabajador" Association="Self.FK_desc_socio_trabajador">
-      <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="desc_socio" EntitySet="desc_socio" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Desc_socio" EntitySet="Tbl_Desc_socio" />
     </AssociationSet>
-    <AssociationSet Name="FK_division_codigo_ciiu" Association="Self.FK_division_codigo_ciiu">
-      <End Role="codigo_ciiu" EntitySet="codigo_ciiu" />
-      <End Role="division" EntitySet="division" />
+    <AssociationSet Name="FK_divisionCiiu_seccionCiiu" Association="Self.FK_divisionCiiu_seccionCiiu">
+      <End Role="Tbl_SeccionCiiu" EntitySet="Tbl_SeccionCiiu" />
+      <End Role="Tbl_DivisionCiiu" EntitySet="Tbl_DivisionCiiu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documentos_sucursal" Association="Self.FK_documentos_sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Documento" EntitySet="Tbl_Documento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_documentos_trabajador" Association="Self.FK_documentos_trabajador">
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Documento" EntitySet="Tbl_Documento" />
     </AssociationSet>
     <AssociationSet Name="FK_empleos_anteriores_desc_socio" Association="Self.FK_empleos_anteriores_desc_socio">
-      <End Role="desc_socio" EntitySet="desc_socio" />
-      <End Role="empleos_anteriores" EntitySet="empleos_anteriores" />
+      <End Role="Tbl_Desc_socio" EntitySet="Tbl_Desc_socio" />
+      <End Role="Tbl_Empleo_anterior" EntitySet="Tbl_Empleo_anterior" />
     </AssociationSet>
-    <AssociationSet Name="FK_empresa_arp" Association="Self.FK_empresa_arp">
-      <End Role="arp" EntitySet="arp" />
-      <End Role="empresa" EntitySet="empresa" />
+    <AssociationSet Name="FK_empresa_arl" Association="Self.FK_empresa_arl">
+      <End Role="Tbl_Arl" EntitySet="Tbl_Arl" />
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_empresa_itemdivision_claseCiiu" Association="Self.FK_empresa_itemdivision_claseCiiu">
+      <End Role="Tbl_ClaseCiiu" EntitySet="Tbl_ClaseCiiu" />
+      <End Role="Tbl_Empresa_itemdivision" EntitySet="Tbl_Empresa_itemdivision" />
     </AssociationSet>
     <AssociationSet Name="FK_empresa_itemdivision_empresa" Association="Self.FK_empresa_itemdivision_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="empresa_itemdivision" EntitySet="empresa_itemdivision" />
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Empresa_itemdivision" EntitySet="Tbl_Empresa_itemdivision" />
     </AssociationSet>
-    <AssociationSet Name="FK_empresa_itemdivision_items_division" Association="Self.FK_empresa_itemdivision_items_division">
-      <End Role="items_division" EntitySet="items_division" />
-      <End Role="empresa_itemdivision" EntitySet="empresa_itemdivision" />
+    <AssociationSet Name="FK_encuesta_politica_trabajador" Association="Self.FK_encuesta_politica_trabajador">
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Encuesta_politica" EntitySet="Tbl_Encuesta_politica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_epp_empresa" Association="Self.FK_epp_empresa">
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Epp" EntitySet="Tbl_Epp" />
     </AssociationSet>
     <AssociationSet Name="FK_estatus_empresa" Association="Self.FK_estatus_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="estatus" EntitySet="estatus" />
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Estatus" EntitySet="Tbl_Estatus" />
     </AssociationSet>
-    <AssociationSet Name="FK_estatus_obligacion_empresa" Association="Self.FK_estatus_obligacion_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="estatus_obligacion" EntitySet="estatus_obligacion" />
+    <AssociationSet Name="FK_evaluacion_riesgo_identificacion_puesto" Association="Self.FK_evaluacion_riesgo_identificacion_puesto">
+      <End Role="Tbl_Identificacion_puesto" EntitySet="Tbl_Identificacion_puesto" />
+      <End Role="Tbl_Evaluacion_riesgo" EntitySet="Tbl_Evaluacion_riesgo" />
     </AssociationSet>
     <AssociationSet Name="FK_Eventos_tipo_evento" Association="Self.FK_Eventos_tipo_evento">
-      <End Role="tipo_evento" EntitySet="tipo_evento" />
-      <End Role="Eventos" EntitySet="Eventos" />
+      <End Role="Tbl_Tipo_evento" EntitySet="Tbl_Tipo_evento" />
+      <End Role="Tbl_Evento" EntitySet="Tbl_Evento" />
     </AssociationSet>
     <AssociationSet Name="FK_Eventos_usuario" Association="Self.FK_Eventos_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="Eventos" EntitySet="Eventos" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+      <End Role="Tbl_Evento" EntitySet="Tbl_Evento" />
     </AssociationSet>
-    <AssociationSet Name="FK_factor_riesgo_empresa" Association="Self.FK_factor_riesgo_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="factor_riesgo" EntitySet="factor_riesgo" />
+    <AssociationSet Name="FK_extintor_area" Association="Self.FK_extintor_area">
+      <End Role="Tbl_Area" EntitySet="Tbl_Area" />
+      <End Role="Tbl_Extintor" EntitySet="Tbl_Extintor" />
     </AssociationSet>
-    <AssociationSet Name="FK_factor_riesgo_tipo_riesgo" Association="Self.FK_factor_riesgo_tipo_riesgo">
-      <End Role="matrizRiesgo_tipoRiesgo" EntitySet="matrizRiesgo_tipoRiesgo" />
-      <End Role="matrizRiesgo_factorRiesgo" EntitySet="matrizRiesgo_factorRiesgo" />
+    <AssociationSet Name="FK_factor_identificacion_factor_riesgo" Association="Self.FK_factor_identificacion_factor_riesgo">
+      <End Role="Tbl_Factor_riesgo" EntitySet="Tbl_Factor_riesgo" />
+      <End Role="Tbl_Factor_identificacion" EntitySet="Tbl_Factor_identificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_factor_identificacion_identificacion_peligro" Association="Self.FK_factor_identificacion_identificacion_peligro">
+      <End Role="Tbl_Identificacion_peligro" EntitySet="Tbl_Identificacion_peligro" />
+      <End Role="Tbl_Factor_identificacion" EntitySet="Tbl_Factor_identificacion" />
     </AssociationSet>
     <AssociationSet Name="FK_factor_riesgo_tipo_riesgo1" Association="Self.FK_factor_riesgo_tipo_riesgo1">
-      <End Role="tipo_riesgo" EntitySet="tipo_riesgo" />
-      <End Role="factor_riesgo" EntitySet="factor_riesgo" />
-    </AssociationSet>
-    <AssociationSet Name="FK_forma_accidente_empresa" Association="Self.FK_forma_accidente_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="forma_accidente" EntitySet="forma_accidente" />
-    </AssociationSet>
-    <AssociationSet Name="FK_fotos_accidente_acc_inc_lab" Association="Self.FK_fotos_accidente_acc_inc_lab">
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-      <End Role="fotos_accidente" EntitySet="fotos_accidente" />
-    </AssociationSet>
-    <AssociationSet Name="FK_gestion_laboral_tipo_gestion" Association="Self.FK_gestion_laboral_tipo_gestion">
-      <End Role="tipo_gestion" EntitySet="tipo_gestion" />
-      <End Role="gestion_laboral" EntitySet="gestion_laboral" />
+      <End Role="Tbl_Tipo_riesgo" EntitySet="Tbl_Tipo_riesgo" />
+      <End Role="Tbl_Factor_riesgo" EntitySet="Tbl_Factor_riesgo" />
     </AssociationSet>
     <AssociationSet Name="FK_gestion_laboral_usuario" Association="Self.FK_gestion_laboral_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="gestion_laboral" EntitySet="gestion_laboral" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+      <End Role="Tbl_Gestion_laboral" EntitySet="Tbl_Gestion_laboral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_grupoCiiu_divisionCiiu" Association="Self.FK_grupoCiiu_divisionCiiu">
+      <End Role="Tbl_DivisionCiiu" EntitySet="Tbl_DivisionCiiu" />
+      <End Role="Tbl_GrupoCiiu" EntitySet="Tbl_GrupoCiiu" />
     </AssociationSet>
     <AssociationSet Name="FK_historia_clinica_ocupacional_Tipo_Examen" Association="Self.FK_historia_clinica_ocupacional_Tipo_Examen">
-      <End Role="tipo_examen" EntitySet="tipo_examen" />
-      <End Role="historia_clinica_ocupacional" EntitySet="historia_clinica_ocupacional" />
+      <End Role="Tbl_Tipo_examen" EntitySet="Tbl_Tipo_examen" />
+      <End Role="Tbl_Historia_clinica_ocupacional" EntitySet="Tbl_Historia_clinica_ocupacional" />
     </AssociationSet>
     <AssociationSet Name="FK_historia_clinica_ocupacional_trabajador" Association="Self.FK_historia_clinica_ocupacional_trabajador">
-      <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="historia_clinica_ocupacional" EntitySet="historia_clinica_ocupacional" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Historia_clinica_ocupacional" EntitySet="Tbl_Historia_clinica_ocupacional" />
     </AssociationSet>
     <AssociationSet Name="FK_horario_empresa" Association="Self.FK_horario_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="horario" EntitySet="horario" />
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Horario" EntitySet="Tbl_Horario" />
     </AssociationSet>
-    <AssociationSet Name="FK_items_division_division" Association="Self.FK_items_division_division">
-      <End Role="division" EntitySet="division" />
-      <End Role="items_division" EntitySet="items_division" />
+    <AssociationSet Name="FK_identificacion_puesto_identificacion_peligro" Association="Self.FK_identificacion_puesto_identificacion_peligro">
+      <End Role="Tbl_Identificacion_peligro" EntitySet="Tbl_Identificacion_peligro" />
+      <End Role="Tbl_Identificacion_puesto" EntitySet="Tbl_Identificacion_puesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_identificacion_puesto_puesto_trabajo" Association="Self.FK_identificacion_puesto_puesto_trabajo">
+      <End Role="Tbl_Puesto_trabajo" EntitySet="Tbl_Puesto_trabajo" />
+      <End Role="Tbl_Identificacion_puesto" EntitySet="Tbl_Identificacion_puesto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_investigacion_ac_in_at_it_el_pa" Association="Self.FK_investigacion_ac_in_at_it_el_pa">
+      <End Role="Tbl_At_it_el_pa" EntitySet="Tbl_At_it_el_pa" />
+      <End Role="Tbl_Investigacion_ac_in" EntitySet="Tbl_Investigacion_ac_in" />
+    </AssociationSet>
+    <AssociationSet Name="FK_lista_actividades_sucursal" Association="Self.FK_lista_actividades_sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Lista_actividad" EntitySet="Tbl_Lista_actividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_matriz_responsabilidad_sucursal" Association="Self.FK_matriz_responsabilidad_sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Matriz_responsabilidad" EntitySet="Tbl_Matriz_responsabilidad" />
     </AssociationSet>
     <AssociationSet Name="FK_medidas_normas" Association="Self.FK_medidas_normas">
-      <End Role="normas" EntitySet="normas" />
-      <End Role="medidas" EntitySet="medidas" />
+      <End Role="Tbl_Norma" EntitySet="Tbl_Norma" />
+      <End Role="Tbl_Medida" EntitySet="Tbl_Medida" />
     </AssociationSet>
     <AssociationSet Name="FK_medidas_sucursal_normas_sucursal" Association="Self.FK_medidas_sucursal_normas_sucursal">
-      <End Role="normas_sucursal" EntitySet="normas_sucursal" />
-      <End Role="medidas_sucursal" EntitySet="medidas_sucursal" />
+      <End Role="Tbl_Norma_sucursal" EntitySet="Tbl_Norma_sucursal" />
+      <End Role="Tbl_Medida_sucursal" EntitySet="Tbl_Medida_sucursal" />
     </AssociationSet>
     <AssociationSet Name="FK_municipio_departamento1" Association="Self.FK_municipio_departamento1">
-      <End Role="departamento" EntitySet="departamento" />
-      <End Role="municipio" EntitySet="municipio" />
+      <End Role="Tbl_Departamento" EntitySet="Tbl_Departamento" />
+      <End Role="Tbl_Municipio" EntitySet="Tbl_Municipio" />
     </AssociationSet>
-    <AssociationSet Name="FK_normas_items_division" Association="Self.FK_normas_items_division">
-      <End Role="items_division" EntitySet="items_division" />
-      <End Role="normas" EntitySet="normas" />
+    <AssociationSet Name="FK_normas_claseciiu_claseCiiu" Association="Self.FK_normas_claseciiu_claseCiiu">
+      <End Role="Tbl_ClaseCiiu" EntitySet="Tbl_ClaseCiiu" />
+      <End Role="Tbl_Norma_claseciiu" EntitySet="Tbl_Norma_claseciiu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_normas_claseciiu_normas" Association="Self.FK_normas_claseciiu_normas">
+      <End Role="Tbl_Norma" EntitySet="Tbl_Norma" />
+      <End Role="Tbl_Norma_claseciiu" EntitySet="Tbl_Norma_claseciiu" />
     </AssociationSet>
     <AssociationSet Name="FK_normas_sucursal_normas1" Association="Self.FK_normas_sucursal_normas1">
-      <End Role="normas" EntitySet="normas" />
-      <End Role="normas_sucursal" EntitySet="normas_sucursal" />
+      <End Role="Tbl_Norma" EntitySet="Tbl_Norma" />
+      <End Role="Tbl_Norma_sucursal" EntitySet="Tbl_Norma_sucursal" />
     </AssociationSet>
     <AssociationSet Name="FK_normas_sucursal_sucursal1" Association="Self.FK_normas_sucursal_sucursal1">
-      <End Role="sucursal" EntitySet="sucursal" />
-      <End Role="normas_sucursal" EntitySet="normas_sucursal" />
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Norma_sucursal" EntitySet="Tbl_Norma_sucursal" />
     </AssociationSet>
     <AssociationSet Name="FK_obligacion_categorias" Association="Self.FK_obligacion_categorias">
-      <End Role="categorias" EntitySet="categorias" />
-      <End Role="obligacion" EntitySet="obligacion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_obligacion_estatus_obligacion" Association="Self.FK_obligacion_estatus_obligacion">
-      <End Role="estatus_obligacion" EntitySet="estatus_obligacion" />
-      <End Role="obligacion" EntitySet="obligacion" />
+      <End Role="Tbl_Categoria" EntitySet="Tbl_Categoria" />
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
     </AssociationSet>
     <AssociationSet Name="FK_obligacion_frecuencia_control" Association="Self.FK_obligacion_frecuencia_control">
-      <End Role="frecuencia_control" EntitySet="frecuencia_control" />
-      <End Role="obligacion" EntitySet="obligacion" />
+      <End Role="Tbl_Frecuencia_control" EntitySet="Tbl_Frecuencia_control" />
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_obligacion_identificacion_peligro1" Association="Self.FK_obligacion_identificacion_peligro1">
+      <End Role="Tbl_Identificacion_peligro" EntitySet="Tbl_Identificacion_peligro" />
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
     </AssociationSet>
     <AssociationSet Name="FK_obligacion_medidas_sucursal" Association="Self.FK_obligacion_medidas_sucursal">
-      <End Role="medidas_sucursal" EntitySet="medidas_sucursal" />
-      <End Role="obligacion" EntitySet="obligacion" />
+      <End Role="Tbl_Medida_sucursal" EntitySet="Tbl_Medida_sucursal" />
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
     </AssociationSet>
     <AssociationSet Name="FK_obligacion_plan_trabajo" Association="Self.FK_obligacion_plan_trabajo">
-      <End Role="plan_trabajo" EntitySet="plan_trabajo" />
-      <End Role="obligacion" EntitySet="obligacion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_obligacion_prioridad" Association="Self.FK_obligacion_prioridad">
-      <End Role="prioridad" EntitySet="prioridad" />
-      <End Role="obligacion" EntitySet="obligacion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_obligacion_riesgos" Association="Self.FK_obligacion_riesgos">
-      <End Role="riesgos" EntitySet="riesgos" />
-      <End Role="obligacion" EntitySet="obligacion" />
+      <End Role="Tbl_Plan_trabajo" EntitySet="Tbl_Plan_trabajo" />
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
     </AssociationSet>
     <AssociationSet Name="FK_obligacion_usuario" Association="Self.FK_obligacion_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="obligacion" EntitySet="obligacion" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
     </AssociationSet>
-    <AssociationSet Name="FK_parte_cuerpo_empresa" Association="Self.FK_parte_cuerpo_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="parte_cuerpo" EntitySet="parte_cuerpo" />
+    <AssociationSet Name="FK_perfil_cargo_cno" Association="Self.FK_perfil_cargo_cno">
+      <End Role="Tbl_Cno" EntitySet="Tbl_Cno" />
+      <End Role="Tbl_Perfil_cargo" EntitySet="Tbl_Perfil_cargo" />
     </AssociationSet>
-    <AssociationSet Name="FK_plan_mapa_sucursal" Association="Self.FK_plan_mapa_sucursal">
-      <End Role="sucursal" EntitySet="sucursal" />
-      <End Role="plan_mapa" EntitySet="plan_mapa" />
+    <AssociationSet Name="FK_perfil_cargo_empresa" Association="Self.FK_perfil_cargo_empresa">
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Perfil_cargo" EntitySet="Tbl_Perfil_cargo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_perfil_medico_perfil_cargo" Association="Self.FK_perfil_medico_perfil_cargo">
+      <End Role="Tbl_Perfil_cargo" EntitySet="Tbl_Perfil_cargo" />
+      <End Role="Tbl_Perfil_medico" EntitySet="Tbl_Perfil_medico" />
     </AssociationSet>
     <AssociationSet Name="FK_plan_trabajo_usuario" Association="Self.FK_plan_trabajo_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="plan_trabajo" EntitySet="plan_trabajo" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+      <End Role="Tbl_Plan_trabajo" EntitySet="Tbl_Plan_trabajo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_planes_sucursal" Association="Self.FK_planes_sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Plan" EntitySet="Tbl_Plan" />
+    </AssociationSet>
+    <AssociationSet Name="FK_politica_sst_empresa1" Association="Self.FK_politica_sst_empresa1">
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Politica_sst" EntitySet="Tbl_Politica_sst" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pregunta_usuario" Association="Self.FK_Pregunta_usuario">
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
+      <End Role="Tbl_Pregunta" EntitySet="Tbl_Pregunta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_procedimiento_comunicacion_brigada_emergencia" Association="Self.FK_procedimiento_comunicacion_brigada_emergencia">
+      <End Role="Tbl_Brigada_emergencia" EntitySet="Tbl_Brigada_emergencia" />
+      <End Role="Tbl_Procedimiento_comunicacion" EntitySet="Tbl_Procedimiento_comunicacion" />
     </AssociationSet>
     <AssociationSet Name="FK_puesto_trabajo_area" Association="Self.FK_puesto_trabajo_area">
-      <End Role="area" EntitySet="area" />
-      <End Role="puesto_trabajo" EntitySet="puesto_trabajo" />
+      <End Role="Tbl_Area" EntitySet="Tbl_Area" />
+      <End Role="Tbl_Puesto_trabajo" EntitySet="Tbl_Puesto_trabajo" />
     </AssociationSet>
-    <AssociationSet Name="FK_riesgos_factor_riesgo" Association="Self.FK_riesgos_factor_riesgo">
-      <End Role="factor_riesgo" EntitySet="factor_riesgo" />
-      <End Role="riesgos" EntitySet="riesgos" />
+    <AssociationSet Name="FK_Respuesta_Pregunta" Association="Self.FK_Respuesta_Pregunta">
+      <End Role="Tbl_Pregunta" EntitySet="Tbl_Pregunta" />
+      <End Role="Tbl_Respuesta" EntitySet="Tbl_Respuesta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_riesgos_item_factor_riesgo" Association="Self.FK_riesgos_item_factor_riesgo">
+      <End Role="Tbl_Factor_riesgo" EntitySet="Tbl_Factor_riesgo" />
+      <End Role="Tbl_Riesgos_item" EntitySet="Tbl_Riesgos_item" />
     </AssociationSet>
     <AssociationSet Name="FK_riesgos_item_items_division" Association="Self.FK_riesgos_item_items_division">
-      <End Role="items_division" EntitySet="items_division" />
-      <End Role="riesgos_item" EntitySet="riesgos_item" />
+      <End Role="Tbl_ClaseCiiu" EntitySet="Tbl_ClaseCiiu" />
+      <End Role="Tbl_Riesgos_item" EntitySet="Tbl_Riesgos_item" />
     </AssociationSet>
     <AssociationSet Name="FK_riesgos_item_matrizRiesgo_enfermedadLaboral" Association="Self.FK_riesgos_item_matrizRiesgo_enfermedadLaboral">
-      <End Role="matrizRiesgo_enfermedadLaboral" EntitySet="matrizRiesgo_enfermedadLaboral" />
-      <End Role="riesgos_item" EntitySet="riesgos_item" />
+      <End Role="Tbl_EnfermedadLaboral" EntitySet="Tbl_EnfermedadLaboral" />
+      <End Role="Tbl_Riesgos_item" EntitySet="Tbl_Riesgos_item" />
     </AssociationSet>
-    <AssociationSet Name="FK_riesgos_item_matrizRiesgo_factorRiesgo" Association="Self.FK_riesgos_item_matrizRiesgo_factorRiesgo">
-      <End Role="matrizRiesgo_factorRiesgo" EntitySet="matrizRiesgo_factorRiesgo" />
-      <End Role="riesgos_item" EntitySet="riesgos_item" />
+    <AssociationSet Name="FK_rol_empresa" Association="Self.FK_rol_empresa">
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Rol" EntitySet="Tbl_Rol" />
     </AssociationSet>
-    <AssociationSet Name="FK_riesgos_prioridad" Association="Self.FK_riesgos_prioridad">
-      <End Role="prioridad" EntitySet="prioridad" />
-      <End Role="riesgos" EntitySet="riesgos" />
+    <AssociationSet Name="FK_soporte_at_it_el_pa" Association="Self.FK_soporte_at_it_el_pa">
+      <End Role="Tbl_At_it_el_pa" EntitySet="Tbl_At_it_el_pa" />
+      <End Role="Tbl_Soporte" EntitySet="Tbl_Soporte" />
     </AssociationSet>
-    <AssociationSet Name="FK_riesgos_puesto_trabajo" Association="Self.FK_riesgos_puesto_trabajo">
-      <End Role="puesto_trabajo" EntitySet="puesto_trabajo" />
-      <End Role="riesgos" EntitySet="riesgos" />
+    <AssociationSet Name="FK_soporte_documentos" Association="Self.FK_soporte_documentos">
+      <End Role="Tbl_Documento" EntitySet="Tbl_Documento" />
+      <End Role="Tbl_Soporte" EntitySet="Tbl_Soporte" />
     </AssociationSet>
-    <AssociationSet Name="FK_riesgos_sucursal" Association="Self.FK_riesgos_sucursal">
-      <End Role="sucursal" EntitySet="sucursal" />
-      <End Role="riesgos" EntitySet="riesgos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_riesgos_usuario" Association="Self.FK_riesgos_usuario">
-      <End Role="usuario" EntitySet="usuario" />
-      <End Role="riesgos" EntitySet="riesgos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_sitio_accidente_empresa" Association="Self.FK_sitio_accidente_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="sitio_accidente" EntitySet="sitio_accidente" />
+    <AssociationSet Name="FK_soporte_obligacion" Association="Self.FK_soporte_obligacion">
+      <End Role="Tbl_Obligacion" EntitySet="Tbl_Obligacion" />
+      <End Role="Tbl_Soporte" EntitySet="Tbl_Soporte" />
     </AssociationSet>
     <AssociationSet Name="FK_sucursal_empresa" Association="Self.FK_sucursal_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="sucursal" EntitySet="sucursal" />
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
     </AssociationSet>
     <AssociationSet Name="FK_sucursal_municipio" Association="Self.FK_sucursal_municipio">
-      <End Role="municipio" EntitySet="municipio" />
-      <End Role="sucursal" EntitySet="sucursal" />
+      <End Role="Tbl_Municipio" EntitySet="Tbl_Municipio" />
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
     </AssociationSet>
-    <AssociationSet Name="FK_Testigos_acc_inc_lab" Association="Self.FK_Testigos_acc_inc_lab">
-      <End Role="acc_inc_lab" EntitySet="acc_inc_lab" />
-      <End Role="testigos" EntitySet="testigos" />
+    <AssociationSet Name="FK_Tbl_AutoEvaluacion_Tbl_Empresa" Association="Self.FK_Tbl_AutoEvaluacion_Tbl_Empresa">
+      <End Role="Tbl_Empresa" EntitySet="Tbl_Empresa" />
+      <End Role="Tbl_AutoEvaluacion" EntitySet="Tbl_AutoEvaluacion" />
     </AssociationSet>
-    <AssociationSet Name="FK_tipo_accidente_empresa" Association="Self.FK_tipo_accidente_empresa">
-      <End Role="empresa" EntitySet="empresa" />
-      <End Role="tipo_accidente" EntitySet="tipo_accidente" />
+    <AssociationSet Name="FK_Tbl_Matriz_Acc_Prev_Corr_Tbl_Area" Association="Self.FK_Tbl_Matriz_Acc_Prev_Corr_Tbl_Area">
+      <End Role="Tbl_Area" EntitySet="Tbl_Area" />
+      <End Role="Tbl_Matriz_Acc_Prev_Corr" EntitySet="Tbl_Matriz_Acc_Prev_Corr" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_MatrizEpp_Tbl_Epp" Association="Self.FK_Tbl_MatrizEpp_Tbl_Epp">
+      <End Role="Tbl_Epp" EntitySet="Tbl_Epp" />
+      <End Role="Tbl_MatrizEpp" EntitySet="Tbl_MatrizEpp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_MatrizEpp_Tbl_Sucursal" Association="Self.FK_Tbl_MatrizEpp_Tbl_Sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_MatrizEpp" EntitySet="Tbl_MatrizEpp" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Simulacro_Tbl_Sucursal" Association="Self.FK_Tbl_Simulacro_Tbl_Sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Simulacro" EntitySet="Tbl_Simulacro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tipo_documento_sucursal" Association="Self.FK_tipo_documento_sucursal">
+      <End Role="Tbl_Sucursal" EntitySet="Tbl_Sucursal" />
+      <End Role="Tbl_Tipo_documento" EntitySet="Tbl_Tipo_documento" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_ccf" Association="Self.FK_trabajador_ccf">
-      <End Role="ccf" EntitySet="ccf" />
-      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="Tbl_Ccf" EntitySet="Tbl_Ccf" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_estatus_enfermedad" Association="Self.FK_trabajador_estatus_enfermedad">
-      <End Role="enfermedad" EntitySet="enfermedad" />
-      <End Role="trabajador_estatus" EntitySet="trabajador_estatus" />
+      <End Role="Tbl_Enfermedad" EntitySet="Tbl_Enfermedad" />
+      <End Role="Tbl_Trabajador_estatus" EntitySet="Tbl_Trabajador_estatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trabajador_estatus_estatus" Association="Self.FK_trabajador_estatus_estatus">
+      <End Role="Tbl_Estatus" EntitySet="Tbl_Estatus" />
+      <End Role="Tbl_Trabajador_estatus" EntitySet="Tbl_Trabajador_estatus" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_estatus_sistemas" Association="Self.FK_trabajador_estatus_sistemas">
-      <End Role="sistemas" EntitySet="sistemas" />
-      <End Role="trabajador_estatus" EntitySet="trabajador_estatus" />
+      <End Role="Tbl_Sistema" EntitySet="Tbl_Sistema" />
+      <End Role="Tbl_Trabajador_estatus" EntitySet="Tbl_Trabajador_estatus" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_estatus_trabajador" Association="Self.FK_trabajador_estatus_trabajador">
-      <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="trabajador_estatus" EntitySet="trabajador_estatus" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Trabajador_estatus" EntitySet="Tbl_Trabajador_estatus" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_gestion_gestion_laboral" Association="Self.FK_trabajador_gestion_gestion_laboral">
-      <End Role="gestion_laboral" EntitySet="gestion_laboral" />
-      <End Role="trabajador_gestion" EntitySet="trabajador_gestion" />
+      <End Role="Tbl_Gestion_laboral" EntitySet="Tbl_Gestion_laboral" />
+      <End Role="Tbl_Trabajador_gestion" EntitySet="Tbl_Trabajador_gestion" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_gestion_trabajador" Association="Self.FK_trabajador_gestion_trabajador">
-      <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="trabajador_gestion" EntitySet="trabajador_gestion" />
-    </AssociationSet>
-    <AssociationSet Name="FK_trabajador_horario" Association="Self.FK_trabajador_horario">
-      <End Role="horario" EntitySet="horario" />
-      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Trabajador_gestion" EntitySet="Tbl_Trabajador_gestion" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_municipio" Association="Self.FK_trabajador_municipio">
-      <End Role="municipio" EntitySet="municipio" />
-      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="Tbl_Municipio" EntitySet="Tbl_Municipio" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_trabajador_perfil_cargo" Association="Self.FK_trabajador_perfil_cargo">
+      <End Role="Tbl_Perfil_cargo" EntitySet="Tbl_Perfil_cargo" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
     </AssociationSet>
     <AssociationSet Name="FK_trabajador_puesto_trabajo" Association="Self.FK_trabajador_puesto_trabajo">
-      <End Role="puesto_trabajo" EntitySet="puesto_trabajo" />
-      <End Role="trabajador" EntitySet="trabajador" />
+      <End Role="Tbl_Puesto_trabajo" EntitySet="Tbl_Puesto_trabajo" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
     </AssociationSet>
     <AssociationSet Name="FK_usuario_rol" Association="Self.FK_usuario_rol">
-      <End Role="rol" EntitySet="rol" />
-      <End Role="usuario" EntitySet="usuario" />
+      <End Role="Tbl_Rol" EntitySet="Tbl_Rol" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
     </AssociationSet>
     <AssociationSet Name="FK_usuario_trabajador" Association="Self.FK_usuario_trabajador">
-      <End Role="trabajador" EntitySet="trabajador" />
-      <End Role="usuario" EntitySet="usuario" />
+      <End Role="Tbl_Trabajador" EntitySet="Tbl_Trabajador" />
+      <End Role="Tbl_Usuario" EntitySet="Tbl_Usuario" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

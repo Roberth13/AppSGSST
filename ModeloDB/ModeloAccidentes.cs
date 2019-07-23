@@ -8,11 +8,11 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloAccidentes
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloAccidentes() { }
 
-        public static bool Add_Accidentes(int tipo, string grado, DateTime fecha_inv, DateTime hora_inv, int id_trabajador, int id_area,
+        /*public static bool Add_Accidentes(int tipo, string grado, DateTime fecha_inv, DateTime hora_inv, int id_trabajador, int id_area,
         DateTime fecha_acc, DateTime hora_acc, int id_ips, int id_tipo_acc, int id_sit_acc, DateTime tiem_prev, string breve_desc,
         string desc_hechos, int id_puesto, int id_age_les, int id_prod_acc, int id_part_cuerpo, int id_form_acc,
         string eve_sim, string cuenta_mat, string cont_mat, string per_pres_acc, string sit_noclaras, string enc_sst,
@@ -188,7 +188,7 @@ namespace GestorSGSST2017.ModeloDB
                 ModeloBitacora.Add_Registro(DateTime.Now, _usu_bit, 1, _pagina, Convert.ToString(nuevo.ToString()));
             }
             return bError;
-        }
+        }*/
 
     }
 }

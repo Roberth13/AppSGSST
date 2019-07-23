@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloHorario
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloHorario() { }
 
@@ -23,7 +23,7 @@ namespace GestorSGSST2017.ModeloDB
             bool bError = true;
             int idEmpresa = Convert.ToInt32(_id_empresa);
 
-            horario nuevo = new horario()
+            Tbl_Horario nuevo = new Tbl_Horario()
             {
                 nombre = _nombre,
                 id_empresa = idEmpresa,
@@ -34,7 +34,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.horario.Add(nuevo);
+                contexto.Tbl_Horario.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)

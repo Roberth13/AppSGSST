@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloRiesgo
     {
-         public static GrupoLiEntities contexto = new GrupoLiEntities();
+         public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
          public ModeloRiesgo() { }
 
@@ -29,7 +29,7 @@ namespace GestorSGSST2017.ModeloDB
          ///<param name="_id_factor_riesgo">id del factor de riesgo asociado al riesgo</param>
          ///<param name="_consecuencia">consecuencia del riesgo</param>
          ///<param name="_id_sucursal">id de la sucursal asociado al riesgo</param>
-         public static bool Add_Riesgos(
+         /*public static bool Add_Riesgos(
              int _id_puesto_trabajo, string _fecha_eva, int _id_responsable, string _identificacion_riesgo,
              string _probabilidad, string _severidad, string _valor_riesgo, int _id_prioridad,
              string _medidas_fuente, string _medidas_ambiente, string _medidas_trabajador, string _estatus,
@@ -71,6 +71,6 @@ namespace GestorSGSST2017.ModeloDB
                  ModeloBitacora.Add_Registro(DateTime.Now, _usu_bit, 1, _pagina, Convert.ToString(nuevo.ToString()));
              }
              return bError;
-         }
+         }*/
     }
 }

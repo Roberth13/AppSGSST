@@ -87,6 +87,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ddlEmpresaArea = new System.Windows.Forms.ComboBox();
             this.tabHorarios = new System.Windows.Forms.TabPage();
+            this.txtLogHorarios = new System.Windows.Forms.RichTextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtArchivoHorarios = new System.Windows.Forms.TextBox();
@@ -95,7 +96,6 @@
             this.ddlEmpresasHorario = new System.Windows.Forms.ComboBox();
             this.tabsCargaMasiva = new System.Windows.Forms.TabControl();
             this.ArchivoDesc = new System.Windows.Forms.OpenFileDialog();
-            this.txtLogHorarios = new System.Windows.Forms.RichTextBox();
             this.tabDesc.SuspendLayout();
             this.tabAccidentes.SuspendLayout();
             this.tabRiesgos.SuspendLayout();
@@ -660,6 +660,15 @@
             this.tabHorarios.Text = "Horarios";
             this.tabHorarios.UseVisualStyleBackColor = true;
             // 
+            // txtLogHorarios
+            // 
+            this.txtLogHorarios.Location = new System.Drawing.Point(92, 219);
+            this.txtLogHorarios.Name = "txtLogHorarios";
+            this.txtLogHorarios.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogHorarios.Size = new System.Drawing.Size(491, 96);
+            this.txtLogHorarios.TabIndex = 6;
+            this.txtLogHorarios.Text = "";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Location = new System.Drawing.Point(459, 112);
@@ -731,15 +740,6 @@
             // ArchivoDesc
             // 
             this.ArchivoDesc.FileName = "openFileDialog1";
-            // 
-            // txtLogHorarios
-            // 
-            this.txtLogHorarios.Location = new System.Drawing.Point(92, 219);
-            this.txtLogHorarios.Name = "txtLogHorarios";
-            this.txtLogHorarios.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.txtLogHorarios.Size = new System.Drawing.Size(491, 96);
-            this.txtLogHorarios.TabIndex = 6;
-            this.txtLogHorarios.Text = "";
             // 
             // CargaMasiva
             // 

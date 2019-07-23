@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -57,19 +57,19 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -115,99 +115,6 @@
     <Compile Include="Ingresar.Designer.cs">
       <DependentUpon>Ingresar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\acc_inc_lab.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\afp.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\agente_lesion.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\alarmas.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\anexos.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\area.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\arp.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\categorias.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\causas_basicas.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\causas_inmediatas.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\causa_accidente.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\ccf.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\codigo_ciiu.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\compromisos.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\consultas.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\departamento.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\desc_socio.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\division.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\empleos_anteriores.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\empresa.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\empresa_itemdivision.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\enfermedad.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\eps.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\estatus.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\estatus_obligacion.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\Eventos.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\factor_riesgo.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\forma_accidente.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\fotos_accidente.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\frecuencia_control.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\gestion_laboral.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModeloDB\GrupoLi.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -223,33 +130,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GrupoLi.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\historia_clinica_ocupacional.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\horario.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\ips.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\items_division.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\matrizRiesgo_enfermedadLaboral.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\matrizRiesgo_factorRiesgo.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\matrizRiesgo_tipoRiesgo.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\medidas.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModeloDB\medidas_sucursal.cs">
-      <DependentUpon>GrupoLi.tt</DependentUpon>
-    </Compile>
     <Compile Include="ModeloDB\ModeloAccidentes.cs" />
     <Compile Include="ModeloDB\ModeloArea.cs" />
     <Compile Include="ModeloDB\ModeloBitacora.cs" />
@@ -259,82 +139,238 @@
     <Compile Include="ModeloDB\ModeloRiesgo.cs" />
     <Compile Include="ModeloDB\ModeloTrabajador.cs" />
     <Compile Include="ModeloDB\ModeloUsuario.cs" />
-    <Compile Include="ModeloDB\municipio.cs">
+    <Compile Include="ModeloDB\Tbl_Afp.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\normas.cs">
+    <Compile Include="ModeloDB\Tbl_Alarma.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\normas_sucursal.cs">
+    <Compile Include="ModeloDB\Tbl_Area.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\obligacion.cs">
+    <Compile Include="ModeloDB\Tbl_Arl.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\parte_cuerpo.cs">
+    <Compile Include="ModeloDB\Tbl_At_it_el_pa.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\plan_mapa.cs">
+    <Compile Include="ModeloDB\Tbl_AutoEvaluacion.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\plan_trabajo.cs">
+    <Compile Include="ModeloDB\Tbl_Brigada_emergencia.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\prioridad.cs">
+    <Compile Include="ModeloDB\Tbl_Categoria.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\puesto_trabajo.cs">
+    <Compile Include="ModeloDB\Tbl_Ccf.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\Region.cs">
+    <Compile Include="ModeloDB\Tbl_ClaseCiiu.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\riesgos.cs">
+    <Compile Include="ModeloDB\Tbl_Cno.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\riesgos_item.cs">
+    <Compile Include="ModeloDB\Tbl_Consulta.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\rol.cs">
+    <Compile Include="ModeloDB\Tbl_Departamento.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\sistemas.cs">
+    <Compile Include="ModeloDB\Tbl_Desc_socio.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\sitio_accidente.cs">
+    <Compile Include="ModeloDB\Tbl_DivisionCiiu.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\sucursal.cs">
+    <Compile Include="ModeloDB\Tbl_Documento.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\testigos.cs">
+    <Compile Include="ModeloDB\Tbl_Empleo_anterior.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\tipo_accidente.cs">
+    <Compile Include="ModeloDB\Tbl_Empresa.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\tipo_evento.cs">
+    <Compile Include="ModeloDB\Tbl_Empresa_itemdivision.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\tipo_examen.cs">
+    <Compile Include="ModeloDB\Tbl_Encuesta_politica.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\tipo_gestion.cs">
+    <Compile Include="ModeloDB\Tbl_Enfermedad.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\tipo_riesgo.cs">
+    <Compile Include="ModeloDB\Tbl_EnfermedadLaboral.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\trabajador.cs">
+    <Compile Include="ModeloDB\Tbl_Epp.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\trabajador_estatus.cs">
+    <Compile Include="ModeloDB\Tbl_Eps.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\trabajador_gestion.cs">
+    <Compile Include="ModeloDB\Tbl_Estatus.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModeloDB\usuario.cs">
+    <Compile Include="ModeloDB\Tbl_Evaluacion_riesgo.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Evento.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Extintor.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Factor_identificacion.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Factor_riesgo.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Frecuencia_control.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Gestion_laboral.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_GrupoCiiu.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Historia_clinica_ocupacional.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Horario.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Identificacion_peligro.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Identificacion_puesto.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Investigacion_ac_in.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Ips.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Lista_actividad.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_MatrizEpp.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Matriz_Acc_Prev_Corr.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Matriz_responsabilidad.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Medida.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Medida_sucursal.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Municipio.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Norma.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Norma_claseciiu.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Norma_sucursal.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Obligacion.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Perfil_cargo.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Perfil_medico.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Plan.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Plan_trabajo.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Politica_sst.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Pregunta.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Procedimiento_comunicacion.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Puesto_trabajo.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Puesto_trabajo_epp.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Region.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Respuesta.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Riesgos_item.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Rol.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_SeccionCiiu.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Senalizacion.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Simulacro.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Sistema.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Soporte.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Sucursal.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Tipo_documento.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Tipo_epp.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Tipo_evento.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Tipo_examen.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Tipo_riesgo.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Trabajador.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Trabajador_estatus.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Trabajador_gestion.cs">
+      <DependentUpon>GrupoLi.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloDB\Tbl_Usuario.cs">
       <DependentUpon>GrupoLi.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -361,23 +397,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="GestorSGSST2017_ClaveTemporal.pfx" />
     <EntityDeploy Include="ModeloDB\GrupoLi.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>GrupoLi.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="GestorSGSST2017_ClaveTemporal.pfx" />
-    <None Include="ModeloDB\GrupoLi.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GrupoLi.edmx</DependentUpon>
-      <LastGenOutput>GrupoLi.Context.cs</LastGenOutput>
-    </None>
     <None Include="ModeloDB\GrupoLi.edmx.diagram">
       <DependentUpon>GrupoLi.edmx</DependentUpon>
-    </None>
-    <None Include="ModeloDB\GrupoLi.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GrupoLi.edmx</DependentUpon>
-      <LastGenOutput>GrupoLi.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -391,9 +417,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ModeloDB\GrupoLi.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GrupoLi.edmx</DependentUpon>
+      <LastGenOutput>GrupoLi.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModeloDB\GrupoLi.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GrupoLi.edmx</DependentUpon>
+      <LastGenOutput>GrupoLi.cs</LastGenOutput>
+    </Content>
     <None Include="Imagenes\inicio.png" />
     <Content Include="Imagenes\llave.png" />
   </ItemGroup>

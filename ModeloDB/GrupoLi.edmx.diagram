@@ -4,162 +4,179 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="945aa18280d0461fb363b3209281cfe8" Name="Diagram1">
-        <EntityTypeShape EntityType="GrupoLiModel.acc_inc_lab" Width="1.5" PointX="14.25" PointY="38.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.afp" Width="1.5" PointX="20.25" PointY="49.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.agente_lesion" Width="1.5" PointX="12" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.alarmas" Width="1.5" PointX="27.75" PointY="37" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.anexos" Width="1.5" PointX="21.75" PointY="32.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.area" Width="1.5" PointX="9.75" PointY="33" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.arp" Width="1.5" PointX="3" PointY="29.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.categorias" Width="1.5" PointX="17.25" PointY="26.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.causa_accidente" Width="1.5" PointX="12" PointY="38.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.causas_basicas" Width="1.5" PointX="16.5" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.causas_inmediatas" Width="1.5" PointX="16.5" PointY="37.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.ccf" Width="1.5" PointX="18" PointY="30.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.codigo_ciiu" Width="1.5" PointX="3.75" PointY="24.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.compromisos" Width="1.5" PointX="16.5" PointY="48.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.consultas" Width="1.5" PointX="16.5" PointY="51.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.departamento" Width="1.5" PointX="3" PointY="35" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.desc_socio" Width="1.5" PointX="22.5" PointY="41" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.division" Width="1.5" PointX="6" PointY="24" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.empleos_anteriores" Width="1.5" PointX="24.75" PointY="35" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.empresa" Width="1.5" PointX="5.25" PointY="28.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.empresa_itemdivision" Width="1.5" PointX="13.5" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.enfermedad" Width="1.5" PointX="23.25" PointY="29.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.eps" Width="1.5" PointX="20.25" PointY="52.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.estatus" Width="1.5" PointX="23.25" PointY="26.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.estatus_obligacion" Width="1.5" PointX="17.25" PointY="22.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.Eventos" Width="1.5" PointX="27.75" PointY="33" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.factor_riesgo" Width="1.5" PointX="15" PointY="27" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.forma_accidente" Width="1.5" PointX="12" PointY="41.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.fotos_accidente" Width="1.5" PointX="16.5" PointY="55.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.frecuencia_control" Width="1.5" PointX="17.25" PointY="19.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.gestion_laboral" Width="1.5" PointX="27.75" PointY="40.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.historia_clinica_ocupacional" Width="1.5" PointX="25.5" PointY="43" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.horario" Width="1.5" PointX="18" PointY="61.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.ips" Width="1.5" PointX="12" PointY="44.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.items_division" Width="1.5" PointX="8.25" PointY="23.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.matrizRiesgo_enfermedadLaboral" Width="1.5" PointX="8.25" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.matrizRiesgo_factorRiesgo" Width="1.5" PointX="8.25" PointY="20.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.matrizRiesgo_tipoRiesgo" Width="1.5" PointX="6" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.medidas" Width="1.5" PointX="12.75" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.medidas_sucursal" Width="1.5" PointX="15" PointY="30.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.municipio" Width="1.5" PointX="5.25" PointY="34.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.normas" Width="1.5" PointX="10.5" PointY="22.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.normas_sucursal" Width="1.5" PointX="12.75" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.obligacion" Width="1.5" PointX="19.5" PointY="34.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.parte_cuerpo" Width="1.5" PointX="12" PointY="46.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.plan_mapa" Width="1.5" PointX="9.75" PointY="39.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.plan_trabajo" Width="1.5" PointX="24.75" PointY="50.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.prioridad" Width="1.5" PointX="15" PointY="61.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.puesto_trabajo" Width="1.5" PointX="12" PointY="51.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.Region" Width="1.5" PointX="0.75" PointY="35.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.riesgos" Width="1.5" PointX="17.25" PointY="40.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.riesgos_item" Width="1.5" PointX="10.5" PointY="18.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.rol" Width="1.5" PointX="20.25" PointY="29.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.sistemas" Width="1.5" PointX="23.25" PointY="54.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.sitio_accidente" Width="1.5" PointX="12" PointY="55.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.sucursal" Width="1.5" PointX="7.5" PointY="33.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.testigos" Width="1.5" PointX="16.5" PointY="57.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.tipo_accidente" Width="1.5" PointX="12" PointY="58.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.tipo_evento" Width="1.5" PointX="25.5" PointY="32.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.tipo_examen" Width="1.5" PointX="23.25" PointY="57.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.tipo_gestion" Width="1.5" PointX="25.5" PointY="29.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.tipo_riesgo" Width="1.5" PointX="12.75" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.trabajador" Width="1.5" PointX="20.25" PointY="40.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.trabajador_estatus" Width="1.5" PointX="25.5" PointY="38.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.trabajador_gestion" Width="1.5" PointX="25.5" PointY="47.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GrupoLiModel.usuario" Width="1.5" PointX="22.5" PointY="36.625" IsExpanded="true" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_agente_lesion" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_area" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_causa_accidente" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_forma_accidente" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_ips" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_parte_cuerpo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_puesto_trabajo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_sitio_accidente" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_tipo_accidente" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_acc_inc_lab_trabajador" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_causas_basicas_acc_inc_lab" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_causas_inmediatas_acc_inc_lab" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_compromisos_acc_inc_lab" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_consultas_acc_inc_lab" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_fotos_accidente_acc_inc_lab" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_Testigos_acc_inc_lab" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_desc_socio_afp" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_agente_lesion_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_alarmas_categorias" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_alarmas_prioridad" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_alarmas_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_anexos_obligacion1" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_area_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_puesto_trabajo_area" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_empresa_arp" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_categorias_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_categorias" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_causa_accidente_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_ccf" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_division_codigo_ciiu" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_departamento_Region" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_municipio_departamento1" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_desc_socio_eps1" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_desc_socio_trabajador" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_empleos_anteriores_desc_socio" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_items_division_division" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_empresa_itemdivision_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_estatus_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_estatus_obligacion_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_factor_riesgo_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_forma_accidente_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_horario_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_parte_cuerpo_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_sitio_accidente_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_sucursal_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_tipo_accidente_empresa" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_empresa_itemdivision_items_division" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_estatus_enfermedad" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK__Trabajado__id_es__22751F6C" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_estatus_obligacion" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_Eventos_tipo_evento" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_Eventos_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_factor_riesgo_tipo_riesgo1" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_factor_riesgo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_frecuencia_control" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_gestion_laboral_tipo_gestion" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_gestion_laboral_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_gestion_gestion_laboral" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_historia_clinica_ocupacional_Tipo_Examen" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_historia_clinica_ocupacional_trabajador" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_horario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_normas_items_division" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_item_items_division" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_item_matrizRiesgo_enfermedadLaboral" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_factor_riesgo_tipo_riesgo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_item_matrizRiesgo_factorRiesgo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_medidas_normas" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_medidas_sucursal_normas_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_medidas_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_sucursal_municipio" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_municipio" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_normas_sucursal_normas1" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_normas_sucursal_sucursal1" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_plan_trabajo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_prioridad" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_riesgos" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_obligacion_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_plan_mapa_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_plan_trabajo_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_prioridad" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_puesto_trabajo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_puesto_trabajo" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_riesgos_usuario" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_usuario_rol" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_estatus_sistemas" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_estatus_trabajador" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_trabajador_gestion_trabajador" ManuallyRouted="false" />
-        <AssociationConnector Association="GrupoLiModel.FK_usuario_trabajador" ManuallyRouted="false" />
+      <Diagram DiagramId="6640586a288942bda450de59bf9d4d44" Name="Diagram1">
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Afp" Width="1.5" PointX="17.25" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Alarma" Width="1.5" PointX="24.75" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Area" Width="1.5" PointX="9.75" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Arl" Width="1.5" PointX="3" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_At_it_el_pa" Width="1.5" PointX="14.25" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_AutoEvaluacion" Width="1.5" PointX="7.5" PointY="52.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Brigada_emergencia" Width="1.5" PointX="9.75" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Categoria" Width="1.5" PointX="24.75" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Ccf" Width="1.5" PointX="15" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_ClaseCiiu" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Cno" Width="1.5" PointX="12.75" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Consulta" Width="1.5" PointX="16.5" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Departamento" Width="1.5" PointX="3" PointY="63.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Desc_socio" Width="1.5" PointX="19.5" PointY="67.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_DivisionCiiu" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Documento" Width="1.5" PointX="22.5" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Empleo_anterior" Width="1.5" PointX="21.75" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Empresa" Width="1.5" PointX="5.25" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Empresa_itemdivision" Width="1.5" PointX="9.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Encuesta_politica" Width="1.5" PointX="19.5" PointY="80.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Enfermedad" Width="1.5" PointX="23.25" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_EnfermedadLaboral" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Epp" Width="1.5" PointX="12" PointY="88.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Eps" Width="1.5" PointX="17.25" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Estatus" Width="1.5" PointX="23.25" PointY="55.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Evaluacion_riesgo" Width="1.5" PointX="16.5" PointY="91.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Evento" Width="1.5" PointX="24.75" PointY="79.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Extintor" Width="1.5" PointX="12" PointY="65.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Factor_identificacion" Width="1.5" PointX="27" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Factor_riesgo" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Frecuencia_control" Width="1.5" PointX="24.75" PointY="62.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Gestion_laboral" Width="1.5" PointX="21.75" PointY="79.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_GrupoCiiu" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Historia_clinica_ocupacional" Width="1.5" PointX="22.5" PointY="71" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Horario" Width="1.5" PointX="7.5" PointY="49.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Identificacion_peligro" Width="1.5" PointX="24.75" PointY="83.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Identificacion_puesto" Width="1.5" PointX="14.25" PointY="74.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Investigacion_ac_in" Width="1.5" PointX="16.5" PointY="76.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Ips" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Lista_actividad" Width="1.5" PointX="9.75" PointY="64.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Matriz_Acc_Prev_Corr" Width="1.5" PointX="12" PointY="69.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Matriz_responsabilidad" Width="1.5" PointX="9.75" PointY="68" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_MatrizEpp" Width="1.5" PointX="12.75" PointY="58.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Medida" Width="1.5" PointX="9.75" PointY="49.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Medida_sucursal" Width="1.5" PointX="12" PointY="55" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Municipio" Width="1.5" PointX="5.25" PointY="63.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Norma" Width="1.5" PointX="7.5" PointY="56.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Norma_claseciiu" Width="1.5" PointX="9.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Norma_sucursal" Width="1.5" PointX="9.75" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Obligacion" Width="1.5" PointX="27" PointY="73.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Perfil_cargo" Width="1.5" PointX="15" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Perfil_medico" Width="1.5" PointX="17.25" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Plan" Width="1.5" PointX="9.75" PointY="77.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Plan_trabajo" Width="1.5" PointX="21.75" PointY="88.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Politica_sst" Width="1.5" PointX="7.5" PointY="68.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Pregunta" Width="1.5" PointX="21.75" PointY="91.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Procedimiento_comunicacion" Width="1.5" PointX="12" PointY="61.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Puesto_trabajo" Width="1.5" PointX="12" PointY="73.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Puesto_trabajo_epp" Width="1.5" PointX="14.25" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Region" Width="1.5" PointX="0.75" PointY="63.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Respuesta" Width="1.5" PointX="24" PointY="92" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Riesgos_item" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Rol" Width="1.5" PointX="17.25" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_SeccionCiiu" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Simulacro" Width="1.5" PointX="9.75" PointY="80.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Sistema" Width="1.5" PointX="23.25" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Soporte" Width="1.5" PointX="16.5" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Sucursal" Width="1.5" PointX="7.5" PointY="61.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Tipo_documento" Width="1.5" PointX="9.75" PointY="83.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Tipo_epp" Width="1.5" PointX="9.75" PointY="88.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Tipo_evento" Width="1.5" PointX="22.5" PointY="83.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Tipo_examen" Width="1.5" PointX="20.25" PointY="60.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Tipo_riesgo" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Trabajador" Width="1.5" PointX="17.25" PointY="66" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Trabajador_estatus" Width="1.5" PointX="25.5" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Trabajador_gestion" Width="1.5" PointX="19.5" PointY="63.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Usuario" Width="1.5" PointX="19.5" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="grupolicom_sgsstModel.Tbl_Senalizacion" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_desc_socio_afp" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_alarmas_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_alarmas_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_area_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_at_it_el_pa_area" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_extintor_area" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_puesto_trabajo_area" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Tbl_Matriz_Acc_Prev_Corr_Tbl_Area" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_empresa_arl" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_at_it_el_pa_puesto_trabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_at_it_el_pa_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_consultas_at_it_el_pa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_investigacion_ac_in_at_it_el_pa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_soporte_at_it_el_pa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Tbl_AutoEvaluacion_Tbl_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_brigada_emergencia_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_procedimiento_comunicacion_brigada_emergencia" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_categorias_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_obligacion_categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_ccf" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_claseCiiu_grupoCiiu" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_empresa_itemdivision_claseCiiu" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_normas_claseciiu_claseCiiu" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_riesgos_item_items_division" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_perfil_cargo_cno" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_departamento_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_municipio_departamento1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_desc_socio_eps1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_desc_socio_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_empleos_anteriores_desc_socio" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_divisionCiiu_seccionCiiu" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_grupoCiiu_divisionCiiu" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_documentos_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_documentos_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_soporte_documentos" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_empresa_itemdivision_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_epp_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_estatus_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_horario_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_perfil_cargo_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_politica_sst_empresa1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_rol_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_sucursal_empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_encuesta_politica_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_estatus_enfermedad" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_riesgos_item_matrizRiesgo_enfermedadLaboral" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK__epp__id_tipo_epp__6D9742D9" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK__puesto_tr__id_ep__6ABAD62E" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Tbl_MatrizEpp_Tbl_Epp" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_estatus_estatus" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_evaluacion_riesgo_identificacion_puesto" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Eventos_tipo_evento" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Eventos_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_factor_identificacion_factor_riesgo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_factor_identificacion_identificacion_peligro" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_factor_riesgo_tipo_riesgo1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_riesgos_item_factor_riesgo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_obligacion_frecuencia_control" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_gestion_laboral_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_gestion_gestion_laboral" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_historia_clinica_ocupacional_Tipo_Examen" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_historia_clinica_ocupacional_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_identificacion_puesto_identificacion_peligro" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_obligacion_identificacion_peligro1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_identificacion_puesto_puesto_trabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_lista_actividades_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_matriz_responsabilidad_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Tbl_MatrizEpp_Tbl_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_medidas_normas" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_medidas_sucursal_normas_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_obligacion_medidas_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_sucursal_municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_municipio" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_normas_claseciiu_normas" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_normas_sucursal_normas1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_normas_sucursal_sucursal1" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_obligacion_plan_trabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_obligacion_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_soporte_obligacion" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_perfil_medico_perfil_cargo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_perfil_cargo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_planes_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_plan_trabajo_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Pregunta_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Respuesta_Pregunta" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK__puesto_tr__id_pu__69C6B1F5" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_puesto_trabajo" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_usuario_rol" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_Tbl_Simulacro_Tbl_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_estatus_sistemas" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_tipo_documento_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_estatus_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_trabajador_gestion_trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="grupolicom_sgsstModel.FK_usuario_trabajador" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

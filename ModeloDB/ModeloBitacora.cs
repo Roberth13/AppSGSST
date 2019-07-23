@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloBitacora
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloBitacora() { }
 
@@ -16,7 +16,7 @@ namespace GestorSGSST2017.ModeloDB
         {
             bool bError = true;
 
-            Eventos nuevo = new Eventos()
+            Tbl_Evento nuevo = new Tbl_Evento()
             {
                 fecha_hora = fecha_hora,
                 id_usuario = _id_usuario,
@@ -27,7 +27,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.Eventos.Add(nuevo);
+                contexto.Tbl_Evento.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)

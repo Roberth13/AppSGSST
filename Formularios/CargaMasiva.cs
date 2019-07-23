@@ -903,10 +903,11 @@ namespace GestorSGSST2017.Formularios
                         int idusuario = Getter.Usuario(str[2]);
                         int matriz_riegos = 0;
 
-                        ModeloRiesgo.Add_Riesgos(_id_puesto_trabajo, _fecha_eva, _id_responsable, _identificacion_riesgo,
+                        /*ModeloRiesgo.Add_Riesgos(_id_puesto_trabajo, _fecha_eva, _id_responsable, _identificacion_riesgo,
                                                 _probabilidad, _severidad, valor_riesgo, Convert.ToInt32(id_prioridad),
                                                 _medidas_fuente, _medidas_ambiente, _medidas_trabajador, _estatus,
                                                 _id_factor_riesgo, _consecuencia, Convert.ToInt32(id_sucursal), matriz_riegos, Convert.ToInt32(UsuarioID), "Carga Masiva/index.aspx");
+                        */
                         pos = 0;
                     }
                     xlWorkBook.Close(false, Missing.Value, Missing.Value);
@@ -1055,12 +1056,12 @@ namespace GestorSGSST2017.Formularios
                             int id_parte_afectada = Getter.ParteCuerpo(accidente[17], Convert.ToInt32(id_empresa));
                             int id_forma_accidente = Getter.FormaAccidente(accidente[18], Convert.ToInt32(id_empresa));
 
-                            ModeloAccidentes.Add_Accidentes(tipo_acci_inci, accidente[0], Convert.ToDateTime(accidente[1]), Convert.ToDateTime(accidente[2]), id_trabajador,
+                            /*ModeloAccidentes.Add_Accidentes(tipo_acci_inci, accidente[0], Convert.ToDateTime(accidente[1]), Convert.ToDateTime(accidente[2]), id_trabajador,
                                                                 id_area, Convert.ToDateTime(accidente[6]), Convert.ToDateTime(accidente[7]),
                                                                 id_ips, id_tipoAccidente, id_sitio_accidente, Convert.ToDateTime(accidente[11]), accidente[12], accidente[13],
                                                                 id_puesto_trabajo, id_agente_lesion, id_causa_accidente, id_parte_afectada, id_forma_accidente,
                                                                 accidente[19], accidente[20], accidente[21], accidente[22], accidente[27],
-                                                                accidente[28], accidente[29], accidente[30], accidente[31], accidente[32], 1, "cargamasiva");
+                                                                accidente[28], accidente[29], accidente[30], accidente[31], accidente[32], 1, "cargamasiva");*/
 
                             id_acc_lab = Getter.MaxAccidentes();
                         }
@@ -1082,7 +1083,7 @@ namespace GestorSGSST2017.Formularios
                                     }
                                     pos++;
                                 }
-                                ModeloAccidentes.Add_Testigos(testigo[0], testigo[1], testigo[2], testigo[3], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                //ModeloAccidentes.Add_Testigos(testigo[0], testigo[1], testigo[2], testigo[3], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
                                 cantTestigos--;
                                 if (cantTestigos == 0) testigos = false;
                             }
@@ -1093,7 +1094,7 @@ namespace GestorSGSST2017.Formularios
                                     causa_inmediata[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
                                     pos++;
                                 }
-                                ModeloAccidentes.Add_Causas_inmediatas(causa_inmediata[0], causa_inmediata[1], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                //ModeloAccidentes.Add_Causas_inmediatas(causa_inmediata[0], causa_inmediata[1], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
                                 cantCausasInme--;
                                 if (cantCausasInme == 0) causaInmediatas = false;
                             }
@@ -1104,7 +1105,7 @@ namespace GestorSGSST2017.Formularios
                                     causa_basica[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
                                     pos++;
                                 }
-                                ModeloAccidentes.Add_Causas_basicas(causa_basica[0], causa_basica[1], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                //ModeloAccidentes.Add_Causas_basicas(causa_basica[0], causa_basica[1], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
                                 cantCausasbasi--;
                                 if (cantCausasbasi == 0) causasBasicas = false;
                             }
@@ -1124,7 +1125,7 @@ namespace GestorSGSST2017.Formularios
                                     }
                                     pos++;
                                 }
-                                ModeloAccidentes.Add_Compromisos(compromisos[0], compromisos[1], compromisos[2], compromisos[3], compromisos[4], compromisos[5], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                               // ModeloAccidentes.Add_Compromisos(compromisos[0], compromisos[1], compromisos[2], compromisos[3], compromisos[4], compromisos[5], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
                                 cantCompromisos--;
                                 if (cantCompromisos == 0) compromiso = false;
                             }

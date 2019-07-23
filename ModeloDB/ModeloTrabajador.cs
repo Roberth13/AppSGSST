@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloTrabajador
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloTrabajador() { }
 
@@ -43,7 +43,7 @@ namespace GestorSGSST2017.ModeloDB
         {
             bool bError = true;
 
-            trabajador nuevo = new trabajador()
+            Tbl_Trabajador nuevo = new Tbl_Trabajador()
             {
                 #region codigo
                 cedula = _cedula,
@@ -72,7 +72,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.trabajador.Add(nuevo);
+                contexto.Tbl_Trabajador.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)

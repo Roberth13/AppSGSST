@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloDescSocio
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloDescSocio() { }
 
@@ -21,7 +21,7 @@ namespace GestorSGSST2017.ModeloDB
         {
             bool bError = true;
 
-            desc_socio nuevo = new desc_socio()
+            Tbl_Desc_socio nuevo = new Tbl_Desc_socio()
             {
                 id_trabajador = id_trabajador,
                 lugar_nac = lugar_nac,
@@ -52,7 +52,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.desc_socio.Add(nuevo);
+                contexto.Tbl_Desc_socio.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)
@@ -73,7 +73,7 @@ namespace GestorSGSST2017.ModeloDB
         {
             bool bError = true;
 
-            empleos_anteriores nuevo = new empleos_anteriores()
+            Tbl_Empleo_anterior nuevo = new Tbl_Empleo_anterior()
             {
                 empresa = empresa,
                 area = area,
@@ -86,7 +86,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.empleos_anteriores.Add(nuevo);
+                contexto.Tbl_Empleo_anterior.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)

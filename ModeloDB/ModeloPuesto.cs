@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloPuesto
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloPuesto() { }
 
@@ -21,7 +21,7 @@ namespace GestorSGSST2017.ModeloDB
         {
             bool bError = true;
 
-            puesto_trabajo nuevo = new puesto_trabajo()
+            Tbl_Puesto_trabajo nuevo = new Tbl_Puesto_trabajo()
             {
                 nombre = _nombre,
                 descripcion = _descripcion,
@@ -30,7 +30,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.puesto_trabajo.Add(nuevo);
+                contexto.Tbl_Puesto_trabajo.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)

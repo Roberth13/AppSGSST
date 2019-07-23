@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloUsuario
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloUsuario() { }
 
@@ -20,13 +20,13 @@ namespace GestorSGSST2017.ModeloDB
             clave = objUtilidades.cifrarCadena(Convert.ToString(clave));
 
             var resultado = "";
-            var consulta = from US in contexto.usuario where (US.login == login && US.clave == clave) select new { _id_rol = US.id_rol };
+            var consulta = from US in contexto.Tbl_Usuario where (US.login == login && US.clave == clave) select new { _id_rol = US.id_rol };
 
             foreach (var datos in consulta)
             {
                 if (datos._id_rol == 1)
                 {
-                    var consulta1 = from US in contexto.usuario
+                    var consulta1 = from US in contexto.Tbl_Usuario
                                     where (US.login == login && US.clave == clave)
                                     select new
                                     {
@@ -41,13 +41,13 @@ namespace GestorSGSST2017.ModeloDB
                 }
                 else
                 {
-                    var consulta1 = from US in contexto.usuario
+                    var consulta1 = from US in contexto.Tbl_Usuario
                                     where (US.login == login && US.clave == clave)
                                     select new
                                     {
                                         _id_usuario = US.id_usuario,
-                                        _id_empresa = US.trabajador.puesto_trabajo.area.sucursal.id_empresa,
-                                        _id_sucursal = US.trabajador.puesto_trabajo.area.id_sucursal,
+                                        _id_empresa = US.Tbl_Trabajador.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.id_empresa,
+                                        _id_sucursal = US.Tbl_Trabajador.Tbl_Puesto_trabajo.Tbl_Area.id_sucursal,
                                         _id_rol = US.id_rol
                                     };
                     foreach (var datos1 in consulta1) { resultado = string.Concat(datos1._id_usuario, "|", datos1._id_rol, "|", datos1._id_empresa, "|", datos1._id_sucursal); }

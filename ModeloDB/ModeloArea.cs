@@ -8,7 +8,7 @@ namespace GestorSGSST2017.ModeloDB
 {
     class ModeloArea
     {
-        public static GrupoLiEntities contexto = new GrupoLiEntities();
+        public static GrupoLiEntities1 contexto = new GrupoLiEntities1();
 
         public ModeloArea() { }
 
@@ -23,7 +23,7 @@ namespace GestorSGSST2017.ModeloDB
         {
             bool bError = true;
 
-            area nuevo = new area()
+            Tbl_Area nuevo = new Tbl_Area()
             {
                 nombre = _nombre,
                 id_sucursal = _id_sucursal,
@@ -33,7 +33,7 @@ namespace GestorSGSST2017.ModeloDB
 
             try
             {
-                contexto.area.Add(nuevo);
+                contexto.Tbl_Area.Add(nuevo);
                 contexto.SaveChanges();
             }
             catch (Exception e)

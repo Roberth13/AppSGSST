@@ -13,10 +13,10 @@ namespace GestorSGSST2017.ModeloDB
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GrupoLiEntities : DbContext
+    public partial class GrupoLiEntities1 : DbContext
     {
-        public GrupoLiEntities()
-            : base("name=GrupoLiEntities")
+        public GrupoLiEntities1()
+            : base("name=GrupoLiEntities1")
         {
         }
     
@@ -25,71 +25,83 @@ namespace GestorSGSST2017.ModeloDB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<acc_inc_lab> acc_inc_lab { get; set; }
-        public virtual DbSet<afp> afp { get; set; }
-        public virtual DbSet<agente_lesion> agente_lesion { get; set; }
-        public virtual DbSet<alarmas> alarmas { get; set; }
-        public virtual DbSet<anexos> anexos { get; set; }
-        public virtual DbSet<area> area { get; set; }
-        public virtual DbSet<arp> arp { get; set; }
-        public virtual DbSet<categorias> categorias { get; set; }
-        public virtual DbSet<causa_accidente> causa_accidente { get; set; }
-        public virtual DbSet<causas_basicas> causas_basicas { get; set; }
-        public virtual DbSet<causas_inmediatas> causas_inmediatas { get; set; }
-        public virtual DbSet<ccf> ccf { get; set; }
-        public virtual DbSet<codigo_ciiu> codigo_ciiu { get; set; }
-        public virtual DbSet<compromisos> compromisos { get; set; }
-        public virtual DbSet<consultas> consultas { get; set; }
-        public virtual DbSet<departamento> departamento { get; set; }
-        public virtual DbSet<desc_socio> desc_socio { get; set; }
-        public virtual DbSet<division> division { get; set; }
-        public virtual DbSet<empleos_anteriores> empleos_anteriores { get; set; }
-        public virtual DbSet<empresa> empresa { get; set; }
-        public virtual DbSet<empresa_itemdivision> empresa_itemdivision { get; set; }
-        public virtual DbSet<enfermedad> enfermedad { get; set; }
-        public virtual DbSet<eps> eps { get; set; }
-        public virtual DbSet<estatus> estatus { get; set; }
-        public virtual DbSet<estatus_obligacion> estatus_obligacion { get; set; }
-        public virtual DbSet<Eventos> Eventos { get; set; }
-        public virtual DbSet<factor_riesgo> factor_riesgo { get; set; }
-        public virtual DbSet<forma_accidente> forma_accidente { get; set; }
-        public virtual DbSet<fotos_accidente> fotos_accidente { get; set; }
-        public virtual DbSet<frecuencia_control> frecuencia_control { get; set; }
-        public virtual DbSet<gestion_laboral> gestion_laboral { get; set; }
-        public virtual DbSet<historia_clinica_ocupacional> historia_clinica_ocupacional { get; set; }
-        public virtual DbSet<horario> horario { get; set; }
-        public virtual DbSet<ips> ips { get; set; }
-        public virtual DbSet<items_division> items_division { get; set; }
-        public virtual DbSet<matrizRiesgo_enfermedadLaboral> matrizRiesgo_enfermedadLaboral { get; set; }
-        public virtual DbSet<matrizRiesgo_factorRiesgo> matrizRiesgo_factorRiesgo { get; set; }
-        public virtual DbSet<matrizRiesgo_tipoRiesgo> matrizRiesgo_tipoRiesgo { get; set; }
-        public virtual DbSet<medidas> medidas { get; set; }
-        public virtual DbSet<medidas_sucursal> medidas_sucursal { get; set; }
-        public virtual DbSet<municipio> municipio { get; set; }
-        public virtual DbSet<normas> normas { get; set; }
-        public virtual DbSet<normas_sucursal> normas_sucursal { get; set; }
-        public virtual DbSet<obligacion> obligacion { get; set; }
-        public virtual DbSet<parte_cuerpo> parte_cuerpo { get; set; }
-        public virtual DbSet<plan_mapa> plan_mapa { get; set; }
-        public virtual DbSet<plan_trabajo> plan_trabajo { get; set; }
-        public virtual DbSet<prioridad> prioridad { get; set; }
-        public virtual DbSet<puesto_trabajo> puesto_trabajo { get; set; }
-        public virtual DbSet<Region> Region { get; set; }
-        public virtual DbSet<riesgos> riesgos { get; set; }
-        public virtual DbSet<riesgos_item> riesgos_item { get; set; }
-        public virtual DbSet<rol> rol { get; set; }
-        public virtual DbSet<sistemas> sistemas { get; set; }
-        public virtual DbSet<sitio_accidente> sitio_accidente { get; set; }
-        public virtual DbSet<sucursal> sucursal { get; set; }
-        public virtual DbSet<testigos> testigos { get; set; }
-        public virtual DbSet<tipo_accidente> tipo_accidente { get; set; }
-        public virtual DbSet<tipo_evento> tipo_evento { get; set; }
-        public virtual DbSet<tipo_examen> tipo_examen { get; set; }
-        public virtual DbSet<tipo_gestion> tipo_gestion { get; set; }
-        public virtual DbSet<tipo_riesgo> tipo_riesgo { get; set; }
-        public virtual DbSet<trabajador> trabajador { get; set; }
-        public virtual DbSet<trabajador_estatus> trabajador_estatus { get; set; }
-        public virtual DbSet<trabajador_gestion> trabajador_gestion { get; set; }
-        public virtual DbSet<usuario> usuario { get; set; }
+        public virtual DbSet<Tbl_Afp> Tbl_Afp { get; set; }
+        public virtual DbSet<Tbl_Alarma> Tbl_Alarma { get; set; }
+        public virtual DbSet<Tbl_Area> Tbl_Area { get; set; }
+        public virtual DbSet<Tbl_Arl> Tbl_Arl { get; set; }
+        public virtual DbSet<Tbl_At_it_el_pa> Tbl_At_it_el_pa { get; set; }
+        public virtual DbSet<Tbl_AutoEvaluacion> Tbl_AutoEvaluacion { get; set; }
+        public virtual DbSet<Tbl_Brigada_emergencia> Tbl_Brigada_emergencia { get; set; }
+        public virtual DbSet<Tbl_Categoria> Tbl_Categoria { get; set; }
+        public virtual DbSet<Tbl_Ccf> Tbl_Ccf { get; set; }
+        public virtual DbSet<Tbl_ClaseCiiu> Tbl_ClaseCiiu { get; set; }
+        public virtual DbSet<Tbl_Cno> Tbl_Cno { get; set; }
+        public virtual DbSet<Tbl_Consulta> Tbl_Consulta { get; set; }
+        public virtual DbSet<Tbl_Departamento> Tbl_Departamento { get; set; }
+        public virtual DbSet<Tbl_Desc_socio> Tbl_Desc_socio { get; set; }
+        public virtual DbSet<Tbl_DivisionCiiu> Tbl_DivisionCiiu { get; set; }
+        public virtual DbSet<Tbl_Documento> Tbl_Documento { get; set; }
+        public virtual DbSet<Tbl_Empleo_anterior> Tbl_Empleo_anterior { get; set; }
+        public virtual DbSet<Tbl_Empresa> Tbl_Empresa { get; set; }
+        public virtual DbSet<Tbl_Empresa_itemdivision> Tbl_Empresa_itemdivision { get; set; }
+        public virtual DbSet<Tbl_Encuesta_politica> Tbl_Encuesta_politica { get; set; }
+        public virtual DbSet<Tbl_Enfermedad> Tbl_Enfermedad { get; set; }
+        public virtual DbSet<Tbl_EnfermedadLaboral> Tbl_EnfermedadLaboral { get; set; }
+        public virtual DbSet<Tbl_Epp> Tbl_Epp { get; set; }
+        public virtual DbSet<Tbl_Eps> Tbl_Eps { get; set; }
+        public virtual DbSet<Tbl_Estatus> Tbl_Estatus { get; set; }
+        public virtual DbSet<Tbl_Evaluacion_riesgo> Tbl_Evaluacion_riesgo { get; set; }
+        public virtual DbSet<Tbl_Evento> Tbl_Evento { get; set; }
+        public virtual DbSet<Tbl_Extintor> Tbl_Extintor { get; set; }
+        public virtual DbSet<Tbl_Factor_identificacion> Tbl_Factor_identificacion { get; set; }
+        public virtual DbSet<Tbl_Factor_riesgo> Tbl_Factor_riesgo { get; set; }
+        public virtual DbSet<Tbl_Frecuencia_control> Tbl_Frecuencia_control { get; set; }
+        public virtual DbSet<Tbl_Gestion_laboral> Tbl_Gestion_laboral { get; set; }
+        public virtual DbSet<Tbl_GrupoCiiu> Tbl_GrupoCiiu { get; set; }
+        public virtual DbSet<Tbl_Historia_clinica_ocupacional> Tbl_Historia_clinica_ocupacional { get; set; }
+        public virtual DbSet<Tbl_Horario> Tbl_Horario { get; set; }
+        public virtual DbSet<Tbl_Identificacion_peligro> Tbl_Identificacion_peligro { get; set; }
+        public virtual DbSet<Tbl_Identificacion_puesto> Tbl_Identificacion_puesto { get; set; }
+        public virtual DbSet<Tbl_Investigacion_ac_in> Tbl_Investigacion_ac_in { get; set; }
+        public virtual DbSet<Tbl_Ips> Tbl_Ips { get; set; }
+        public virtual DbSet<Tbl_Lista_actividad> Tbl_Lista_actividad { get; set; }
+        public virtual DbSet<Tbl_Matriz_Acc_Prev_Corr> Tbl_Matriz_Acc_Prev_Corr { get; set; }
+        public virtual DbSet<Tbl_Matriz_responsabilidad> Tbl_Matriz_responsabilidad { get; set; }
+        public virtual DbSet<Tbl_MatrizEpp> Tbl_MatrizEpp { get; set; }
+        public virtual DbSet<Tbl_Medida> Tbl_Medida { get; set; }
+        public virtual DbSet<Tbl_Medida_sucursal> Tbl_Medida_sucursal { get; set; }
+        public virtual DbSet<Tbl_Municipio> Tbl_Municipio { get; set; }
+        public virtual DbSet<Tbl_Norma> Tbl_Norma { get; set; }
+        public virtual DbSet<Tbl_Norma_claseciiu> Tbl_Norma_claseciiu { get; set; }
+        public virtual DbSet<Tbl_Norma_sucursal> Tbl_Norma_sucursal { get; set; }
+        public virtual DbSet<Tbl_Obligacion> Tbl_Obligacion { get; set; }
+        public virtual DbSet<Tbl_Perfil_cargo> Tbl_Perfil_cargo { get; set; }
+        public virtual DbSet<Tbl_Perfil_medico> Tbl_Perfil_medico { get; set; }
+        public virtual DbSet<Tbl_Plan> Tbl_Plan { get; set; }
+        public virtual DbSet<Tbl_Plan_trabajo> Tbl_Plan_trabajo { get; set; }
+        public virtual DbSet<Tbl_Politica_sst> Tbl_Politica_sst { get; set; }
+        public virtual DbSet<Tbl_Pregunta> Tbl_Pregunta { get; set; }
+        public virtual DbSet<Tbl_Procedimiento_comunicacion> Tbl_Procedimiento_comunicacion { get; set; }
+        public virtual DbSet<Tbl_Puesto_trabajo> Tbl_Puesto_trabajo { get; set; }
+        public virtual DbSet<Tbl_Puesto_trabajo_epp> Tbl_Puesto_trabajo_epp { get; set; }
+        public virtual DbSet<Tbl_Region> Tbl_Region { get; set; }
+        public virtual DbSet<Tbl_Respuesta> Tbl_Respuesta { get; set; }
+        public virtual DbSet<Tbl_Riesgos_item> Tbl_Riesgos_item { get; set; }
+        public virtual DbSet<Tbl_Rol> Tbl_Rol { get; set; }
+        public virtual DbSet<Tbl_SeccionCiiu> Tbl_SeccionCiiu { get; set; }
+        public virtual DbSet<Tbl_Simulacro> Tbl_Simulacro { get; set; }
+        public virtual DbSet<Tbl_Sistema> Tbl_Sistema { get; set; }
+        public virtual DbSet<Tbl_Soporte> Tbl_Soporte { get; set; }
+        public virtual DbSet<Tbl_Sucursal> Tbl_Sucursal { get; set; }
+        public virtual DbSet<Tbl_Tipo_documento> Tbl_Tipo_documento { get; set; }
+        public virtual DbSet<Tbl_Tipo_epp> Tbl_Tipo_epp { get; set; }
+        public virtual DbSet<Tbl_Tipo_evento> Tbl_Tipo_evento { get; set; }
+        public virtual DbSet<Tbl_Tipo_examen> Tbl_Tipo_examen { get; set; }
+        public virtual DbSet<Tbl_Tipo_riesgo> Tbl_Tipo_riesgo { get; set; }
+        public virtual DbSet<Tbl_Trabajador> Tbl_Trabajador { get; set; }
+        public virtual DbSet<Tbl_Trabajador_estatus> Tbl_Trabajador_estatus { get; set; }
+        public virtual DbSet<Tbl_Trabajador_gestion> Tbl_Trabajador_gestion { get; set; }
+        public virtual DbSet<Tbl_Usuario> Tbl_Usuario { get; set; }
+        public virtual DbSet<Tbl_Senalizacion> Tbl_Senalizacion { get; set; }
     }
 }
