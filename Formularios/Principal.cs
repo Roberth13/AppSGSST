@@ -57,6 +57,7 @@ namespace GestorSGSST2017.Formularios
 
         private void listadosOpcion_Click(object sender, EventArgs e)
         {
+            Console.Write("*** Entrando al listado ***");
             if (lsObj.IsDisposed)
             {
                 lsObj = new Listados(UsuarioID, RolID, EmpresaID, SucursalID, esAdmin);

@@ -63,6 +63,7 @@ namespace GestorSGSST2017.Formularios
             this.EmpresaID = EmpresaID;
             this.SucursalID = SucursalID;
             this.esAdmin = esAdmin;
+
             InitializeComponent();
             UbicacionCentral();
         }
@@ -81,10 +82,10 @@ namespace GestorSGSST2017.Formularios
             Listas.Sucursal(ddlSucursalPuesto, 1);
             Listas.Empresa(ddlEmpresasTrab);
             Listas.Sucursal(ddlSucursalTrab, 1);
-            Listas.Empresa(ddlEmpresasRiesgo);
-            Listas.Sucursal(ddlSucursalRiesgo, 1);
-            Listas.Empresa(ddlEmpresasAcc);
-            Listas.Sucursal(ddlSucursalAcc, 1);
+            //Listas.Empresa(ddlEmpresasRiesgo);
+            //Listas.Sucursal(ddlSucursalRiesgo, 1);
+            //Listas.Empresa(ddlEmpresasAcc);
+            //Listas.Sucursal(ddlSucursalAcc, 1);
             us = new UsuarioSistema(RolID);
             if (!esAdmin)
             {
@@ -386,15 +387,24 @@ namespace GestorSGSST2017.Formularios
 
         private void btnCargarArea_Click(object sender, EventArgs e)
         {
+            escritor = Utilidades1.abrirEscritor();
             if (txtCargarArea.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Areas");
                 if(nombreArchivo != null)
+                {
+                    msj = DateTime.Now + ": Iniciando carga masiva de Areas.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "INFO");
                     cargaAreas(nombreArchivo);
+                }
+                    
             }
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
+                msj = DateTime.Now + ": No se selecciono ningun Archivo.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
             }
         }
 
@@ -417,10 +427,16 @@ namespace GestorSGSST2017.Formularios
             range = xlWorkSheet.UsedRange;
             if (range.Columns.Count == str.Length)
             {
+                msj = DateTime.Now + ": La Cantidad de Columnas Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "INFO");
                 if (range.Rows.Count >= 2)
                 {
+                    msj = DateTime.Now + ": Existen registros para agregar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "INFO");
                     for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
                     {
+                        msj = DateTime.Now + ": Agregando el registro Nro." + (rCnt - 1);
+                        Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "INFO");
                         for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
                         {
                             if (pos == 0)
@@ -428,7 +444,7 @@ namespace GestorSGSST2017.Formularios
                             else if (pos == 1)
                             {
                                 str[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                                if (str[pos] == null)
+                                if (str[pos] == "Ninguna")
                                 {
                                     str[pos] = "0";
                                 }
@@ -445,6 +461,8 @@ namespace GestorSGSST2017.Formularios
                             }
                             pos++;
                         }
+                        msj = DateTime.Now + ": Se agrego el registro Nro." + (rCnt - 1);
+                        Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "EXITO");
                         ModeloArea.Add_Area(str[0], Convert.ToInt32(id_sucursal), Convert.ToInt32(str[1]), Convert.ToInt32(str[2]), Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
                         pos = 0;
                     }
@@ -468,13 +486,18 @@ namespace GestorSGSST2017.Formularios
                 else
                 {
                     MessageBox.Show("El archivo no contiene registros para cargar.");
+                    msj = DateTime.Now + ": El archivo no contiene registros para cargar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "ERROR");
                 }
 
             }
             else
             {
                 MessageBox.Show("La cantidad de columnas no coincide con el formato.");
+                msj = DateTime.Now + ": La Cantidad de Columnas No Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "ERROR");
             }
+            Utilidades1.cerrarEscritor(escritor);
         }
 
         private void btnBuscarArea_Click(object sender, EventArgs e)
@@ -500,15 +523,23 @@ namespace GestorSGSST2017.Formularios
 
         private void btnCargarPuesto_Click(object sender, EventArgs e)
         {
+            escritor = Utilidades1.abrirEscritor();
             if (txtArchivoPuesto.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Puestos");
                 if (nombreArchivo != null)
+                {
+                    msj = DateTime.Now + ": Iniciando carga masiva de Puestos de Trabajo.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "INFO");
                     cargaPuestos(nombreArchivo);
+                }
             }
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
+                msj = DateTime.Now + ": No se selecciono ningun Archivo.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
             }
         }
 
@@ -531,14 +562,20 @@ namespace GestorSGSST2017.Formularios
             range = xlWorkSheet.UsedRange;
             if (range.Columns.Count == str.Length)
             {
+                msj = DateTime.Now + ": La Cantidad de Columnas Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "INFO");
                 if (range.Rows.Count >= 2)
                 {
+                    msj = DateTime.Now + ": Existen registros para agregar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "INFO");
                     for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
                     {
+                        msj = DateTime.Now + ": Agregando el registro Nro." + (rCnt - 1);
+                        Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "INFO");
                         try
                         {
                             for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
-                            {
+                            {                                
                                 str[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
                                 if (pos == 2)
                                 {
@@ -552,18 +589,22 @@ namespace GestorSGSST2017.Formularios
                                 if (str[0] != null)
                                 {
                                     ModeloPuesto.Add_PuestoTrabajo(str[0], str[1], id_area, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                    msj = DateTime.Now + ": Se agrego el registro Nro." + (rCnt - 1);
+                                    Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "EXITO");
                                 }
                                 pos = 0;
                             }
                             catch (Exception ex)
-                            { 
-                                //Error
+                            {
+                                msj = DateTime.Now + ": Ocurrio un error al agregar el registro Nro." + (rCnt - 1);
+                                Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "ERROR");
                             }
                             
                         }
                         catch (Exception ex)
-                        { 
-                            //Error
+                        {
+                            msj = DateTime.Now + ": Ocurrio un error al agregar el registro Nro." + (rCnt - 1);
+                            Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "ERROR");
                         }
                     }
                     xlWorkBook.Close(false, Missing.Value, Missing.Value);
@@ -586,13 +627,18 @@ namespace GestorSGSST2017.Formularios
                 else
                 {
                     MessageBox.Show("El archivo no contiene registros para cargar.");
+                    msj = DateTime.Now + ": El archivo no contiene registros para cargar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "ERROR");
                 }
 
             }
             else
             {
                 MessageBox.Show("La cantidad de columnas no coincide con el formato.");
+                msj = DateTime.Now + ": La Cantidad de Columnas No Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogPuestos, "ERROR");
             }
+            Utilidades1.cerrarEscritor(escritor);
         }
 
         private void ddlEmpresaPuesto_SelectedIndexChanged(object sender, EventArgs e)
@@ -618,24 +664,25 @@ namespace GestorSGSST2017.Formularios
 
         private void btnCargarTrab_Click(object sender, EventArgs e)
         {
+            escritor = Utilidades1.abrirEscritor();
             if (txtArchivoTrab.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Trabajadores");
                 if (nombreArchivo != null)
                 {
-                    _progress_bar = new ProgressBar();
-                    backgroundWorker = new BackgroundWorker();
-                    _progress_bar.Maximum = 100;
-                    _progress_bar.Step = 1;
-                    _progress_bar.Value = 0;
-                    backgroundWorker.RunWorkerAsync();
+                    msj = DateTime.Now + ": Iniciando carga masiva de Trabajadores.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "INFO");
                     cargaTrabajadores(nombreArchivo);
                 }
             }
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
+                msj = DateTime.Now + ": No se selecciono ningun Archivo.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
             }
+
         }
 
         private void cargaTrabajadores(string nombreArchivo)
@@ -658,12 +705,18 @@ namespace GestorSGSST2017.Formularios
             range = xlWorkSheet.UsedRange;
             if (range.Columns.Count == str.Length)
             {
+                msj = DateTime.Now + ": La Cantidad de Columnas Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "INFO");
                 if (range.Rows.Count >= 2)
                 {
+                    msj = DateTime.Now + ": Existen registros para agregar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "INFO");
                     for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
                     {
                         try
                         {
+                            msj = DateTime.Now + ": Agregando el registro Nro." + (rCnt - 1);
+                            Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "INFO");
                             DateTime fecha_nacimiento = DateTime.Today;
                             for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
                             {
@@ -709,6 +762,8 @@ namespace GestorSGSST2017.Formularios
                                                     Convert.ToInt32(str[11]), str[12], Convert.ToInt32(str[13]),
                                                     Convert.ToInt32(str[14]), str[15], str[16], Convert.ToInt32(str[17]),
                                                     Convert.ToInt32(str[18]), Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                    msj = DateTime.Now + ": Se agrego el registro Nro." + (rCnt - 1);
+                                    Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "EXITO");
                                 }
                                 pos = 0;
                             }
@@ -716,6 +771,8 @@ namespace GestorSGSST2017.Formularios
                             {
                                 //Error en algun dato del registro...
                                 pos = 0;
+                                msj = DateTime.Now + ": Ocurrio un error al agregar el registro Nro." + (rCnt - 1);
+                                Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "ERROR");
                             }
 
                         }
@@ -723,6 +780,8 @@ namespace GestorSGSST2017.Formularios
                         { 
                             //Error en la linea....
                             pos = 0;
+                            msj = DateTime.Now + ": Ocurrio un error al agregar el registro Nro." + (rCnt - 1);
+                            Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "ERROR");
                         }
                                                
 
@@ -748,20 +807,25 @@ namespace GestorSGSST2017.Formularios
                 else
                 {
                     MessageBox.Show("El archivo no contiene registros para cargar.");
+                    msj = DateTime.Now + ": El archivo no contiene registros para cargar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "ERROR");
                 }
 
             }
             else
             {
                 MessageBox.Show("La cantidad de columnas no coincide con el formato.");
+                msj = DateTime.Now + ": La Cantidad de Columnas No Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsTrab, "ERROR");
             }
+            Utilidades1.cerrarEscritor(escritor);
         }
         #endregion
 
         #region Riesgos
         private void ddlEmpresasRiesgo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Listas.Sucursal(ddlSucursalRiesgo, Convert.ToInt32(ddlEmpresasRiesgo.SelectedValue));
+            //Listas.Sucursal(ddlSucursalRiesgo, Convert.ToInt32(ddlEmpresasRiesgo.SelectedValue));
         }
 
         private void btnBuscarRiesgo_Click(object sender, EventArgs e)
@@ -769,13 +833,13 @@ namespace GestorSGSST2017.Formularios
             DialogResult result = ArchivoRiesgos.ShowDialog();
             if (result == DialogResult.OK)
             {
-                txtArchivoRiesgo.Text = ArchivoRiesgos.FileName;
+                //txtArchivoRiesgo.Text = ArchivoRiesgos.FileName;
             }
         }
 
         private void btnCargarRiesgo_Click(object sender, EventArgs e)
         {
-            if (txtArchivoRiesgo.Text != "")
+            /*if (txtArchivoRiesgo.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Riesgos");
                 if (nombreArchivo != null)
@@ -784,7 +848,7 @@ namespace GestorSGSST2017.Formularios
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
-            }
+            }*/
         }
 
         private void cargaRiesgos(string nombreArchivo)
@@ -943,7 +1007,7 @@ namespace GestorSGSST2017.Formularios
         #region Accidentes/Incidentes
         private void ddlEmpresasAcc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Listas.Sucursal(ddlSucursalAcc, Convert.ToInt32(ddlEmpresasAcc.SelectedValue));
+            //Listas.Sucursal(ddlSucursalAcc, Convert.ToInt32(ddlEmpresasAcc.SelectedValue));
         }
 
         private void btnBuscarAcc_Click(object sender, EventArgs e)
@@ -951,13 +1015,13 @@ namespace GestorSGSST2017.Formularios
             DialogResult result = ArchivoAcc.ShowDialog();
             if (result == DialogResult.OK)
             {
-                txtArchivoAcc.Text = ArchivoAcc.FileName;
+               // txtArchivoAcc.Text = ArchivoAcc.FileName;
             }
         }
 
         private void btnCargarAcc_Click(object sender, EventArgs e)
         {
-            if (txtArchivoAcc.Text != "")
+            /*if (txtArchivoAcc.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Accidentes");
                 if (nombreArchivo != null)
@@ -966,7 +1030,7 @@ namespace GestorSGSST2017.Formularios
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
-            }
+            }*/
         }
 
         private void cargaAccidentesIncidentes(string nombreArchivo)
@@ -977,13 +1041,13 @@ namespace GestorSGSST2017.Formularios
             Range range;
             string error = string.Empty;
 
-            string id_sucursal = ddlSucursalAcc.SelectedValue.ToString();
-            string id_empresa = ddlEmpresasAcc.SelectedValue.ToString();
+            //string id_sucursal = ddlSucursalAcc.SelectedValue.ToString();
+            //string id_empresa = ddlEmpresasAcc.SelectedValue.ToString();
             int tipo_acci_inci = 1;
-            if (ddlModulo.SelectedValue.ToString() == "Incidentes")
+            /*if (ddlModulo.SelectedValue.ToString() == "Incidentes")
             {
                 tipo_acci_inci = 2;
-            }
+            }*/
             string[] accidente = new string[33];
             string[] testigo = new string[4];
             string[] causa_inmediata = new string[2];
@@ -1045,7 +1109,7 @@ namespace GestorSGSST2017.Formularios
                                 pos++;
                             }
                             //INSERT INTO acc_icc_lab
-                            int id_trabajador = Getter.TrabajadorbyCedula(accidente[3]);
+                            /*int id_trabajador = Getter.TrabajadorbyCedula(accidente[3]);
                             int id_area = Getter.Area_Nombre(accidente[4], Convert.ToInt32(id_sucursal));
                             int id_ips = Getter.IPS(accidente[8]);
                             int id_tipoAccidente = Getter.TipoAccidente(accidente[9], Convert.ToInt32(id_empresa));
@@ -1055,7 +1119,7 @@ namespace GestorSGSST2017.Formularios
                             int id_causa_accidente = Getter.CausaAccidente(accidente[16], Convert.ToInt32(id_empresa));
                             int id_parte_afectada = Getter.ParteCuerpo(accidente[17], Convert.ToInt32(id_empresa));
                             int id_forma_accidente = Getter.FormaAccidente(accidente[18], Convert.ToInt32(id_empresa));
-
+                            */
                             /*ModeloAccidentes.Add_Accidentes(tipo_acci_inci, accidente[0], Convert.ToDateTime(accidente[1]), Convert.ToDateTime(accidente[2]), id_trabajador,
                                                                 id_area, Convert.ToDateTime(accidente[6]), Convert.ToDateTime(accidente[7]),
                                                                 id_ips, id_tipoAccidente, id_sitio_accidente, Convert.ToDateTime(accidente[11]), accidente[12], accidente[13],
@@ -1168,13 +1232,13 @@ namespace GestorSGSST2017.Formularios
             DialogResult result = ArchivoDesc.ShowDialog();
             if (result == DialogResult.OK)
             {
-                txtArchivoDesc.Text = ArchivoDesc.FileName;
+                //txtArchivoDesc.Text = ArchivoDesc.FileName;
             }
         }
 
         private void btnCargarDesc_Click(object sender, EventArgs e)
         {
-            if (txtArchivoDesc.Text != "")
+            /*if (txtArchivoDesc.Text != "")
             {
                 string nombreArchivo = CargaArchivos("DescSocio");
                 if (nombreArchivo != null)
@@ -1183,7 +1247,7 @@ namespace GestorSGSST2017.Formularios
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
-            }
+            }*/
         }
 
         private void cargaDescSocio(string nombreArchivo)

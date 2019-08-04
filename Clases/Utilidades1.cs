@@ -14,7 +14,7 @@ namespace GestorSGSST2017.Clases
 
         public static StreamWriter abrirEscritor()
         {
-            StreamWriter escritor = new System.IO.StreamWriter(@"Log/log.txt");
+            StreamWriter escritor = new System.IO.StreamWriter(@"log.txt");
             return escritor;
         }
 

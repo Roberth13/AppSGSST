@@ -60,15 +60,16 @@
             // cargaMasivaOpcion
             // 
             this.cargaMasivaOpcion.Name = "cargaMasivaOpcion";
-            this.cargaMasivaOpcion.Size = new System.Drawing.Size(145, 22);
+            this.cargaMasivaOpcion.Size = new System.Drawing.Size(152, 22);
             this.cargaMasivaOpcion.Text = "Carga Masiva";
             this.cargaMasivaOpcion.Click += new System.EventHandler(this.cargaMasivaOpcion_Click);
             // 
             // listadosOpcion
             // 
             this.listadosOpcion.Name = "listadosOpcion";
-            this.listadosOpcion.Size = new System.Drawing.Size(145, 22);
+            this.listadosOpcion.Size = new System.Drawing.Size(152, 22);
             this.listadosOpcion.Text = "Listados";
+            this.listadosOpcion.Visible = false;
             this.listadosOpcion.Click += new System.EventHandler(this.listadosOpcion_Click);
             // 
             // opcionOpciones
@@ -82,7 +83,7 @@
             // salirOpcion
             // 
             this.salirOpcion.Name = "salirOpcion";
-            this.salirOpcion.Size = new System.Drawing.Size(152, 22);
+            this.salirOpcion.Size = new System.Drawing.Size(96, 22);
             this.salirOpcion.Text = "Salir";
             this.salirOpcion.Click += new System.EventHandler(this.salirOpcion_Click);
             // 

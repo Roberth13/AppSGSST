@@ -38,13 +38,14 @@
             this.tabTrabajadoresList = new System.Windows.Forms.TabPage();
             this.dataGridTrabajadores = new System.Windows.Forms.DataGridView();
             this.tabRiesgos = new System.Windows.Forms.TabPage();
-            this.tabAccidentes = new System.Windows.Forms.TabPage();
-            this.tabIncidentes = new System.Windows.Forms.TabPage();
-            this.tabDescSocio = new System.Windows.Forms.TabPage();
             this.dataGridRiesgos = new System.Windows.Forms.DataGridView();
+            this.tabAccidentes = new System.Windows.Forms.TabPage();
             this.dataGridAccidentes = new System.Windows.Forms.DataGridView();
+            this.tabIncidentes = new System.Windows.Forms.TabPage();
             this.dataGridIncidentes = new System.Windows.Forms.DataGridView();
+            this.tabDescSocio = new System.Windows.Forms.TabPage();
             this.dataGridDescSocio = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabsListados.SuspendLayout();
             this.tabHorarioList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHorarios)).BeginInit();
@@ -55,12 +56,12 @@
             this.tabTrabajadoresList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTrabajadores)).BeginInit();
             this.tabRiesgos.SuspendLayout();
-            this.tabAccidentes.SuspendLayout();
-            this.tabIncidentes.SuspendLayout();
-            this.tabDescSocio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRiesgos)).BeginInit();
+            this.tabAccidentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccidentes)).BeginInit();
+            this.tabIncidentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncidentes)).BeginInit();
+            this.tabDescSocio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDescSocio)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,6 +183,15 @@
             this.tabRiesgos.Text = "Riesgos";
             this.tabRiesgos.UseVisualStyleBackColor = true;
             // 
+            // dataGridRiesgos
+            // 
+            this.dataGridRiesgos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridRiesgos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridRiesgos.Location = new System.Drawing.Point(-4, 0);
+            this.dataGridRiesgos.Name = "dataGridRiesgos";
+            this.dataGridRiesgos.Size = new System.Drawing.Size(1098, 412);
+            this.dataGridRiesgos.TabIndex = 0;
+            // 
             // tabAccidentes
             // 
             this.tabAccidentes.Controls.Add(this.dataGridAccidentes);
@@ -191,6 +201,15 @@
             this.tabAccidentes.TabIndex = 5;
             this.tabAccidentes.Text = "Accidentes";
             this.tabAccidentes.UseVisualStyleBackColor = true;
+            // 
+            // dataGridAccidentes
+            // 
+            this.dataGridAccidentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridAccidentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridAccidentes.Location = new System.Drawing.Point(-4, 0);
+            this.dataGridAccidentes.Name = "dataGridAccidentes";
+            this.dataGridAccidentes.Size = new System.Drawing.Size(1098, 412);
+            this.dataGridAccidentes.TabIndex = 1;
             // 
             // tabIncidentes
             // 
@@ -202,6 +221,15 @@
             this.tabIncidentes.Text = "Inicidentes";
             this.tabIncidentes.UseVisualStyleBackColor = true;
             // 
+            // dataGridIncidentes
+            // 
+            this.dataGridIncidentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridIncidentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridIncidentes.Location = new System.Drawing.Point(-4, 0);
+            this.dataGridIncidentes.Name = "dataGridIncidentes";
+            this.dataGridIncidentes.Size = new System.Drawing.Size(1098, 412);
+            this.dataGridIncidentes.TabIndex = 1;
+            // 
             // tabDescSocio
             // 
             this.tabDescSocio.Controls.Add(this.dataGridDescSocio);
@@ -212,33 +240,6 @@
             this.tabDescSocio.Text = "Descripcion SocioDemografica";
             this.tabDescSocio.UseVisualStyleBackColor = true;
             // 
-            // dataGridRiesgos
-            // 
-            this.dataGridRiesgos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridRiesgos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRiesgos.Location = new System.Drawing.Point(-4, 0);
-            this.dataGridRiesgos.Name = "dataGridRiesgos";
-            this.dataGridRiesgos.Size = new System.Drawing.Size(1098, 412);
-            this.dataGridRiesgos.TabIndex = 0;
-            // 
-            // dataGridAccidentes
-            // 
-            this.dataGridAccidentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridAccidentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAccidentes.Location = new System.Drawing.Point(-4, 0);
-            this.dataGridAccidentes.Name = "dataGridAccidentes";
-            this.dataGridAccidentes.Size = new System.Drawing.Size(1098, 412);
-            this.dataGridAccidentes.TabIndex = 1;
-            // 
-            // dataGridIncidentes
-            // 
-            this.dataGridIncidentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridIncidentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridIncidentes.Location = new System.Drawing.Point(-4, 0);
-            this.dataGridIncidentes.Name = "dataGridIncidentes";
-            this.dataGridIncidentes.Size = new System.Drawing.Size(1098, 412);
-            this.dataGridIncidentes.TabIndex = 1;
-            // 
             // dataGridDescSocio
             // 
             this.dataGridDescSocio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -248,14 +249,26 @@
             this.dataGridDescSocio.Size = new System.Drawing.Size(1098, 412);
             this.dataGridDescSocio.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(371, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "PRUEBA DE PRUEBA";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Listados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1122, 523);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabsListados);
             this.Name = "Listados";
             this.Text = "Listados";
+            this.UseWaitCursor = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Listados_Load);
             this.tabsListados.ResumeLayout(false);
@@ -268,14 +281,15 @@
             this.tabTrabajadoresList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTrabajadores)).EndInit();
             this.tabRiesgos.ResumeLayout(false);
-            this.tabAccidentes.ResumeLayout(false);
-            this.tabIncidentes.ResumeLayout(false);
-            this.tabDescSocio.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRiesgos)).EndInit();
+            this.tabAccidentes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAccidentes)).EndInit();
+            this.tabIncidentes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridIncidentes)).EndInit();
+            this.tabDescSocio.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDescSocio)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -298,5 +312,6 @@
         private System.Windows.Forms.DataGridView dataGridIncidentes;
         private System.Windows.Forms.TabPage tabDescSocio;
         private System.Windows.Forms.DataGridView dataGridDescSocio;
+        private System.Windows.Forms.Label label1;
     }
 }
