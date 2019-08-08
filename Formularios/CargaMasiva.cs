@@ -84,8 +84,8 @@ namespace GestorSGSST2017.Formularios
             Listas.Sucursal(ddlSucursalTrab, 1);
             //Listas.Empresa(ddlEmpresasRiesgo);
             //Listas.Sucursal(ddlSucursalRiesgo, 1);
-            //Listas.Empresa(ddlEmpresasAcc);
-            //Listas.Sucursal(ddlSucursalAcc, 1);
+            Listas.Empresa(ddlEmpresasAcc);
+            Listas.Sucursal(ddlSucursalAcc, 1);
             us = new UsuarioSistema(RolID);
             if (!esAdmin)
             {
@@ -346,10 +346,15 @@ namespace GestorSGSST2017.Formularios
                 nombreArchivo = ArchivoRiesgos.FileName.Split('\\');
                 ofdArchivo = ArchivoRiesgos;
             }
-            else if (Modulo == "AccInc")
+            else if (Modulo == "Accidentes")
             {
                 nombreArchivo = ArchivoAcc.FileName.Split('\\');
                 ofdArchivo = ArchivoAcc;
+            }
+            else if (Modulo == "DescSocio")
+            {
+                nombreArchivo = ArchivoAcc.FileName.Split('\\');
+                ofdArchivo = ArchivoDesc;
             }
 
             foreach (string archivo in ofdArchivo.FileNames)
@@ -1007,7 +1012,7 @@ namespace GestorSGSST2017.Formularios
         #region Accidentes/Incidentes
         private void ddlEmpresasAcc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Listas.Sucursal(ddlSucursalAcc, Convert.ToInt32(ddlEmpresasAcc.SelectedValue));
+            Listas.Sucursal(ddlSucursalAcc, Convert.ToInt32(ddlEmpresasAcc.SelectedValue));
         }
 
         private void btnBuscarAcc_Click(object sender, EventArgs e)
@@ -1015,22 +1020,31 @@ namespace GestorSGSST2017.Formularios
             DialogResult result = ArchivoAcc.ShowDialog();
             if (result == DialogResult.OK)
             {
-               // txtArchivoAcc.Text = ArchivoAcc.FileName;
+               txtArchivoAcc.Text = ArchivoAcc.FileName;
             }
         }
 
         private void btnCargarAcc_Click(object sender, EventArgs e)
         {
-            /*if (txtArchivoAcc.Text != "")
+            escritor = Utilidades1.abrirEscritor();
+            if (txtArchivoAcc.Text != "")
             {
                 string nombreArchivo = CargaArchivos("Accidentes");
                 if (nombreArchivo != null)
+                {
+                    msj = DateTime.Now + ": Iniciando carga masiva de Accidentes/Incidentes.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "INFO");
                     cargaAccidentesIncidentes(nombreArchivo);
+                }
+                    
             }
             else
             {
                 MessageBox.Show("Debe seleccionar un archivo.");
-            }*/
+                msj = DateTime.Now + ": No se selecciono ningun Archivo.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
+            }
         }
 
         private void cargaAccidentesIncidentes(string nombreArchivo)
@@ -1041,31 +1055,16 @@ namespace GestorSGSST2017.Formularios
             Range range;
             string error = string.Empty;
 
-            //string id_sucursal = ddlSucursalAcc.SelectedValue.ToString();
-            //string id_empresa = ddlEmpresasAcc.SelectedValue.ToString();
+            string id_sucursal = ddlSucursalAcc.SelectedValue.ToString();
+            string id_empresa = ddlEmpresasAcc.SelectedValue.ToString();
             int tipo_acci_inci = 1;
-            /*if (ddlModulo.SelectedValue.ToString() == "Incidentes")
-            {
-                tipo_acci_inci = 2;
-            }*/
-            string[] accidente = new string[33];
-            string[] testigo = new string[4];
-            string[] causa_inmediata = new string[2];
-            string[] causa_basica = new string[2];
-            string[] compromisos = new string[6];
+       
+            string[] accidente = new string[19];
             int pos = 0;
             int rCnt = 0;
             int cCnt = 0;
-            DateTime fecha;
-            bool testigos = false;
-            bool compromiso = false;
-            bool causaInmediatas = false;
-            bool causasBasicas = false;
-            int cantTestigos = 0;
-            int cantCompromisos = 0;
-            int cantCausasInme = 0;
-            int cantCausasbasi = 0;
-            int id_acc_lab = 0;
+            DateTime? fecha_evento = null;
+            DateTime? fecha_muerte = null;
 
             xlApp = new Microsoft.Office.Interop.Excel.Application();
             xlWorkBook = xlApp.Workbooks.Open(nombreArchivo, 0, true, 5, "", "", true, XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
@@ -1073,125 +1072,257 @@ namespace GestorSGSST2017.Formularios
             range = xlWorkSheet.UsedRange;
             if (range.Columns.Count == accidente.Length)
             {
+                msj = DateTime.Now + ": La Cantidad de Columnas Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "INFO");
                 if (range.Rows.Count >= 2)
                 {
+                    msj = DateTime.Now + ": Existen registros para agregar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "INFO");
                     for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
-                    {
-                        if (!testigos && !compromiso && !causaInmediatas && !causasBasicas)
+                    {                        
+                        msj = DateTime.Now + ": Existen registros para agregar.";
+                        Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "INFO");
+                        for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
                         {
-                            for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
+                            //0: Tipo de Evento
+                            if(pos == 0)
                             {
-                                if (pos == 1 || pos == 6)
+                                string _tipo = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
+                                if (_tipo == "Incidente") tipo_acci_inci = 2;
+                            }
+                            //1: Fecha del evento, 10: Fecha de Muerte
+                            else if (pos == 1 || pos == 12)
+                            {
+                                if (pos == 1)
                                 {
                                     double fecha_n = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
-                                    fecha = DateTime.FromOADate(fecha_n);
-                                    accidente[pos] = fecha.ToString();
-                                }
-                                else if (pos == 2 || pos == 7 || pos == 11)
-                                {
-                                    double numero = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
-                                    DateTime hora1 = DateTime.FromOADate(numero);
-                                    accidente[pos] = hora1.ToString("HH:mm");
-                                }
-                                else if (pos == 3 || pos == 23 || pos == 24 || pos == 25 || pos == 26)
-                                {
-                                    int numero = Convert.ToInt32((range.Cells[rCnt, cCnt] as Range).Value2);
-                                    accidente[pos] = numero.ToString();
-                                    if (pos == 23 && numero > 0) { testigos = true; cantTestigos = numero; }
-                                    if (pos == 24 && numero > 0) { causaInmediatas = true; cantCausasInme = numero; }
-                                    if (pos == 25 && numero > 0) { causasBasicas = true; cantCausasbasi = numero; }
-                                    if (pos == 26 && numero > 0) { compromiso = true; cantCompromisos = numero; }
+                                    fecha_evento = DateTime.FromOADate(fecha_n);
+                                    accidente[pos] = fecha_evento.ToString();
                                 }
                                 else
                                 {
-                                    accidente[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
+                                    try
+                                    {
+                                        double fecha_n = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
+                                        fecha_muerte = DateTime.FromOADate(fecha_n);
+                                        accidente[pos] = fecha_muerte.ToString();
+                                    }
+                                    catch(Exception e)
+                                    {
+                                        accidente[pos] = "null";
+                                    }
+                                    
+                                }                                
+                                
+                            }
+                            //2: Hora del evento
+                            else if (pos == 2)
+                            {
+                                double numero = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
+                                DateTime hora_acc = DateTime.FromOADate(numero);
+                                accidente[pos] = hora_acc.ToString("HH:mm");
+                            }
+                            //3: Cedula de trabajador, 13: Dias de incapacidad, 14: Dias cargados, 15: Dias perdidos, 16: Dias no perdidos, 17: dias restringidos
+                            else if (pos == 3 || pos == 13 || pos == 14 || pos == 15 || pos == 16 || pos == 17)
+                            {
+                                int numero = Convert.ToInt32((range.Cells[rCnt, cCnt] as Range).Value2);
+                                accidente[pos] = numero.ToString();
+                            }
+                            else
+                            {
+                                accidente[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
+                            }
+                            pos++;
+                        }
+
+                        int id_trabajador = Getter.TrabajadorbyCedula(accidente[3]);
+                        int id_puesto_trabajo = Getter.PuestoTrabajo(accidente[5], Convert.ToInt32(id_sucursal));
+                        int id_area = Getter.Area_Nombre(accidente[4], Convert.ToInt32(id_sucursal));                        
+                        
+                        ModeloAccidentes.Add_Accidentes(id_trabajador, id_area, id_puesto_trabajo, accidente[6], accidente[7], accidente[8], accidente[9],
+                                                        accidente[10], accidente[11], tipo_acci_inci.ToString(), Convert.ToDateTime(accidente[12]), Convert.ToInt32(accidente[13]), 
+                                                        Convert.ToInt32(accidente[14]), Convert.ToInt32(accidente[15]), accidente[16], Convert.ToInt32(accidente[17]), accidente[18], 
+                                                        Convert.ToDateTime(accidente[1]), Convert.ToDateTime(accidente[2]), 1, "Carga Masiva/index.aspx");
+                        msj = DateTime.Now + ": Se agrego el registro Nro." + (rCnt - 1);
+                        Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "EXITO");
+                        pos = 0;
+                    }
+                    xlWorkBook.Close(false, Missing.Value, Missing.Value);
+                    xlApp.Quit();
+
+                    releaseObject(xlWorkSheet);
+                    releaseObject(xlWorkBook);
+                    releaseObject(xlApp);
+
+                    if (error == string.Empty)
+                    {
+                        MessageBox.Show("Se cargaron los datos de Accidentes/Incidentes con exito.");
+                        limpiarCampos();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: " + error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El archivo no contiene registros para cargar.");
+                    msj = DateTime.Now + ": El archivo no contiene registros para cargar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "ERROR");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("La cantidad de columnas no coincide con el formato.");
+                msj = DateTime.Now + ": La cantidad de columnas no coincide con el formato.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsAcc, "ERROR");
+            }
+        }
+        #endregion
+
+        #region Descripcion SocioDemografica
+        private void btnCargarDesc_Click_1(object sender, EventArgs e)
+        {
+            escritor = Utilidades1.abrirEscritor();
+            if (txtArchivoDesc.Text != "")
+            {
+                string nombreArchivo = CargaArchivos("DescSocio");
+                if (nombreArchivo != null)
+                {
+                    msj = DateTime.Now + ": Iniciando carga masiva de Areas.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "INFO");
+                    cargaDescSocio(nombreArchivo);
+                }                    
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un archivo.");
+                msj = DateTime.Now + ": No se selecciono ningun Archivo.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "ERROR");
+                Utilidades1.cerrarEscritor(escritor);
+            }
+        }
+
+        private void btnBuscarDesc_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = ArchivoDesc.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                txtArchivoDesc.Text = ArchivoDesc.FileName;
+            }
+        }
+
+
+        private void cargaDescSocio(string nombreArchivo)
+        {
+            Microsoft.Office.Interop.Excel.Application xlApp;
+            Workbook xlWorkBook;
+            Worksheet xlWorkSheet;
+            Range range;
+            string error = string.Empty;
+
+            string[] desc_socio = new string[25];
+            string[] empleos = new string[6];
+            int pos = 0;
+            int rCnt = 0;
+            int cCnt = 0;
+            DateTime fecha;
+            bool empleosAnteriores = false;
+            int cantEmpleos = 0;
+            int id_desc_socio = 0;
+
+            xlApp = new Microsoft.Office.Interop.Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Open(nombreArchivo, 0, true, 5, "", "", true, XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+            xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            range = xlWorkSheet.UsedRange;
+            if (range.Columns.Count == desc_socio.Length)
+            {
+                msj = DateTime.Now + ": La Cantidad de Columnas Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "INFO");
+                if (range.Rows.Count >= 2)
+                {
+                    msj = DateTime.Now + ": Existen registros para agregar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "INFO");
+                    for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
+                    {
+                        if (!empleosAnteriores)
+                        {
+                            msj = DateTime.Now + ": Agregando el registro Nro." + (rCnt - 1);
+                            Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "INFO");
+                            for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
+                            {
+                                if (pos == 0 || pos == 3 || pos == 5 || pos == 7 || pos == 24)
+                                {
+                                    int numero = Convert.ToInt32((range.Cells[rCnt, cCnt] as Range).Value2);
+                                    desc_socio[pos] = numero.ToString();
+                                    if (pos == 24 && numero > 0) { empleosAnteriores = true; cantEmpleos = numero; }
+                                }
+                                else
+                                {
+                                    desc_socio[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
                                 }
                                 pos++;
                             }
-                            //INSERT INTO acc_icc_lab
-                            /*int id_trabajador = Getter.TrabajadorbyCedula(accidente[3]);
-                            int id_area = Getter.Area_Nombre(accidente[4], Convert.ToInt32(id_sucursal));
-                            int id_ips = Getter.IPS(accidente[8]);
-                            int id_tipoAccidente = Getter.TipoAccidente(accidente[9], Convert.ToInt32(id_empresa));
-                            int id_sitio_accidente = Getter.SitioAccidente(accidente[10], Convert.ToInt32(id_empresa));
-                            int id_puesto_trabajo = Getter.PuestoTrabajo(accidente[14], Convert.ToInt32(id_sucursal));
-                            int id_agente_lesion = Getter.AgenteLesion(accidente[15], Convert.ToInt32(id_empresa));
-                            int id_causa_accidente = Getter.CausaAccidente(accidente[16], Convert.ToInt32(id_empresa));
-                            int id_parte_afectada = Getter.ParteCuerpo(accidente[17], Convert.ToInt32(id_empresa));
-                            int id_forma_accidente = Getter.FormaAccidente(accidente[18], Convert.ToInt32(id_empresa));
-                            */
-                            /*ModeloAccidentes.Add_Accidentes(tipo_acci_inci, accidente[0], Convert.ToDateTime(accidente[1]), Convert.ToDateTime(accidente[2]), id_trabajador,
-                                                                id_area, Convert.ToDateTime(accidente[6]), Convert.ToDateTime(accidente[7]),
-                                                                id_ips, id_tipoAccidente, id_sitio_accidente, Convert.ToDateTime(accidente[11]), accidente[12], accidente[13],
-                                                                id_puesto_trabajo, id_agente_lesion, id_causa_accidente, id_parte_afectada, id_forma_accidente,
-                                                                accidente[19], accidente[20], accidente[21], accidente[22], accidente[27],
-                                                                accidente[28], accidente[29], accidente[30], accidente[31], accidente[32], 1, "cargamasiva");*/
 
-                            id_acc_lab = Getter.MaxAccidentes();
+                            //INSERT INTO desc_socio
+                            int id_trabajador = Getter.TrabajadorbyCedula(desc_socio[0]);                       
+                            desc_socio[0] = Getter.TrabajadorbyCedula(desc_socio[0]).ToString();
+
+                            string lugar_nac = desc_socio[1];
+                            string nivel_escol = desc_socio[2];
+                            string años_aprob = desc_socio[3];
+                            string cabeza_fam = desc_socio[4];
+                            string num_hijos = desc_socio[5];
+                            string repart_resp = desc_socio[6];
+                            string menores_dep = desc_socio[7];
+                            string cond_social = desc_socio[8];
+                            string mot_despl = desc_socio[9];
+                            string tipo_vivienda = desc_socio[10];
+                            string serv_pub = desc_socio[11];
+                            string sist_seg_soc = desc_socio[17];
+                            string reg_afiliacion = desc_socio[18];
+                            string nivel_sisben = desc_socio[19];
+                            int id_eps = Convert.ToInt32(Getter.Eps(desc_socio[20]));
+                            string afi_sssp = desc_socio[21];
+                            int id_fondo = Convert.ToInt32(Getter.Afp(desc_socio[22]));
+                            string afi_riesgo = desc_socio[23];
+                            string estrato = desc_socio[24];
+                            string vivienda = desc_socio[12];
+                            string industria = desc_socio[13];
+                            string ruido = desc_socio[13];
+                            string contaminacion = desc_socio[15];
+                            string descripcion = desc_socio[16];
+
+                            ModeloDescSocio.Add_DescSocio(id_trabajador, lugar_nac, nivel_escol, años_aprob, cabeza_fam,
+                                                                 num_hijos, repart_resp, menores_dep, cond_social, mot_despl, tipo_vivienda,
+                                                                 serv_pub, sist_seg_soc, reg_afiliacion, nivel_sisben, id_eps, afi_sssp, id_fondo,
+                                                                 afi_riesgo, estrato, vivienda, industria, ruido, contaminacion, descripcion, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+
+                            id_desc_socio = Getter.MaxDescSocio();
+                            msj = DateTime.Now + ": Se agrego el registro Nro." + (rCnt - 1);
+                            Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "EXITO");
                         }
                         else
                         {
-                            //Si hay testigos..
-                            if (testigos)
+                            if (empleosAnteriores)
                             {
-                                for (cCnt = 1; cCnt <= testigo.Length; cCnt++)
+                                for (cCnt = 1; cCnt <= empleos.Length; cCnt++)
                                 {
-                                    if (pos == 2)
+                                    if (pos == 3 || pos == 4)
                                     {
                                         int numero = Convert.ToInt32((range.Cells[rCnt, cCnt] as Range).Value2);
-                                        testigo[pos] = numero.ToString();
+                                        empleos[pos] = numero.ToString();
                                     }
                                     else
                                     {
-                                        testigo[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
+                                        empleos[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
                                     }
                                     pos++;
                                 }
-                                //ModeloAccidentes.Add_Testigos(testigo[0], testigo[1], testigo[2], testigo[3], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
-                                cantTestigos--;
-                                if (cantTestigos == 0) testigos = false;
-                            }
-                            else if (causaInmediatas)
-                            {
-                                for (cCnt = 1; cCnt <= causa_inmediata.Length; cCnt++)
-                                {
-                                    causa_inmediata[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                                    pos++;
-                                }
-                                //ModeloAccidentes.Add_Causas_inmediatas(causa_inmediata[0], causa_inmediata[1], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
-                                cantCausasInme--;
-                                if (cantCausasInme == 0) causaInmediatas = false;
-                            }
-                            else if (causasBasicas)
-                            {
-                                for (cCnt = 1; cCnt <= causa_basica.Length; cCnt++)
-                                {
-                                    causa_basica[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                                    pos++;
-                                }
-                                //ModeloAccidentes.Add_Causas_basicas(causa_basica[0], causa_basica[1], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
-                                cantCausasbasi--;
-                                if (cantCausasbasi == 0) causasBasicas = false;
-                            }
-                            else if (compromiso)
-                            {
-                                for (cCnt = 1; cCnt <= compromisos.Length; cCnt++)
-                                {
-                                    if (pos == 1)
-                                    {
-                                        double fecha_n = Convert.ToDouble((range.Cells[rCnt, cCnt] as Range).Value2);
-                                        fecha = DateTime.FromOADate(fecha_n);
-                                        compromisos[pos] = fecha.ToString();
-                                    }
-                                    else
-                                    {
-                                        compromisos[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                                    }
-                                    pos++;
-                                }
-                               // ModeloAccidentes.Add_Compromisos(compromisos[0], compromisos[1], compromisos[2], compromisos[3], compromisos[4], compromisos[5], id_acc_lab, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
-                                cantCompromisos--;
-                                if (cantCompromisos == 0) compromiso = false;
+                                ModeloDescSocio.Add_EmpleoAnteriores(empleos[0], empleos[1], empleos[2], empleos[3], empleos[4], empleos[5], id_desc_socio, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                                cantEmpleos--;
+                                if (cantEmpleos == 0) empleosAnteriores = false;
                             }
                         }
                         pos = 0;
@@ -1216,172 +1347,17 @@ namespace GestorSGSST2017.Formularios
                 else
                 {
                     MessageBox.Show("El archivo no contiene registros para cargar.");
+                    msj = DateTime.Now + ": El archivo no contiene registros para cargar.";
+                    Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "ERROR");
                 }
-
             }
             else
             {
                 MessageBox.Show("La cantidad de columnas no coincide con el formato.");
+                msj = DateTime.Now + ": La Cantidad de Columnas No Coincide.";
+                Utilidades1.agregarMensaje(escritor, msj, txtLogsDesc, "ERROR");
             }
-        }
-        #endregion
-
-        #region Descripcion SocioDemografica
-        private void btnBuscarDesc_Click(object sender, EventArgs e)
-        {
-            DialogResult result = ArchivoDesc.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                //txtArchivoDesc.Text = ArchivoDesc.FileName;
-            }
-        }
-
-        private void btnCargarDesc_Click(object sender, EventArgs e)
-        {
-            /*if (txtArchivoDesc.Text != "")
-            {
-                string nombreArchivo = CargaArchivos("DescSocio");
-                if (nombreArchivo != null)
-                    cargaDescSocio(nombreArchivo);
-            }
-            else
-            {
-                MessageBox.Show("Debe seleccionar un archivo.");
-            }*/
-        }
-
-        private void cargaDescSocio(string nombreArchivo)
-        {
-            Microsoft.Office.Interop.Excel.Application xlApp;
-            Workbook xlWorkBook;
-            Worksheet xlWorkSheet;
-            Range range;
-            string error = string.Empty;
-
-            string[] desc_socio = new string[26];
-            string[] empleos = new string[6];
-            int pos = 0;
-            int rCnt = 0;
-            int cCnt = 0;
-            DateTime fecha;
-            bool empleosAnteriores = false;
-            int cantEmpleos = 0;
-            int id_desc_socio = 0;
-
-            xlApp = new Microsoft.Office.Interop.Excel.Application();
-            xlWorkBook = xlApp.Workbooks.Open(nombreArchivo, 0, true, 5, "", "", true, XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-            xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            range = xlWorkSheet.UsedRange;
-            if (range.Columns.Count == desc_socio.Length)
-            {
-                if (range.Rows.Count >= 2)
-                {
-                    for (rCnt = 2; rCnt <= range.Rows.Count; rCnt++)
-                {
-                    if (!empleosAnteriores)
-                    {
-                        for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
-                        {
-                            if (pos == 1 || pos == 4 || pos == 6 || pos == 8 || pos == 26)
-                            {
-                                int numero = Convert.ToInt32((range.Cells[rCnt, cCnt] as Range).Value2);
-                                desc_socio[pos] = numero.ToString();
-                                if (pos == 26 && numero > 0) { empleosAnteriores = true; cantEmpleos = numero; }
-                            }
-                            else
-                            {
-                                desc_socio[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                            }
-                            pos++;
-                        }
-                        //INSERT INTO desc_socio
-                        int id_trabajador = Getter.TrabajadorbyCedula(desc_socio[0]);                       
-                        desc_socio[0] = Getter.TrabajadorbyCedula(desc_socio[0]).ToString();
-
-                        string lugar_nac = desc_socio[1];
-                        string nivel_escol = desc_socio[2];
-                        string años_aprob = desc_socio[3];
-                        string cabeza_fam = desc_socio[4];
-                        string num_hijos = desc_socio[5];
-                        string repart_resp = desc_socio[6];
-                        string menores_dep = desc_socio[7];
-                        string cond_social = desc_socio[8];
-                        string mot_despl = desc_socio[9];
-                        string tipo_vivienda = desc_socio[10];
-                        string serv_pub = desc_socio[11];
-                        string sist_seg_soc = desc_socio[17];
-                        string reg_afiliacion = desc_socio[18];
-                        string nivel_sisben = desc_socio[19];
-                        int id_eps = Convert.ToInt32(Getter.Eps(desc_socio[20]));
-                        string afi_sssp = desc_socio[21];
-                        int id_fondo = Convert.ToInt32(Getter.Afp(desc_socio[22]));
-                        string afi_riesgo = desc_socio[23];
-                        string estrato = desc_socio[24];
-                        string vivienda = desc_socio[12];
-                        string industria = desc_socio[13];
-                        string ruido = desc_socio[13];
-                        string contaminacion = desc_socio[15];
-                        string descripcion = desc_socio[16];
-
-                        ModeloDescSocio.Add_DescSocio(id_trabajador, lugar_nac, nivel_escol, años_aprob, cabeza_fam,
-                                                             num_hijos, repart_resp, menores_dep, cond_social, mot_despl, tipo_vivienda,
-                                                             serv_pub, sist_seg_soc, reg_afiliacion, nivel_sisben, id_eps, afi_sssp, id_fondo,
-                                                             afi_riesgo, estrato, vivienda, industria, ruido, contaminacion, descripcion, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
-
-                        id_desc_socio = Getter.MaxDescSocio();
-                    }
-                    else
-                    {
-                        //Si hay testigos..
-                        if (empleosAnteriores)
-                        {
-                            for (cCnt = 1; cCnt <= empleos.Length; cCnt++)
-                            {
-                                if (pos == 3 || pos == 4)
-                                {
-                                    int numero = Convert.ToInt32((range.Cells[rCnt, cCnt] as Range).Value2);
-                                    empleos[pos] = numero.ToString();
-                                }
-                                else
-                                {
-                                    empleos[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                                }
-                                pos++;
-                            }
-                            ModeloDescSocio.Add_EmpleoAnteriores(empleos[0], empleos[1], empleos[2], empleos[3], empleos[4], empleos[5], id_desc_socio, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
-                            cantEmpleos--;
-                            if (cantEmpleos == 0) empleosAnteriores = false;
-                        }
-                    }
-                    pos = 0;
-                }
-                xlWorkBook.Close(false, Missing.Value, Missing.Value);
-                xlApp.Quit();
-
-                releaseObject(xlWorkSheet);
-                releaseObject(xlWorkBook);
-                releaseObject(xlApp);
-
-                if (error == string.Empty)
-                {
-                    MessageBox.Show("Se cargaron los datos de las Areas con exito.");
-                    limpiarCampos();
-                }
-                else
-                {
-                    MessageBox.Show("Error: " + error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("El archivo no contiene registros para cargar.");
-            }
-
-            }
-            else
-            {
-                MessageBox.Show("La cantidad de columnas no coincide con el formato.");
-            }
+            Utilidades1.cerrarEscritor(escritor);
         }
         #endregion
     }

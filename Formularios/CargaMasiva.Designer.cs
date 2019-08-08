@@ -35,6 +35,7 @@
             this.ArchivoRiesgos = new System.Windows.Forms.OpenFileDialog();
             this.ArchivoAcc = new System.Windows.Forms.OpenFileDialog();
             this.tabTrabajadores = new System.Windows.Forms.TabPage();
+            this.txtLogsTrab = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.ddlSucursalTrab = new System.Windows.Forms.ComboBox();
             this.btnBuscarTrab = new System.Windows.Forms.Button();
@@ -44,6 +45,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.ddlEmpresasTrab = new System.Windows.Forms.ComboBox();
             this.tabPuestos = new System.Windows.Forms.TabPage();
+            this.txtLogPuestos = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ddlSucursalPuesto = new System.Windows.Forms.ComboBox();
             this.btnBuscarPuesto = new System.Windows.Forms.Button();
@@ -53,6 +55,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.ddlEmpresaPuesto = new System.Windows.Forms.ComboBox();
             this.tabAreas = new System.Windows.Forms.TabPage();
+            this.txtLogAreas = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ddlSucursalArea = new System.Windows.Forms.ComboBox();
             this.btnBuscarArea = new System.Windows.Forms.Button();
@@ -70,15 +73,30 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ddlEmpresasHorario = new System.Windows.Forms.ComboBox();
             this.tabsCargaMasiva = new System.Windows.Forms.TabControl();
+            this.tabDescSocio = new System.Windows.Forms.TabPage();
+            this.txtLogsDesc = new System.Windows.Forms.RichTextBox();
+            this.btnBuscarDesc = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtArchivoDesc = new System.Windows.Forms.TextBox();
+            this.btnCargarDesc = new System.Windows.Forms.Button();
             this.ArchivoDesc = new System.Windows.Forms.OpenFileDialog();
-            this.txtLogAreas = new System.Windows.Forms.RichTextBox();
-            this.txtLogPuestos = new System.Windows.Forms.RichTextBox();
-            this.txtLogsTrab = new System.Windows.Forms.RichTextBox();
+            this.tabAccInc = new System.Windows.Forms.TabPage();
+            this.txtLogsAcc = new System.Windows.Forms.RichTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.ddlSucursalAcc = new System.Windows.Forms.ComboBox();
+            this.btnBuscarAcc = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtArchivoAcc = new System.Windows.Forms.TextBox();
+            this.btnCargarAcc = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.ddlEmpresasAcc = new System.Windows.Forms.ComboBox();
             this.tabTrabajadores.SuspendLayout();
             this.tabPuestos.SuspendLayout();
             this.tabAreas.SuspendLayout();
             this.tabHorarios.SuspendLayout();
             this.tabsCargaMasiva.SuspendLayout();
+            this.tabDescSocio.SuspendLayout();
+            this.tabAccInc.SuspendLayout();
             this.SuspendLayout();
             // 
             // ArchivoHorarios
@@ -122,6 +140,15 @@
             this.tabTrabajadores.TabIndex = 3;
             this.tabTrabajadores.Text = "Trabajadores";
             this.tabTrabajadores.UseVisualStyleBackColor = true;
+            // 
+            // txtLogsTrab
+            // 
+            this.txtLogsTrab.Location = new System.Drawing.Point(111, 225);
+            this.txtLogsTrab.Name = "txtLogsTrab";
+            this.txtLogsTrab.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogsTrab.Size = new System.Drawing.Size(491, 105);
+            this.txtLogsTrab.TabIndex = 30;
+            this.txtLogsTrab.Text = "";
             // 
             // label9
             // 
@@ -212,6 +239,15 @@
             this.tabPuestos.Text = "Puestos de Trabajo";
             this.tabPuestos.UseVisualStyleBackColor = true;
             // 
+            // txtLogPuestos
+            // 
+            this.txtLogPuestos.Location = new System.Drawing.Point(124, 227);
+            this.txtLogPuestos.Name = "txtLogPuestos";
+            this.txtLogPuestos.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogPuestos.Size = new System.Drawing.Size(491, 98);
+            this.txtLogPuestos.TabIndex = 22;
+            this.txtLogPuestos.Text = "";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -301,6 +337,15 @@
             this.tabAreas.TabIndex = 1;
             this.tabAreas.Text = "Areas";
             this.tabAreas.UseVisualStyleBackColor = true;
+            // 
+            // txtLogAreas
+            // 
+            this.txtLogAreas.Location = new System.Drawing.Point(114, 213);
+            this.txtLogAreas.Name = "txtLogAreas";
+            this.txtLogAreas.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogAreas.Size = new System.Drawing.Size(491, 110);
+            this.txtLogAreas.TabIndex = 14;
+            this.txtLogAreas.Text = "";
             // 
             // label5
             // 
@@ -458,42 +503,174 @@
             this.tabsCargaMasiva.Controls.Add(this.tabAreas);
             this.tabsCargaMasiva.Controls.Add(this.tabPuestos);
             this.tabsCargaMasiva.Controls.Add(this.tabTrabajadores);
+            this.tabsCargaMasiva.Controls.Add(this.tabAccInc);
+            this.tabsCargaMasiva.Controls.Add(this.tabDescSocio);
             this.tabsCargaMasiva.Location = new System.Drawing.Point(12, 58);
             this.tabsCargaMasiva.Name = "tabsCargaMasiva";
             this.tabsCargaMasiva.SelectedIndex = 0;
             this.tabsCargaMasiva.Size = new System.Drawing.Size(708, 372);
             this.tabsCargaMasiva.TabIndex = 1;
             // 
+            // tabDescSocio
+            // 
+            this.tabDescSocio.Controls.Add(this.txtLogsDesc);
+            this.tabDescSocio.Controls.Add(this.btnBuscarDesc);
+            this.tabDescSocio.Controls.Add(this.label13);
+            this.tabDescSocio.Controls.Add(this.txtArchivoDesc);
+            this.tabDescSocio.Controls.Add(this.btnCargarDesc);
+            this.tabDescSocio.Location = new System.Drawing.Point(4, 22);
+            this.tabDescSocio.Name = "tabDescSocio";
+            this.tabDescSocio.Size = new System.Drawing.Size(700, 346);
+            this.tabDescSocio.TabIndex = 4;
+            this.tabDescSocio.Text = "Descripcion Sociodemografica";
+            this.tabDescSocio.UseVisualStyleBackColor = true;
+            // 
+            // txtLogsDesc
+            // 
+            this.txtLogsDesc.Location = new System.Drawing.Point(97, 112);
+            this.txtLogsDesc.Name = "txtLogsDesc";
+            this.txtLogsDesc.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogsDesc.Size = new System.Drawing.Size(491, 186);
+            this.txtLogsDesc.TabIndex = 39;
+            this.txtLogsDesc.Text = "";
+            // 
+            // btnBuscarDesc
+            // 
+            this.btnBuscarDesc.Location = new System.Drawing.Point(482, 32);
+            this.btnBuscarDesc.Name = "btnBuscarDesc";
+            this.btnBuscarDesc.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarDesc.TabIndex = 36;
+            this.btnBuscarDesc.Text = "Buscar";
+            this.btnBuscarDesc.UseVisualStyleBackColor = true;
+            this.btnBuscarDesc.Click += new System.EventHandler(this.btnBuscarDesc_Click_1);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(112, 42);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(145, 13);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "Seleccione el Archivo (Excel)";
+            // 
+            // txtArchivoDesc
+            // 
+            this.txtArchivoDesc.Location = new System.Drawing.Point(263, 35);
+            this.txtArchivoDesc.Name = "txtArchivoDesc";
+            this.txtArchivoDesc.Size = new System.Drawing.Size(204, 20);
+            this.txtArchivoDesc.TabIndex = 34;
+            // 
+            // btnCargarDesc
+            // 
+            this.btnCargarDesc.Location = new System.Drawing.Point(263, 61);
+            this.btnCargarDesc.Name = "btnCargarDesc";
+            this.btnCargarDesc.Size = new System.Drawing.Size(204, 45);
+            this.btnCargarDesc.TabIndex = 33;
+            this.btnCargarDesc.Text = "Cargar Descripciòn Sociodemogràfica";
+            this.btnCargarDesc.UseVisualStyleBackColor = true;
+            this.btnCargarDesc.Click += new System.EventHandler(this.btnCargarDesc_Click_1);
+            // 
             // ArchivoDesc
             // 
             this.ArchivoDesc.FileName = "openFileDialog1";
             // 
-            // txtLogAreas
+            // tabAccInc
             // 
-            this.txtLogAreas.Location = new System.Drawing.Point(114, 213);
-            this.txtLogAreas.Name = "txtLogAreas";
-            this.txtLogAreas.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.txtLogAreas.Size = new System.Drawing.Size(491, 110);
-            this.txtLogAreas.TabIndex = 14;
-            this.txtLogAreas.Text = "";
+            this.tabAccInc.Controls.Add(this.txtLogsAcc);
+            this.tabAccInc.Controls.Add(this.label15);
+            this.tabAccInc.Controls.Add(this.ddlSucursalAcc);
+            this.tabAccInc.Controls.Add(this.btnBuscarAcc);
+            this.tabAccInc.Controls.Add(this.label16);
+            this.tabAccInc.Controls.Add(this.txtArchivoAcc);
+            this.tabAccInc.Controls.Add(this.btnCargarAcc);
+            this.tabAccInc.Controls.Add(this.label17);
+            this.tabAccInc.Controls.Add(this.ddlEmpresasAcc);
+            this.tabAccInc.Location = new System.Drawing.Point(4, 22);
+            this.tabAccInc.Name = "tabAccInc";
+            this.tabAccInc.Size = new System.Drawing.Size(700, 346);
+            this.tabAccInc.TabIndex = 5;
+            this.tabAccInc.Text = "Accidentes/Incidentes";
+            this.tabAccInc.UseVisualStyleBackColor = true;
             // 
-            // txtLogPuestos
+            // txtLogsAcc
             // 
-            this.txtLogPuestos.Location = new System.Drawing.Point(124, 227);
-            this.txtLogPuestos.Name = "txtLogPuestos";
-            this.txtLogPuestos.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.txtLogPuestos.Size = new System.Drawing.Size(491, 98);
-            this.txtLogPuestos.TabIndex = 22;
-            this.txtLogPuestos.Text = "";
+            this.txtLogsAcc.Location = new System.Drawing.Point(105, 215);
+            this.txtLogsAcc.Name = "txtLogsAcc";
+            this.txtLogsAcc.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogsAcc.Size = new System.Drawing.Size(491, 105);
+            this.txtLogsAcc.TabIndex = 48;
+            this.txtLogsAcc.Text = "";
             // 
-            // txtLogsTrab
+            // label15
             // 
-            this.txtLogsTrab.Location = new System.Drawing.Point(111, 225);
-            this.txtLogsTrab.Name = "txtLogsTrab";
-            this.txtLogsTrab.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.txtLogsTrab.Size = new System.Drawing.Size(491, 105);
-            this.txtLogsTrab.TabIndex = 30;
-            this.txtLogsTrab.Text = "";
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(150, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(115, 13);
+            this.label15.TabIndex = 47;
+            this.label15.Text = "Seleccione la Sucursal";
+            // 
+            // ddlSucursalAcc
+            // 
+            this.ddlSucursalAcc.FormattingEnabled = true;
+            this.ddlSucursalAcc.Location = new System.Drawing.Point(271, 82);
+            this.ddlSucursalAcc.Name = "ddlSucursalAcc";
+            this.ddlSucursalAcc.Size = new System.Drawing.Size(204, 21);
+            this.ddlSucursalAcc.TabIndex = 46;
+            // 
+            // btnBuscarAcc
+            // 
+            this.btnBuscarAcc.Location = new System.Drawing.Point(490, 135);
+            this.btnBuscarAcc.Name = "btnBuscarAcc";
+            this.btnBuscarAcc.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarAcc.TabIndex = 45;
+            this.btnBuscarAcc.Text = "Buscar";
+            this.btnBuscarAcc.UseVisualStyleBackColor = true;
+            this.btnBuscarAcc.Click += new System.EventHandler(this.btnBuscarAcc_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(120, 145);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(145, 13);
+            this.label16.TabIndex = 44;
+            this.label16.Text = "Seleccione el Archivo (Excel)";
+            // 
+            // txtArchivoAcc
+            // 
+            this.txtArchivoAcc.Location = new System.Drawing.Point(271, 138);
+            this.txtArchivoAcc.Name = "txtArchivoAcc";
+            this.txtArchivoAcc.Size = new System.Drawing.Size(204, 20);
+            this.txtArchivoAcc.TabIndex = 43;
+            // 
+            // btnCargarAcc
+            // 
+            this.btnCargarAcc.Location = new System.Drawing.Point(271, 164);
+            this.btnCargarAcc.Name = "btnCargarAcc";
+            this.btnCargarAcc.Size = new System.Drawing.Size(204, 45);
+            this.btnCargarAcc.TabIndex = 42;
+            this.btnCargarAcc.Text = "Cargar Accidentes/Incidentes";
+            this.btnCargarAcc.UseVisualStyleBackColor = true;
+            this.btnCargarAcc.Click += new System.EventHandler(this.btnCargarAcc_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(150, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(115, 13);
+            this.label17.TabIndex = 41;
+            this.label17.Text = "Seleccione la Empresa";
+            // 
+            // ddlEmpresasAcc
+            // 
+            this.ddlEmpresasAcc.FormattingEnabled = true;
+            this.ddlEmpresasAcc.Location = new System.Drawing.Point(271, 27);
+            this.ddlEmpresasAcc.Name = "ddlEmpresasAcc";
+            this.ddlEmpresasAcc.Size = new System.Drawing.Size(204, 21);
+            this.ddlEmpresasAcc.TabIndex = 40;
+            this.ddlEmpresasAcc.SelectedIndexChanged += new System.EventHandler(this.ddlEmpresasAcc_SelectedIndexChanged);
             // 
             // CargaMasiva
             // 
@@ -514,6 +691,10 @@
             this.tabHorarios.ResumeLayout(false);
             this.tabHorarios.PerformLayout();
             this.tabsCargaMasiva.ResumeLayout(false);
+            this.tabDescSocio.ResumeLayout(false);
+            this.tabDescSocio.PerformLayout();
+            this.tabAccInc.ResumeLayout(false);
+            this.tabAccInc.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -566,5 +747,21 @@
         private System.Windows.Forms.RichTextBox txtLogAreas;
         private System.Windows.Forms.RichTextBox txtLogPuestos;
         private System.Windows.Forms.RichTextBox txtLogsTrab;
+        private System.Windows.Forms.TabPage tabDescSocio;
+        private System.Windows.Forms.RichTextBox txtLogsDesc;
+        private System.Windows.Forms.Button btnBuscarDesc;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtArchivoDesc;
+        private System.Windows.Forms.Button btnCargarDesc;
+        private System.Windows.Forms.TabPage tabAccInc;
+        private System.Windows.Forms.RichTextBox txtLogsAcc;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox ddlSucursalAcc;
+        private System.Windows.Forms.Button btnBuscarAcc;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtArchivoAcc;
+        private System.Windows.Forms.Button btnCargarAcc;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox ddlEmpresasAcc;
     }
 }

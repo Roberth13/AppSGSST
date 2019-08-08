@@ -121,6 +121,28 @@ namespace GestorSGSST2017.Clases
                 return consulta.id_trabajador;
         }
 
+        ///<summary>devuelve el id del puesto de trabajo de un empleado </summary>
+        public static int PuestobyTrabajador(int _id_trabajador)
+        {
+            var consulta = new Tbl_Trabajador();
+            consulta = contexto.Tbl_Trabajador.Where(x => x.id_trabajador == _id_trabajador).SingleOrDefault();
+            if (consulta == null)
+                return 0;
+            else
+                return consulta.id_puesto_trabajo;
+        }
+
+        ///<summary>devuelve el id del puesto de trabajo de un empleado </summary>
+        public static int AreabyPuesto(int _id_puesto)
+        {
+            var consulta = new Tbl_Puesto_trabajo();
+            consulta = contexto.Tbl_Puesto_trabajo.Where(x => x.id_puesto_trabajo == _id_puesto).SingleOrDefault();
+            if (consulta == null)
+                return 0;
+            else
+                return consulta.id_area;
+        }
+
         ///<summary>devuelve el id del IPS por el nombre del beneficiario</summary>
         public static int IPS(string _beneficiario)
         {
