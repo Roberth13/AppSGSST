@@ -18,6 +18,8 @@ namespace GestorSGSST2017.Formularios
         private string EmpresaID;
         private string SucursalID;
         private bool esAdmin;
+        UsuarioSistema us;
+
         public Listados()
         {
             InitializeComponent();
@@ -36,6 +38,9 @@ namespace GestorSGSST2017.Formularios
             this.EmpresaID = EmpresaID;
             this.SucursalID = SucursalID;
             this.esAdmin = esAdmin;
+
+            InitializeComponent();
+            UbicacionCentral();
         }
 
         public void UbicacionCentral()
@@ -48,18 +53,40 @@ namespace GestorSGSST2017.Formularios
 
         public void cargarData() 
         {
-            Tabla.Horarios(dataHorarios);
-            Tabla.Areas(dataGridAreas);
-            Tabla.Trabajadores(dataGridTrabajadores);
-            Tabla.Puestos(dataGridPuestos);
-            Tabla.Riesgos(dataGridRiesgos);
-            Tabla.AccidentesIncidentes(dataGridAccidentes, 1);
-            Tabla.AccidentesIncidentes(dataGridIncidentes, 2);
-            Tabla.DescSocio(dataGridDescSocio);
+            if(esAdmin)
+            {
+                Tabla.Horarios(dataHorarios);
+                Tabla.Areas(dataGridAreas);
+                Tabla.Trabajadores(dataGridTrabajadores);
+                Tabla.Puestos(dataGridPuestos);
+                Tabla.DescSocio(dataGridDescSocio);
+            }
+            else
+            {
+                us = new UsuarioSistema(RolID);
+                if (us.isAdm_Empresa())
+                {
+                    Tabla.Horarios(dataHorarios, Convert.ToInt32(this.EmpresaID));
+                    Tabla.Areas(dataGridAreas, Convert.ToInt32(this.EmpresaID));
+                    Tabla.Trabajadores(dataGridTrabajadores, Convert.ToInt32(this.EmpresaID));
+                    Tabla.Puestos(dataGridPuestos, Convert.ToInt32(this.EmpresaID));
+                    Tabla.DescSocio(dataGridDescSocio, Convert.ToInt32(this.EmpresaID));
+                }
+                else if(us.isAdm_Sucursal())
+                {
+                    Tabla.Horarios(dataHorarios, Convert.ToInt32(this.EmpresaID));
+                    Tabla.Areas(dataGridAreas, Convert.ToInt32(this.EmpresaID), Convert.ToInt32(this.SucursalID));
+                    Tabla.Trabajadores(dataGridTrabajadores, Convert.ToInt32(this.EmpresaID), Convert.ToInt32(this.SucursalID));
+                    Tabla.Puestos(dataGridPuestos, Convert.ToInt32(this.EmpresaID), Convert.ToInt32(this.SucursalID));
+                    Tabla.DescSocio(dataGridDescSocio, Convert.ToInt32(this.EmpresaID), Convert.ToInt32(this.SucursalID));
+                }
+            }
+           
         }
 
         private void Listados_Load(object sender, EventArgs e)
         {
+            Console.Write("Cargando listados...");
             UbicacionCentral();
             cargarData();
         }

@@ -82,8 +82,6 @@ namespace GestorSGSST2017.Formularios
             Listas.Sucursal(ddlSucursalPuesto, 1);
             Listas.Empresa(ddlEmpresasTrab);
             Listas.Sucursal(ddlSucursalTrab, 1);
-            //Listas.Empresa(ddlEmpresasRiesgo);
-            //Listas.Sucursal(ddlSucursalRiesgo, 1);
             Listas.Empresa(ddlEmpresasAcc);
             Listas.Sucursal(ddlSucursalAcc, 1);
             us = new UsuarioSistema(RolID);
@@ -95,10 +93,16 @@ namespace GestorSGSST2017.Formularios
                     ddlEmpresaArea.SelectedValue = EmpresaID;
                     ddlEmpresaPuesto.SelectedValue = EmpresaID;
                     ddlEmpresasTrab.SelectedValue = EmpresaID;
+                    ddlEmpresasAcc.SelectedValue = EmpresaID;
+                    Listas.Sucursal(ddlSucursalArea, Convert.ToInt32(EmpresaID));
+                    Listas.Sucursal(ddlSucursalPuesto, Convert.ToInt32(EmpresaID));
+                    Listas.Sucursal(ddlSucursalTrab, Convert.ToInt32(EmpresaID));
+                    Listas.Sucursal(ddlSucursalAcc, Convert.ToInt32(EmpresaID));
                     ddlEmpresasHorario.Enabled = false;
                     ddlEmpresaArea.Enabled = false;
                     ddlEmpresaPuesto.Enabled = false;
                     ddlEmpresasTrab.Enabled = false;
+                    ddlEmpresasAcc.Enabled = false;
                 }
                 else if (us.isAdm_Sucursal())
                 {
@@ -106,16 +110,20 @@ namespace GestorSGSST2017.Formularios
                     ddlEmpresaArea.SelectedValue = EmpresaID;
                     ddlEmpresaPuesto.SelectedValue = EmpresaID;
                     ddlEmpresasTrab.SelectedValue = EmpresaID;
+                    ddlEmpresasAcc.SelectedValue = EmpresaID;
                     ddlSucursalArea.SelectedValue = SucursalID;
                     ddlSucursalPuesto.SelectedValue = SucursalID;
                     ddlSucursalTrab.SelectedValue = SucursalID;
+                    ddlSucursalAcc.SelectedValue = SucursalID;
                     ddlEmpresasHorario.Enabled = false;
                     ddlEmpresaArea.Enabled = false;
                     ddlEmpresaPuesto.Enabled = false;
                     ddlEmpresasTrab.Enabled = false;
+                    ddlEmpresasAcc.Enabled = false;
                     ddlSucursalArea.Enabled = false;
                     ddlSucursalPuesto.Enabled = false;
                     ddlSucursalTrab.Enabled = false;
+                    ddlSucursalAcc.Enabled = false;
                 }
             }
             
@@ -426,6 +434,7 @@ namespace GestorSGSST2017.Formularios
             int pos = 0;
             int rCnt = 0;
             int cCnt = 0;
+            int _nivel = 1;
             xlApp = new Microsoft.Office.Interop.Excel.Application();
             xlWorkBook = xlApp.Workbooks.Open(archivoNombre, 0, true, 5, "", "", true, XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
             xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -444,31 +453,31 @@ namespace GestorSGSST2017.Formularios
                         Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "INFO");
                         for (cCnt = 1; cCnt <= range.Columns.Count; cCnt++)
                         {
-                            if (pos == 0)
+                            if (pos == 0 || pos == 1)
+                            {
                                 str[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
-                            else if (pos == 1)
+                            }
+                            else if (pos == 2)
                             {
                                 str[pos] = (string)(range.Cells[rCnt, cCnt] as Range).Value2;
                                 if (str[pos] == "Ninguna")
                                 {
                                     str[pos] = "0";
+                                    _nivel = 1;
                                 }
                                 else
                                 {
                                     int id = Getter.Area_Nombre(str[pos], Convert.ToInt32(id_sucursal));
+                                    int nivel = Getter.Area_Nivel_Nombre(str[pos], Convert.ToInt32(id_sucursal));
+                                    _nivel = nivel + 1;
                                     str[pos] = id.ToString();
                                 }
-                            }
-                            else if (pos == 2)
-                            {
-                                int nivel = Convert.ToInt32(((range.Cells[rCnt, cCnt] as Range).Value2));
-                                str[pos] = "" + nivel;
                             }
                             pos++;
                         }
                         msj = DateTime.Now + ": Se agrego el registro Nro." + (rCnt - 1);
                         Utilidades1.agregarMensaje(escritor, msj, txtLogAreas, "EXITO");
-                        ModeloArea.Add_Area(str[0], Convert.ToInt32(id_sucursal), Convert.ToInt32(str[1]), Convert.ToInt32(str[2]), Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
+                        ModeloArea.Add_Area(str[0], Convert.ToInt32(id_sucursal), str[1], Convert.ToInt32(str[2]), _nivel, Convert.ToInt32(UsuarioID), "Carga Masiva/Aplicacion");
                         pos = 0;
                     }
                     xlWorkBook.Close(false, Missing.Value, Missing.Value);

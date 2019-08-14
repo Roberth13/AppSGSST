@@ -14,7 +14,7 @@ namespace GestorSGSST2017.Clases
 
         public Tabla() { }
 
-        public static void Horarios(DataGridView _gridView)
+        public static void Horarios(DataGridView _gridView, int id_empresa = 0)
         {
             var query = (
                 from H in contexto.Tbl_Horario
@@ -23,18 +23,25 @@ namespace GestorSGSST2017.Clases
                     Nombre = H.nombre,
                     Inicio = H.fecha_inicio,
                     Fin = H.fecha_fin,
-                    Empresa = H.Tbl_Empresa.nombre
+                    Empresa = H.Tbl_Empresa.nombre,
+                    Id_empresa = H.id_empresa
                 }).ToList();
+            if(id_empresa > 0)
+            {
+                query = query.Where(x => x.Id_empresa == id_empresa).ToList();
+            }
             _gridView.DataSource = query;
         }
 
-        public static void Areas(DataGridView _gridView)
+        public static void Areas(DataGridView _gridView, int id_empresa = 0, int id_sucursal = 0)
         {
             var query = (
                 from AR in contexto.Tbl_Area
                 select new 
                 {
                     ID = AR.id_area,
+                    Id_empresa = AR.Tbl_Sucursal.id_empresa,
+                    Id_sucursal = AR.id_sucursal,
                     Nombre = AR.nombre,
                     AreaPadre = AR.id_area_padre == 0 ? "Ninguno" : (from AR1 in contexto.Tbl_Area where AR1.id_area == AR.id_area_padre select AR1.nombre).FirstOrDefault(),
                     Nivel1 = AR.nivel == 1 ? "" + AR.nivel : "---",
@@ -47,10 +54,13 @@ namespace GestorSGSST2017.Clases
                     NumTrab = (from TB in contexto.Tbl_Trabajador where TB.Tbl_Puesto_trabajo.id_area == AR.id_area select TB.id_trabajador).Count()
                 }
             ).ToList();
+
+            if (id_empresa > 0){ query = query.Where(x => x.Id_empresa == id_empresa).ToList(); }
+            if (id_sucursal > 0){ query = query.Where(x => x.Id_sucursal == id_sucursal).ToList(); }
             _gridView.DataSource = query;
         }
 
-        public static void Trabajadores(DataGridView _gridView)
+        public static void Trabajadores(DataGridView _gridView, int id_empresa = 0, int id_sucursal = 0)
         {
             var query = (
                 from CT in contexto.Tbl_Trabajador
@@ -65,12 +75,17 @@ namespace GestorSGSST2017.Clases
                     Area = CT.Tbl_Puesto_trabajo.Tbl_Area.nombre,
                     Estatus = CT.id_estatus_actual == 0 ? "Sin estatus" : "" + ES.nombre,
                     Empresa = CT.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.Tbl_Empresa.nombre,                    
-                    Sucursal = CT.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.nombre
+                    Sucursal = CT.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.nombre,
+                    Id_empresa = CT.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.id_empresa,
+                    Id_sucursal = CT.Tbl_Puesto_trabajo.Tbl_Area.id_sucursal,
                 }).ToList();
+
+            if (id_empresa > 0) { query = query.Where(x => x.Id_empresa == id_empresa).ToList(); }
+            if (id_sucursal > 0) { query = query.Where(x => x.Id_sucursal == id_sucursal).ToList(); }
             _gridView.DataSource = query;
         }
 
-        public static void Puestos(DataGridView _gridView)
+        public static void Puestos(DataGridView _gridView, int id_empresa = 0, int id_sucursal = 0)
         {
             var query = (
                 from CT in contexto.Tbl_Puesto_trabajo
@@ -82,8 +97,13 @@ namespace GestorSGSST2017.Clases
                     Empresa = CT.Tbl_Area.Tbl_Sucursal.Tbl_Empresa.nombre,
                     Area = CT.Tbl_Area.nombre,
                     NumTrabajadores = (from TB in contexto.Tbl_Trabajador where TB.id_puesto_trabajo == CT.id_puesto_trabajo select TB.id_trabajador).Count(),
-                    Sucursal = CT.Tbl_Area.Tbl_Sucursal.nombre
+                    Sucursal = CT.Tbl_Area.Tbl_Sucursal.nombre,
+                    Id_empresa = CT.Tbl_Area.Tbl_Sucursal.id_empresa,
+                    Id_sucursal = CT.Tbl_Area.id_sucursal,
                 }).ToList();
+
+            if (id_empresa > 0) { query = query.Where(x => x.Id_empresa == id_empresa).ToList(); }
+            if (id_sucursal > 0) { query = query.Where(x => x.Id_sucursal == id_sucursal).ToList(); }
             _gridView.DataSource = query;
         }
 
@@ -127,7 +147,7 @@ namespace GestorSGSST2017.Clases
             _gridView.DataSource = query;*/
         }
 
-        public static void DescSocio(DataGridView _gridView)
+        public static void DescSocio(DataGridView _gridView, int id_empresa = 0, int id_sucursal = 0)
         {
             var query = (
                 from DS in contexto.Tbl_Desc_socio
@@ -136,8 +156,13 @@ namespace GestorSGSST2017.Clases
                     Cedula = DS.Tbl_Trabajador.cedula,
                     Trabajador = DS.Tbl_Trabajador.primer_nombre + " " + DS.Tbl_Trabajador.primer_apellido,
                     ID_DescSocio = DS.id_desc_socio,
-                    Empresa = DS.Tbl_Trabajador.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.Tbl_Empresa.nombre                    
+                    Empresa = DS.Tbl_Trabajador.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.Tbl_Empresa.nombre,
+                    Id_empresa = DS.Tbl_Trabajador.Tbl_Puesto_trabajo.Tbl_Area.Tbl_Sucursal.id_empresa,
+                    Id_sucursal = DS.Tbl_Trabajador.Tbl_Puesto_trabajo.Tbl_Area.id_sucursal,
                 }).ToList();
+
+            if (id_empresa > 0) { query = query.Where(x => x.Id_empresa == id_empresa).ToList(); }
+            if (id_sucursal > 0) { query = query.Where(x => x.Id_sucursal == id_sucursal).ToList(); }
             _gridView.DataSource = query;
         }
 

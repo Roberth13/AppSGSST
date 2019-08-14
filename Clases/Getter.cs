@@ -33,6 +33,18 @@ namespace GestorSGSST2017.Clases
                 return consulta.id_area;
         }
 
+
+        ///<summary>devuelve el id del area por su nombre y sucursal</summary>
+        public static int Area_Nivel_Nombre(string nombre, int id_sucursal)
+        {
+            var consulta = new Tbl_Area();
+            consulta = contexto.Tbl_Area.Where(x => x.nombre.ToUpper() == nombre.ToUpper() && x.id_sucursal == id_sucursal).SingleOrDefault();
+            if (consulta == null)
+                return 0;
+            else
+                return Convert.ToInt32(consulta.nivel);
+        }
+
         ///<summary>devuelve el id del ccf por su nombre</summary>
         public static int Ccf_Nombre(string nombre)
         {

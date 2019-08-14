@@ -69,7 +69,6 @@
             this.listadosOpcion.Name = "listadosOpcion";
             this.listadosOpcion.Size = new System.Drawing.Size(152, 22);
             this.listadosOpcion.Text = "Listados";
-            this.listadosOpcion.Visible = false;
             this.listadosOpcion.Click += new System.EventHandler(this.listadosOpcion_Click);
             // 
             // opcionOpciones
