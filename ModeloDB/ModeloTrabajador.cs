@@ -37,9 +37,8 @@ namespace GestorSGSST2017.ModeloDB
         ///<param name="_id_estatus_actual">id estatus actual del trabajador</param>
         public static bool Add_Trabajador(string _cedula, string _primer_nombre, string _segundo_nombre, string _primer_apellido,
             string _segundo_apellido, string _email, DateTime _fecha_nacimiento, string _edo_civil, string _sexo, string _foto,
-            string _telefono_casa, string _telefono_movil, int _activo, int _id_ccf, string _direccion, int _id_municipio,
-            int _id_puesto_trabajo, string _es_discapacitado, string _desc_discapacidad, int _id_horario, int _id_estatus_actual
-           , int _usu_bit, string _pagina)
+            string _telefono_casa, string _telefono_movil, int _activo, int _id_ccf, int _id_municipio,
+            int _id_puesto_trabajo, int _id_horario, int _usu_bit, string _pagina)
         {
             bool bError = true;
 
@@ -60,13 +59,10 @@ namespace GestorSGSST2017.ModeloDB
                 telefono_movil = _telefono_movil,
                 activo = _activo,
                 id_ccf = _id_ccf,
-                direccion = _direccion,
+                direccion = "",
                 id_municipio = _id_municipio,
                 id_puesto_trabajo = _id_puesto_trabajo,
-                es_discapacitado = _es_discapacitado,
-                desc_discapacidad = _desc_discapacidad,
                 id_horario = _id_horario,
-                id_estatus_actual = _id_estatus_actual
                 #endregion
             };
 

@@ -79,24 +79,24 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtArchivoDesc = new System.Windows.Forms.TextBox();
             this.btnCargarDesc = new System.Windows.Forms.Button();
-            this.ArchivoDesc = new System.Windows.Forms.OpenFileDialog();
-            this.tabAccInc = new System.Windows.Forms.TabPage();
-            this.txtLogsAcc = new System.Windows.Forms.RichTextBox();
+            this.tabRiesgos = new System.Windows.Forms.TabPage();
+            this.txtLogRiesgos = new System.Windows.Forms.RichTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ddlSucursalRiesgos = new System.Windows.Forms.ComboBox();
+            this.btnBuscarRiesgos = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtArchivoRiesgos = new System.Windows.Forms.TextBox();
+            this.btnCargarRiesgos = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.ddlSucursalAcc = new System.Windows.Forms.ComboBox();
-            this.btnBuscarAcc = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtArchivoAcc = new System.Windows.Forms.TextBox();
-            this.btnCargarAcc = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.ddlEmpresasAcc = new System.Windows.Forms.ComboBox();
+            this.ddlEmpresasRiesgos = new System.Windows.Forms.ComboBox();
+            this.ArchivoDesc = new System.Windows.Forms.OpenFileDialog();
             this.tabTrabajadores.SuspendLayout();
             this.tabPuestos.SuspendLayout();
             this.tabAreas.SuspendLayout();
             this.tabHorarios.SuspendLayout();
             this.tabsCargaMasiva.SuspendLayout();
             this.tabDescSocio.SuspendLayout();
-            this.tabAccInc.SuspendLayout();
+            this.tabRiesgos.SuspendLayout();
             this.SuspendLayout();
             // 
             // ArchivoHorarios
@@ -503,8 +503,8 @@
             this.tabsCargaMasiva.Controls.Add(this.tabAreas);
             this.tabsCargaMasiva.Controls.Add(this.tabPuestos);
             this.tabsCargaMasiva.Controls.Add(this.tabTrabajadores);
-            this.tabsCargaMasiva.Controls.Add(this.tabAccInc);
             this.tabsCargaMasiva.Controls.Add(this.tabDescSocio);
+            this.tabsCargaMasiva.Controls.Add(this.tabRiesgos);
             this.tabsCargaMasiva.Location = new System.Drawing.Point(12, 58);
             this.tabsCargaMasiva.Name = "tabsCargaMasiva";
             this.tabsCargaMasiva.SelectedIndex = 0;
@@ -570,107 +570,108 @@
             this.btnCargarDesc.UseVisualStyleBackColor = true;
             this.btnCargarDesc.Click += new System.EventHandler(this.btnCargarDesc_Click_1);
             // 
-            // ArchivoDesc
+            // tabRiesgos
             // 
-            this.ArchivoDesc.FileName = "openFileDialog1";
+            this.tabRiesgos.Controls.Add(this.txtLogRiesgos);
+            this.tabRiesgos.Controls.Add(this.label12);
+            this.tabRiesgos.Controls.Add(this.ddlSucursalRiesgos);
+            this.tabRiesgos.Controls.Add(this.btnBuscarRiesgos);
+            this.tabRiesgos.Controls.Add(this.label14);
+            this.tabRiesgos.Controls.Add(this.txtArchivoRiesgos);
+            this.tabRiesgos.Controls.Add(this.btnCargarRiesgos);
+            this.tabRiesgos.Controls.Add(this.label15);
+            this.tabRiesgos.Controls.Add(this.ddlEmpresasRiesgos);
+            this.tabRiesgos.Location = new System.Drawing.Point(4, 22);
+            this.tabRiesgos.Name = "tabRiesgos";
+            this.tabRiesgos.Size = new System.Drawing.Size(700, 346);
+            this.tabRiesgos.TabIndex = 5;
+            this.tabRiesgos.Text = "Riesgos";
+            this.tabRiesgos.UseVisualStyleBackColor = true;
             // 
-            // tabAccInc
+            // txtLogRiesgos
             // 
-            this.tabAccInc.Controls.Add(this.txtLogsAcc);
-            this.tabAccInc.Controls.Add(this.label15);
-            this.tabAccInc.Controls.Add(this.ddlSucursalAcc);
-            this.tabAccInc.Controls.Add(this.btnBuscarAcc);
-            this.tabAccInc.Controls.Add(this.label16);
-            this.tabAccInc.Controls.Add(this.txtArchivoAcc);
-            this.tabAccInc.Controls.Add(this.btnCargarAcc);
-            this.tabAccInc.Controls.Add(this.label17);
-            this.tabAccInc.Controls.Add(this.ddlEmpresasAcc);
-            this.tabAccInc.Location = new System.Drawing.Point(4, 22);
-            this.tabAccInc.Name = "tabAccInc";
-            this.tabAccInc.Size = new System.Drawing.Size(700, 346);
-            this.tabAccInc.TabIndex = 5;
-            this.tabAccInc.Text = "Accidentes/Incidentes";
-            this.tabAccInc.UseVisualStyleBackColor = true;
+            this.txtLogRiesgos.Location = new System.Drawing.Point(105, 215);
+            this.txtLogRiesgos.Name = "txtLogRiesgos";
+            this.txtLogRiesgos.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.txtLogRiesgos.Size = new System.Drawing.Size(491, 105);
+            this.txtLogRiesgos.TabIndex = 39;
+            this.txtLogRiesgos.Text = "";
             // 
-            // txtLogsAcc
+            // label12
             // 
-            this.txtLogsAcc.Location = new System.Drawing.Point(105, 215);
-            this.txtLogsAcc.Name = "txtLogsAcc";
-            this.txtLogsAcc.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.txtLogsAcc.Size = new System.Drawing.Size(491, 105);
-            this.txtLogsAcc.TabIndex = 48;
-            this.txtLogsAcc.Text = "";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(150, 85);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(115, 13);
+            this.label12.TabIndex = 38;
+            this.label12.Text = "Seleccione la Sucursal";
+            // 
+            // ddlSucursalRiesgos
+            // 
+            this.ddlSucursalRiesgos.FormattingEnabled = true;
+            this.ddlSucursalRiesgos.Location = new System.Drawing.Point(271, 82);
+            this.ddlSucursalRiesgos.Name = "ddlSucursalRiesgos";
+            this.ddlSucursalRiesgos.Size = new System.Drawing.Size(204, 21);
+            this.ddlSucursalRiesgos.TabIndex = 37;
+            this.ddlSucursalRiesgos.SelectedIndexChanged += new System.EventHandler(this.ddlSucursalRiesgos_SelectedIndexChanged);
+            // 
+            // btnBuscarRiesgos
+            // 
+            this.btnBuscarRiesgos.Location = new System.Drawing.Point(481, 136);
+            this.btnBuscarRiesgos.Name = "btnBuscarRiesgos";
+            this.btnBuscarRiesgos.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscarRiesgos.TabIndex = 36;
+            this.btnBuscarRiesgos.Text = "Buscar";
+            this.btnBuscarRiesgos.UseVisualStyleBackColor = true;
+            this.btnBuscarRiesgos.Click += new System.EventHandler(this.btnBuscarRiesgo_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(120, 140);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(145, 13);
+            this.label14.TabIndex = 35;
+            this.label14.Text = "Seleccione el Archivo (Excel)";
+            // 
+            // txtArchivoRiesgos
+            // 
+            this.txtArchivoRiesgos.Location = new System.Drawing.Point(271, 138);
+            this.txtArchivoRiesgos.Name = "txtArchivoRiesgos";
+            this.txtArchivoRiesgos.Size = new System.Drawing.Size(204, 20);
+            this.txtArchivoRiesgos.TabIndex = 34;
+            // 
+            // btnCargarRiesgos
+            // 
+            this.btnCargarRiesgos.Location = new System.Drawing.Point(294, 164);
+            this.btnCargarRiesgos.Name = "btnCargarRiesgos";
+            this.btnCargarRiesgos.Size = new System.Drawing.Size(133, 45);
+            this.btnCargarRiesgos.TabIndex = 33;
+            this.btnCargarRiesgos.Text = "Cargar Riesgos";
+            this.btnCargarRiesgos.UseVisualStyleBackColor = true;
+            this.btnCargarRiesgos.Click += new System.EventHandler(this.btnCargarRiesgo_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(150, 85);
+            this.label15.Location = new System.Drawing.Point(150, 30);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(115, 13);
-            this.label15.TabIndex = 47;
-            this.label15.Text = "Seleccione la Sucursal";
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Seleccione la Empresa";
             // 
-            // ddlSucursalAcc
+            // ddlEmpresasRiesgos
             // 
-            this.ddlSucursalAcc.FormattingEnabled = true;
-            this.ddlSucursalAcc.Location = new System.Drawing.Point(271, 82);
-            this.ddlSucursalAcc.Name = "ddlSucursalAcc";
-            this.ddlSucursalAcc.Size = new System.Drawing.Size(204, 21);
-            this.ddlSucursalAcc.TabIndex = 46;
+            this.ddlEmpresasRiesgos.FormattingEnabled = true;
+            this.ddlEmpresasRiesgos.Location = new System.Drawing.Point(271, 27);
+            this.ddlEmpresasRiesgos.Name = "ddlEmpresasRiesgos";
+            this.ddlEmpresasRiesgos.Size = new System.Drawing.Size(204, 21);
+            this.ddlEmpresasRiesgos.TabIndex = 31;
+            this.ddlEmpresasRiesgos.SelectedIndexChanged += new System.EventHandler(this.ddlEmpresasRiesgo_SelectedIndexChanged);
             // 
-            // btnBuscarAcc
+            // ArchivoDesc
             // 
-            this.btnBuscarAcc.Location = new System.Drawing.Point(490, 135);
-            this.btnBuscarAcc.Name = "btnBuscarAcc";
-            this.btnBuscarAcc.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscarAcc.TabIndex = 45;
-            this.btnBuscarAcc.Text = "Buscar";
-            this.btnBuscarAcc.UseVisualStyleBackColor = true;
-            this.btnBuscarAcc.Click += new System.EventHandler(this.btnBuscarAcc_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(120, 145);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(145, 13);
-            this.label16.TabIndex = 44;
-            this.label16.Text = "Seleccione el Archivo (Excel)";
-            // 
-            // txtArchivoAcc
-            // 
-            this.txtArchivoAcc.Location = new System.Drawing.Point(271, 138);
-            this.txtArchivoAcc.Name = "txtArchivoAcc";
-            this.txtArchivoAcc.Size = new System.Drawing.Size(204, 20);
-            this.txtArchivoAcc.TabIndex = 43;
-            // 
-            // btnCargarAcc
-            // 
-            this.btnCargarAcc.Location = new System.Drawing.Point(271, 164);
-            this.btnCargarAcc.Name = "btnCargarAcc";
-            this.btnCargarAcc.Size = new System.Drawing.Size(204, 45);
-            this.btnCargarAcc.TabIndex = 42;
-            this.btnCargarAcc.Text = "Cargar Accidentes/Incidentes";
-            this.btnCargarAcc.UseVisualStyleBackColor = true;
-            this.btnCargarAcc.Click += new System.EventHandler(this.btnCargarAcc_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(150, 30);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(115, 13);
-            this.label17.TabIndex = 41;
-            this.label17.Text = "Seleccione la Empresa";
-            // 
-            // ddlEmpresasAcc
-            // 
-            this.ddlEmpresasAcc.FormattingEnabled = true;
-            this.ddlEmpresasAcc.Location = new System.Drawing.Point(271, 27);
-            this.ddlEmpresasAcc.Name = "ddlEmpresasAcc";
-            this.ddlEmpresasAcc.Size = new System.Drawing.Size(204, 21);
-            this.ddlEmpresasAcc.TabIndex = 40;
-            this.ddlEmpresasAcc.SelectedIndexChanged += new System.EventHandler(this.ddlEmpresasAcc_SelectedIndexChanged);
+            this.ArchivoDesc.FileName = "openFileDialog1";
             // 
             // CargaMasiva
             // 
@@ -693,8 +694,8 @@
             this.tabsCargaMasiva.ResumeLayout(false);
             this.tabDescSocio.ResumeLayout(false);
             this.tabDescSocio.PerformLayout();
-            this.tabAccInc.ResumeLayout(false);
-            this.tabAccInc.PerformLayout();
+            this.tabRiesgos.ResumeLayout(false);
+            this.tabRiesgos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -753,15 +754,15 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtArchivoDesc;
         private System.Windows.Forms.Button btnCargarDesc;
-        private System.Windows.Forms.TabPage tabAccInc;
-        private System.Windows.Forms.RichTextBox txtLogsAcc;
+        private System.Windows.Forms.TabPage tabRiesgos;
+        private System.Windows.Forms.RichTextBox txtLogRiesgos;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox ddlSucursalRiesgos;
+        private System.Windows.Forms.Button btnBuscarRiesgos;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtArchivoRiesgos;
+        private System.Windows.Forms.Button btnCargarRiesgos;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox ddlSucursalAcc;
-        private System.Windows.Forms.Button btnBuscarAcc;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtArchivoAcc;
-        private System.Windows.Forms.Button btnCargarAcc;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.ComboBox ddlEmpresasAcc;
+        private System.Windows.Forms.ComboBox ddlEmpresasRiesgos;
     }
 }

@@ -1,9 +1,0 @@
-14/08/2019 0:33:02: Iniciando carga masiva de Areas.
-14/08/2019 0:33:18: La Cantidad de Columnas Coincide.
-14/08/2019 0:33:18: Existen registros para agregar.
-14/08/2019 0:33:18: Agregando el registro Nro.1
-14/08/2019 0:33:19: Se agrego el registro Nro.1
-14/08/2019 0:33:21: Agregando el registro Nro.2
-14/08/2019 0:33:21: Se agrego el registro Nro.2
-14/08/2019 0:33:21: Agregando el registro Nro.3
-14/08/2019 0:33:21: Se agrego el registro Nro.3

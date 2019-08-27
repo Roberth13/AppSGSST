@@ -36,6 +36,8 @@ namespace GestorSGSST2017.Clases
                 txtArea.SelectionColor = Color.Red;
             else if (tipoMsj == "EXITO")
                 txtArea.SelectionColor = Color.Green;
+            else if (tipoMsj == "WARN")
+                txtArea.SelectionColor = Color.Yellow;
             escritor.WriteLine(msj);
         }
 

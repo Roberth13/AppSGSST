@@ -287,5 +287,41 @@ namespace GestorSGSST2017.Clases
             else
                 return true;
         }
+
+        ///<summary>devuelve el id del tipo de peligro</summary>
+        public static int Tipo_Riesgo(string nombre)
+        {
+            var consulta = new Tbl_Tipo_riesgo();
+            consulta = contexto.Tbl_Tipo_riesgo.Where(x => x.nombre.ToUpper() == nombre.ToUpper()).SingleOrDefault();
+            if (consulta == null)
+                return 0;
+            else
+                return consulta.id_tipo_riesgo;
+        }
+
+        ///<summary>devuelve el id del tipo de factor de riesgo</summary>
+        public static int Factor_Riesgo(string nombre, int id_tipo_riesgo)
+        {
+            var consulta = new Tbl_Factor_riesgo();
+            consulta = contexto.Tbl_Factor_riesgo.Where(x => x.nombre.ToUpper() == nombre.ToUpper() && x.id_tipo_riesgo == id_tipo_riesgo).SingleOrDefault();
+            if (consulta == null)
+                return 0;
+            else
+                return consulta.id_factor_riesgo;
+        }
+
+        public static int Max_IdentificacionPeligro()
+        {
+            var consulta = new Tbl_Desc_socio();
+            int id = contexto.Tbl_Identificacion_peligro.Max(x => x.id_identificacion_peligro);
+            return id;
+        }
+
+        public static int Max_Factor_Riesgo()
+        {
+            var consulta = new Tbl_Factor_riesgo();
+            int id = contexto.Tbl_Factor_riesgo.Max(x => x.id_factor_riesgo);
+            return id;
+        }
     }
 }
